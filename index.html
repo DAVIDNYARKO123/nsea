@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NSEA 2026 - National Symposium on Equitable AI</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="registration-data.js"></script>
 </head>
 <body>
   <header>
@@ -79,69 +80,12 @@
     <section class="section" id="registration">
       <div class="container">
         <h2>Registration Categories</h2>
-        <div class="registration-categories">
-          <div class="category-card">
-            <h3>Student Registration</h3>
-            <div class="price">
-              <span class="currency">$</span>299
-            </div>
-            <ul class="features">
-              <li>Access to all sessions</li>
-              <li>Conference materials</li>
-              <li>Networking events</li>
-              <li>Digital certificate</li>
-              <li>Student poster session</li>
-            </ul>
-            <a href="#" class="register-btn">Register</a>
-          </div>
+        <div class="registration-categories" id="registration-cards">
+          <!-- Content will be loaded from registration-data.js -->
+        </div>
 
-          <div class="category-card">
-            <h3>Academic Registration</h3>
-            <div class="price">
-              <span class="currency">$</span>499
-            </div>
-            <ul class="features">
-              <li>Access to all sessions</li>
-              <li>Conference materials</li>
-              <li>Networking events</li>
-              <li>Digital certificate</li>
-              <li>Paper publication opportunity</li>
-              <li>Workshop access</li>
-            </ul>
-            <a href="#" class="register-btn">Register</a>
-          </div>
-
-          <div class="category-card">
-            <h3>Industry Registration</h3>
-            <div class="price">
-              <span class="currency">$</span>699
-            </div>
-            <ul class="features">
-              <li>Access to all sessions</li>
-              <li>Conference materials</li>
-              <li>VIP networking events</li>
-              <li>Digital certificate</li>
-              <li>Exhibition space</li>
-              <li>Workshop access</li>
-              <li>Priority seating</li>
-            </ul>
-            <a href="#" class="register-btn">Register</a>
-          </div>
-
-          <div class="category-card">
-            <h3>Virtual Attendance</h3>
-            <div class="price">
-              <span class="currency">$</span>199
-            </div>
-            <ul class="features">
-              <li>Live streaming access</li>
-              <li>Digital materials</li>
-              <li>Virtual networking</li>
-              <li>Recording access (30 days)</li>
-              <li>Digital certificate</li>
-            </ul>
-            <a href="#" class="register-btn">Register</a>
-          </div>
+        <div id="special-categories">
+          <!-- Content will be loaded from registration-data.js -->
         </div>
       </div>
     </section>
@@ -241,6 +185,12 @@
           behavior: 'smooth'
         });
       });
+    });
+
+    // Load registration data when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('registration-cards').innerHTML = generateRegistrationCards();
+      document.getElementById('special-categories').innerHTML = generateSpecialCategories();
     });
   </script>
 </body>
