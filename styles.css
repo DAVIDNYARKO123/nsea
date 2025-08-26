@@ -119,6 +119,9 @@ nav {
     color: white;
     padding: 100px 0;
     text-align: center;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
 }
 
 .hero h1 {
