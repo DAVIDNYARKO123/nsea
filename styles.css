@@ -352,11 +352,11 @@ nav {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #00315c 0%, #001a2e 100%);
+    background: linear-gradient(135deg, #004684 0%, #00315c 100%);
     color: white;
     padding: 60px 0 30px;
     text-align: center;
-    box-shadow: 0 -8px 25px rgba(0, 49, 92, 0.3);
+    box-shadow: 0 -8px 25px rgba(0, 49, 92, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -400,13 +400,14 @@ footer::after {
 }
 
 .footer-section {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 127, 0, 0.05) 100%);
+    background: rgba(255, 255, 255, 0.1);
     padding: 35px 30px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 127, 0, 0.2);
+    border: 1px solid rgba(255, 127, 0, 0.3);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer-section::before {
@@ -427,9 +428,9 @@ footer::after {
 
 .footer-section:hover {
     transform: translateY(-8px);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 127, 0, 0.08) 100%);
-    border-color: rgba(255, 127, 0, 0.4);
-    box-shadow: 0 15px 35px rgba(0, 49, 92, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #FF7F00;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .footer-section h3 {
@@ -458,6 +459,7 @@ footer::after {
     margin: 12px 0;
     line-height: 1.6;
     font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-section a {
