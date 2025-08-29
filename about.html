@@ -62,13 +62,15 @@
   </header>
 
   <main>
-    <section class="hero" style="padding: 80px 0;">
-      <div class="container">
+    <section class="hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 49, 92, 0.7);"></div>
+      <div class="container" style="position: relative; z-index: 2;">
         <h1>About NSEA 2026</h1>
         <div class="subtitle">National Symposium on Equitable AI</div>
-        <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
-          Advancing equity and inclusion in artificial intelligence research and development
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; margin-bottom: 30px;">
+          Advancing equity and inclusion in artificial intelligence research and development through community engagement, innovative research, and policy leadership.
         </p>
+        <a href="#ceamls" class="cta-button">Learn More</a>
       </div>
     </section>
 
@@ -116,9 +118,9 @@
       <div class="container">
         <h2>CEAMLS Impact Areas</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-          <div class="category-card">
-            <h3>🏙️ Local Community Impact</h3>
-            <ul style="text-align: left; padding-left: 20px;">
+          <div class="category-card" style="border-top: 4px solid #FF7F00;">
+            <h3 style="color: #00315c; margin-bottom: 20px;">Local Community Impact</h3>
+            <ul class="features" style="text-align: left;">
               <li>AI awareness promotion in Baltimore community</li>
               <li>K-12 AI curriculum development for public schools</li>
               <li>Summer AI Research Institute programs</li>
@@ -128,9 +130,9 @@
             </ul>
           </div>
 
-          <div class="category-card">
-            <h3>State-Level Contributions</h3>
-            <ul style="text-align: left; padding-left: 20px;">
+          <div class="category-card" style="border-top: 4px solid #004684;">
+            <h3 style="color: #00315c; margin-bottom: 20px;">State-Level Contributions</h3>
+            <ul class="features" style="text-align: left;">
               <li>Maryland as leader in equitable AI research</li>
               <li>Skilled workforce cultivation</li>
               <li>State agency collaboration for fair AI systems</li>
@@ -140,9 +142,9 @@
             </ul>
           </div>
 
-          <div class="category-card">
-            <h3>Academic Excellence</h3>
-            <ul style="text-align: left; padding-left: 20px;">
+          <div class="category-card" style="border-top: 4px solid #00315c;">
+            <h3 style="color: #00315c; margin-bottom: 20px;">Academic Excellence</h3>
+            <ul class="features" style="text-align: left;">
               <li>Interdisciplinary AI and ML research</li>
               <li>New standards for explainable technology</li>
               <li>Next generation AI researcher training</li>
@@ -152,9 +154,9 @@
             </ul>
           </div>
 
-          <div class="category-card">
-            <h3>📜 Policy Influence</h3>
-            <ul style="text-align: left; padding-left: 20px;">
+          <div class="category-card" style="border-top: 4px solid #FF7F00;">
+            <h3 style="color: #00315c; margin-bottom: 20px;">Policy Influence</h3>
+            <ul class="features" style="text-align: left;">
               <li>Evidence-based AI regulation recommendations</li>
               <li>Responsible AI development best practices</li>
               <li>Trustworthy AI deployment guidance</li>
@@ -204,26 +206,26 @@
         <h2>Why Attend NSEA 2026?</h2>
         <div style="max-width: 1000px; margin: 0 auto;">
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-            <div style="text-align: center;">
-              <div style="background: linear-gradient(135deg, #00315c, #004684); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
-                🤝
+            <div class="category-card" style="text-align: center;">
+              <div style="background: linear-gradient(135deg, #FF7F00, #004684); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem; font-weight: bold;">
+                N
               </div>
               <h3 style="color: #00315c; margin-bottom: 15px;">Network with Leaders</h3>
-              <p>Connect with top researchers, industry practitioners, and policymakers in equitable AI</p>
+              <p style="line-height: 1.6;">Connect with top researchers, industry practitioners, and policymakers in equitable AI from leading institutions and organizations worldwide.</p>
             </div>
-            <div style="text-align: center;">
-              <div style="background: linear-gradient(135deg, #00315c, #004684); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
-                📚
+            <div class="category-card" style="text-align: center;">
+              <div style="background: linear-gradient(135deg, #00315c, #FF7F00); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem; font-weight: bold;">
+                L
               </div>
               <h3 style="color: #00315c; margin-bottom: 15px;">Learn Cutting-Edge Research</h3>
-              <p>Discover the latest advances in algorithmic fairness, bias detection, and inclusive AI design</p>
+              <p style="line-height: 1.6;">Discover the latest advances in algorithmic fairness, bias detection, and inclusive AI design through presentations and workshops.</p>
             </div>
-            <div style="text-align: center;">
-              <div style="background: linear-gradient(135deg, #00315c, #004684); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
-                🚀
+            <div class="category-card" style="text-align: center;">
+              <div style="background: linear-gradient(135deg, #004684, #00315c); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem; font-weight: bold;">
+                S
               </div>
               <h3 style="color: #00315c; margin-bottom: 15px;">Shape the Future</h3>
-              <p>Contribute to policy discussions and practical solutions for more equitable AI systems</p>
+              <p style="line-height: 1.6;">Contribute to policy discussions and practical solutions for more equitable AI systems that serve diverse communities.</p>
             </div>
           </div>
         </div>
