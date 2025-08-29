@@ -75,11 +75,29 @@
 
     <section class="section" id="contact-info">
       <div class="container">
-        <div style="max-width: 1100px; margin: 0 auto;">
-          <div style="max-width: 800px; margin: 0 auto;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+          <div style="max-width: 1100px; margin: 0 auto;">
             <h2 style="color: #00315c; margin-bottom: 40px; text-align: center;">Contact Information</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
+            <style>
+              .contact-info-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                margin-bottom: 50px;
+              }
+              @media (max-width: 1024px) {
+                .contact-info-grid { 
+                  grid-template-columns: repeat(2, 1fr); 
+                }
+              }
+              @media (max-width: 768px) {
+                .contact-info-grid { 
+                  grid-template-columns: 1fr; 
+                }
+              }
+            </style>
+            <div class="contact-info-grid">
               <div style="background: white; padding: 30px; border-radius: 10px; border-left: 5px solid #00315c; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
                 <h3 style="color: #00315c; margin-bottom: 20px;">General Inquiries</h3>
                 <p style="margin-bottom: 15px;"><strong>Email:</strong> <a href="mailto:ashlee.kirkland@morgan.edu" style="color: #00315c;">ashlee.kirkland@morgan.edu</a></p>
