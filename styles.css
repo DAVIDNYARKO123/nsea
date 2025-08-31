@@ -2334,7 +2334,7 @@ footer::after {
 
 .timeline-item.conference .timeline-content {
     border-left-color: #FF7F00;
-    background: linear-gradient(135deg, rgba(255, 127, 0, 0.05), white);
+    background: white;
 }
 
 .timeline-content h4 {
