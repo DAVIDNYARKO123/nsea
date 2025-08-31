@@ -548,7 +548,7 @@
               Don't miss any sessions! Download the complete program schedule
             </p>
             <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-              <a href="#" style="background: #FF7F00; color: black; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold;">
+              <a href="#" id="google-calendar" style="background: #FF7F00; color: black; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold;">
                 Google Calendar
               </a>
               <a href="#" style="background: #FF7F00; color: black; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold;">
@@ -605,6 +605,31 @@
           target.scrollIntoView({ behavior: 'smooth' });
         }
       });
+    });
+
+    // Google Calendar functionality
+    document.getElementById('google-calendar').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Conference details
+      const conferenceTitle = 'NSEA 2026 - National Symposium on Equitable AI';
+      const startDate = '20260615'; // June 15, 2026
+      const endDate = '20260617'; // June 17, 2026
+      const startTime = '080000'; // 8:00 AM
+      const endTime = '200000'; // 8:00 PM
+      const location = 'Morgan State University, Baltimore, MD 21251';
+      const description = 'Join us for three days of cutting-edge presentations, panel discussions, and workshops on equitable AI and machine learning systems. The Center for Equitable AI & Machine Learning Systems (CEAMLS) hosts this annual symposium bringing together technologists, researchers, policymakers, and stakeholders.\\n\\nFor more information: ashlee.kirkland@morgan.edu | (443) 885-4630\\n\\nDownload the Whova app for the complete schedule and networking opportunities.';
+      
+      // Create Google Calendar URL
+      const googleCalendarUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(conferenceTitle) +
+        '&dates=' + startDate + 'T' + startTime + 'Z/' + endDate + 'T' + endTime + 'Z' +
+        '&location=' + encodeURIComponent(location) +
+        '&details=' + encodeURIComponent(description) +
+        '&ctz=America/New_York'; // EST timezone for Baltimore
+      
+      // Open Google Calendar in new tab
+      window.open(googleCalendarUrl, '_blank');
     });
   </script>
 </body>
