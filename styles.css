@@ -162,6 +162,12 @@ nav {
     color: #00315c;
 }
 
+.hero-logo {
+    height: 250px;
+    width: auto;
+    max-width: 100%;
+}
+
 /* Main Content Sections */
 .section {
     padding: 80px 0;
@@ -1624,6 +1630,11 @@ footer::before {
     
     .hero .subtitle {
         font-size: 1.2rem;
+    }
+    
+    .hero-logo {
+        height: 150px;
+        max-width: 90%;
     }
     
     /* Registration Timeline Mobile */
