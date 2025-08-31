@@ -7,9 +7,6 @@ const registrationData = {
       earlyBird: 120,
       daily: 75,
       features: [
-        "Access to all sessions",
-        "Conference materials",
-        "Networking events",
         "Digital certificate",
         "Student poster session"
       ]
@@ -21,9 +18,6 @@ const registrationData = {
       daily: 0,
       special: "FREE with accepted paper",
       features: [
-        "Access to all sessions",
-        "Conference materials",
-        "Networking events",
         "Presentation opportunity",
         "Priority travel scholarships",
         "Certificate of presentation"
@@ -35,12 +29,7 @@ const registrationData = {
       earlyBird: 180,
       daily: 100,
       features: [
-        "Access to all sessions",
-        "Conference materials",
-        "Networking events",
-        "Digital certificate",
-        "Workshop access",
-        "Exhibition hall access"
+        "Digital certificate"
       ]
     },
     {
@@ -49,14 +38,18 @@ const registrationData = {
       earlyBird: 157.50,
       daily: 87.50,
       features: [
-        "Access to all sessions",
-        "Conference materials",
-        "Networking events",
         "Presentation opportunity",
         "Paper publication",
         "Certificate of presentation"
       ]
     }
+  ],
+  sharedFeatures: [
+    "Access to all sessions",
+    "Conference materials", 
+    "Networking events",
+    "Workshop access",
+    "Exhibition hall access"
   ],
   specialCategories: [
     {
@@ -74,50 +67,69 @@ const registrationData = {
   groupDiscountNote: "Group rates available for 5+ registrations"
 };
 
-// Function to generate registration table HTML
+// Function to generate registration cards HTML
 function generateRegistrationCards() {
   return `
-    <div class="registration-table-container">
-      <table class="registration-table">
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Regular Price</th>
-            <th>Early Bird Price</th>
-            <th>Daily Rate</th>
-            <th>Features</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${registrationData.categories.map(category => {
-            const regularPrice = category.price === 0 ? 'FREE' : `$${category.price}`;
-            const earlyBirdPrice = category.earlyBird === 0 ? 'FREE' : `$${category.earlyBird}`;
-            const dailyRate = category.daily === 0 ? 'FREE' : `$${category.daily}`;
-            const specialNote = category.special ? `<div class="special-note">${category.special}</div>` : '';
-            
-            return `
-              <tr class="${category.price === 0 ? 'free-category' : ''}">
-                <td class="category-name">
-                  <strong>${category.title}</strong>
-                  ${specialNote}
-                </td>
-                <td class="price-cell">${regularPrice}</td>
-                <td class="price-cell early-bird">${earlyBirdPrice}</td>
-                <td class="price-cell">${dailyRate}</td>
-                <td class="features-cell">
-                  <ul>
-                    ${category.features.map(feature => `<li>${feature}</li>`).join('')}
-                  </ul>
-                </td>
-                <td class="action-cell">
-                  <a href="#" class="register-btn">Register</a>
-                </td>
-              </tr>
-            `;
-          }).join('')}
-        </tbody>
-      </table>
+    <div class="registration-timeline-container">
+      ${registrationData.categories.map((category, index) => {
+        const regularPrice = category.price === 0 ? 'FREE' : `$${category.price}`;
+        const earlyBirdPrice = category.earlyBird === 0 ? 'FREE' : `$${category.earlyBird}`;
+        const dailyRate = category.daily === 0 ? 'FREE' : `$${category.daily}`;
+        const specialNote = category.special ? `<div class="reg-special">${category.special}</div>` : '';
+        const isEven = index % 2 === 0;
+        
+        return `
+          <div class="registration-timeline-item ${category.price === 0 ? 'free-category' : ''} ${isEven ? 'even' : 'odd'}">
+            <div class="registration-circle">
+              <div class="price-display">${regularPrice}</div>
+            </div>
+            <div class="registration-content">
+              <h4>${category.title}</h4>
+              ${specialNote}
+              
+              <div class="pricing-row">
+                <div class="price-group">
+                  <span class="price-label">Regular</span>
+                  <span class="price-value">${regularPrice}</span>
+                </div>
+                <div class="price-group early-bird">
+                  <span class="price-label">Early Bird</span>
+                  <span class="price-value">${earlyBirdPrice}</span>
+                </div>
+                <div class="price-group">
+                  <span class="price-label">Daily</span>
+                  <span class="price-value">${dailyRate}</span>
+                </div>
+              </div>
+              
+              ${category.features.length > 0 ? `
+              <div class="additional-benefits">
+                <span class="benefits-label">Additional Benefits:</span>
+                <ul class="benefits-list">
+                  ${category.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+              </div>
+              ` : ''}
+              
+              <div class="register-action">
+                <a href="#" class="register-timeline-btn">Register Now</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('')}
+      
+      <div class="shared-features-timeline">
+        <div class="shared-circle">
+          <div class="shared-icon">★</div>
+        </div>
+        <div class="shared-content">
+          <h4>All Registrations Include</h4>
+          <ul class="shared-benefits-list">
+            ${registrationData.sharedFeatures.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
     </div>
   `;
 }
