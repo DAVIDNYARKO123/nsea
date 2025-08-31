@@ -197,16 +197,280 @@ nav {
     border-radius: 2px;
 }
 
-/* Registration Section */
-.registration-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 60px;
-    padding: 0 20px;
+/* Registration Timeline Section */
+.registration-timeline-container {
     max-width: 1000px;
-    margin-left: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.registration-timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #00315c, #FF7F00, #00315c);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.registration-timeline-item {
+    display: flex;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.registration-timeline-item.even {
+    flex-direction: row;
+}
+
+.registration-timeline-item.odd {
+    flex-direction: row-reverse;
+}
+
+.registration-circle {
+    flex: 0 0 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00315c 0%, #004684 100%);
+    border: 4px solid #FF7F00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    margin: 0 30px;
+}
+
+.registration-timeline-item.free-category .registration-circle {
+    background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+    border-color: #81C784;
+}
+
+.price-display {
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.registration-content {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 49, 92, 0.12);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    max-width: 450px;
+}
+
+.registration-timeline-item.even .registration-content {
+    margin-left: 0;
     margin-right: auto;
+}
+
+.registration-timeline-item.odd .registration-content {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.registration-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 49, 92, 0.2);
+    border-color: #FF7F00;
+}
+
+.registration-content h4 {
+    color: #00315c;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.reg-special {
+    color: #FF7F00;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.pricing-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.price-group {
+    text-align: center;
+}
+
+.price-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.price-value {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #00315c;
+}
+
+.price-group.early-bird .price-value {
+    color: #FF7F00;
+}
+
+.additional-benefits {
+    margin-bottom: 20px;
+}
+
+.benefits-label {
+    color: #00315c;
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefits-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.benefits-list li:before {
+    content: "✓";
+    color: #FF7F00;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.benefits-list li:last-child {
+    border-bottom: none;
+}
+
+.register-action {
+    text-align: center;
+}
+
+.register-timeline-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.register-timeline-btn:hover {
+    background: linear-gradient(135deg, #e66f00 0%, #cc5f00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 127, 0, 0.3);
+}
+
+/* Shared Features Timeline */
+.shared-features-timeline {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.shared-circle {
+    flex: 0 0 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
+    border: 4px solid #00315c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    margin-right: 30px;
+}
+
+.shared-icon {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.shared-content {
+    flex: 1;
+    background: linear-gradient(135deg, #00315c 0%, #004684 100%);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 49, 92, 0.15);
+    border: 2px solid #FF7F00;
+    max-width: 450px;
+    transition: all 0.3s ease;
+}
+
+.shared-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 49, 92, 0.25);
+}
+
+.shared-content h4 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.shared-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.shared-benefits-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.shared-benefits-list li:before {
+    content: "✓";
+    color: #FF7F00;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.shared-benefits-list li:last-child {
+    border-bottom: none;
 }
 
 .category-card {
@@ -454,6 +718,175 @@ nav {
 .free-category .register-btn:hover {
     background: linear-gradient(135deg, #00315c, #004684);
     color: white;
+}
+
+/* Registration Cards */
+.registration-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 49, 92, 0.12);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.registration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 49, 92, 0.2);
+    border-color: #FF7F00;
+}
+
+.registration-card.free-category {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
+    border-color: #4CAF50;
+}
+
+.card-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.card-title {
+    color: #00315c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card-special {
+    color: #FF7F00;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.card-pricing {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.price-item {
+    text-align: center;
+    padding: 12px 8px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.price-label {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.price-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #00315c;
+}
+
+.price-value.early-bird {
+    color: #FF7F00;
+}
+
+.card-features {
+    margin-bottom: 25px;
+}
+
+.features-title {
+    color: #00315c;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.features-list li:before {
+    content: "✓";
+    color: #FF7F00;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.card-action {
+    text-align: center;
+}
+
+.registration-card .register-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.registration-card .register-btn:hover {
+    background: linear-gradient(135deg, #e66f00 0%, #cc5f00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 127, 0, 0.3);
+}
+
+/* Shared Features Card */
+.shared-features-card {
+    background: linear-gradient(135deg, #00315c 0%, #004684 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 49, 92, 0.15);
+    border: 2px solid #FF7F00;
+    transition: all 0.3s ease;
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+.shared-features-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 49, 92, 0.25);
+}
+
+.shared-features-card .card-title {
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.shared-features-card .features-list {
+    margin-top: 20px;
+}
+
+.shared-features-card .features-list li {
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.shared-features-card .features-list li:before {
+    color: #FF7F00;
 }
 
 /* Important Dates */
@@ -817,30 +1250,68 @@ footer::after {
         font-size: 1.2rem;
     }
     
-    .registration-categories {
-        grid-template-columns: 1fr;
+    /* Registration Timeline Mobile */
+    .registration-timeline-container::before {
+        left: 80px;
     }
     
-    .registration-table-container {
-        margin: 0 -20px;
+    .registration-timeline-item {
+        flex-direction: column !important;
+        margin-bottom: 40px;
     }
     
-    .registration-table th,
-    .registration-table td {
-        padding: 15px 8px;
-        font-size: 0.85rem;
+    .registration-timeline-item.even,
+    .registration-timeline-item.odd {
+        flex-direction: column !important;
     }
     
-    .registration-table th {
-        font-size: 0.75rem;
+    .registration-circle {
+        flex: none;
+        width: 100px;
+        height: 100px;
+        margin: 0 0 20px 50px;
+        align-self: flex-start;
     }
     
-    .features-cell ul {
-        font-size: 0.8rem;
+    .price-display {
+        font-size: 0.9rem;
     }
     
-    .features-cell li {
-        padding: 3px 0;
+    .registration-content {
+        max-width: 100%;
+        margin: 0 !important;
+        padding: 20px;
+    }
+    
+    .registration-content h4 {
+        font-size: 1.2rem;
+    }
+    
+    .pricing-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .price-group:last-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+    
+    .shared-features-timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .shared-circle {
+        margin: 0 0 20px 0;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .shared-content {
+        max-width: 100%;
+        padding: 20px;
     }
     
     .header-top {
