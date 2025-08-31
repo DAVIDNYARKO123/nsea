@@ -119,11 +119,11 @@ function generateRegistrationCards() {
         `;
       }).join('')}
       
-      <div class="shared-features-timeline">
-        <div class="shared-circle">
-          <div class="shared-icon">★</div>
+      <div class="registration-timeline-item shared-features-card">
+        <div class="registration-circle">
+          <div class="price-display">ALL</div>
         </div>
-        <div class="shared-content">
+        <div class="registration-content">
           <h4>All Registrations Include</h4>
           <ul class="shared-benefits-list">
             ${registrationData.sharedFeatures.map(feature => `<li>${feature}</li>`).join('')}
