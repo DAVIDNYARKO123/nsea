@@ -507,55 +507,24 @@ nav {
     box-shadow: 0 10px 25px rgba(255, 127, 0, 0.4);
 }
 
-/* Shared Features Timeline */
-.shared-features-timeline {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    position: relative;
-    z-index: 2;
+/* Shared Features Card */
+.shared-features-card {
+    background: white;
+    border-color: #FF7F00;
 }
 
-.shared-circle {
-    flex: 0 0 120px;
-    height: 120px;
-    border-radius: 50%;
+.shared-features-card .registration-circle {
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
-    border: 4px solid #00315c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 3;
-    margin-right: 30px;
+    border-color: #00315c;
 }
 
-.shared-icon {
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
+.shared-features-card .registration-content {
+    color: #00315c;
 }
 
-.shared-content {
-    flex: 1;
-    background: linear-gradient(135deg, #00315c 0%, #004684 100%);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 49, 92, 0.15);
-    border: 2px solid #FF7F00;
-    max-width: 450px;
-    transition: all 0.3s ease;
-}
-
-.shared-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 49, 92, 0.25);
-}
-
-.shared-content h4 {
-    color: white;
+.shared-features-card .registration-content h4 {
+    color: #00315c;
     font-size: 1.4rem;
-    font-weight: 700;
     margin-bottom: 20px;
 }
 
@@ -567,11 +536,11 @@ nav {
 
 .shared-benefits-list li {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 49, 92, 0.1);
     position: relative;
     padding-left: 20px;
     font-size: 0.95rem;
-    color: white;
+    color: #00315c;
 }
 
 .shared-benefits-list li:before {
@@ -1714,21 +1683,6 @@ footer::before {
         font-size: 1.1rem;
     }
     
-    .shared-features-timeline {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .shared-circle {
-        margin: 0 0 20px 0;
-        width: 100px;
-        height: 100px;
-    }
-    
-    .shared-content {
-        max-width: 100%;
-        padding: 20px;
-    }
     
     /* Special Categories Mobile */
     .special-categories-section {
