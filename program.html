@@ -551,7 +551,7 @@
               <a href="#" id="google-calendar" style="background: #FF7F00; color: black; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold;">
                 Google Calendar
               </a>
-              <a href="#" style="background: #FF7F00; color: black; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold;">
+              <a href="#" id="pdf-download" style="background: #FF7F00; color: black; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: bold;">
                 PDF Schedule
               </a>
             </div>
@@ -592,6 +592,46 @@
     </div>
   </footer>
 
+  <style>
+    @media print {
+      /* Hide elements that shouldn't be in PDF */
+      header, footer, .no-print {
+        display: none !important;
+      }
+      
+      /* Optimize for print */
+      body {
+        margin: 0;
+        padding: 0;
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      main {
+        margin: 0;
+        padding: 20px;
+      }
+      
+      /* Ensure colors print correctly */
+      .program-overview-card .card-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      /* Page breaks */
+      .section {
+        break-inside: avoid;
+      }
+      
+      /* Ensure cards don't break across pages */
+      .program-overview-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+
   <script>
     document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
       document.querySelector('.nav-menu').classList.toggle('active');
@@ -630,6 +670,22 @@
       
       // Open Google Calendar in new tab
       window.open(googleCalendarUrl, '_blank');
+    });
+
+    // PDF Download functionality using browser print
+    document.getElementById('pdf-download').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Add print class to body to trigger print styles
+      document.body.classList.add('printing');
+      
+      // Use browser's print function (user can save as PDF)
+      window.print();
+      
+      // Remove print class after printing
+      setTimeout(() => {
+        document.body.classList.remove('printing');
+      }, 1000);
     });
   </script>
 </body>
