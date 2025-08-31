@@ -74,27 +74,52 @@ const registrationData = {
   groupDiscountNote: "Group rates available for 5+ registrations"
 };
 
-// Function to generate registration cards HTML
+// Function to generate registration table HTML
 function generateRegistrationCards() {
-  return registrationData.categories.map(category => {
-    const priceDisplay = category.price === 0 ? '0' : category.price;
-    const specialPrice = category.special || `Early Bird: $${category.earlyBird} | Daily: $${category.daily}`;
-    const specialClass = category.price === 0 ? 'color: #FF7F00' : 'color: #004684';
-    
-    return `
-      <div class="category-card">
-        <h3>${category.title}</h3>
-        <div class="price">
-          <span class="currency">$</span>${priceDisplay}
-        </div>
-        <p style="${specialClass}; font-weight: bold; margin: 10px 0;">${specialPrice}</p>
-        <ul class="features">
-          ${category.features.map(feature => `<li>${feature}</li>`).join('')}
-        </ul>
-        <a href="#" class="register-btn">Register</a>
-      </div>
-    `;
-  }).join('');
+  return `
+    <div class="registration-table-container">
+      <table class="registration-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Regular Price</th>
+            <th>Early Bird Price</th>
+            <th>Daily Rate</th>
+            <th>Features</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${registrationData.categories.map(category => {
+            const regularPrice = category.price === 0 ? 'FREE' : `$${category.price}`;
+            const earlyBirdPrice = category.earlyBird === 0 ? 'FREE' : `$${category.earlyBird}`;
+            const dailyRate = category.daily === 0 ? 'FREE' : `$${category.daily}`;
+            const specialNote = category.special ? `<div class="special-note">${category.special}</div>` : '';
+            
+            return `
+              <tr class="${category.price === 0 ? 'free-category' : ''}">
+                <td class="category-name">
+                  <strong>${category.title}</strong>
+                  ${specialNote}
+                </td>
+                <td class="price-cell">${regularPrice}</td>
+                <td class="price-cell early-bird">${earlyBirdPrice}</td>
+                <td class="price-cell">${dailyRate}</td>
+                <td class="features-cell">
+                  <ul>
+                    ${category.features.map(feature => `<li>${feature}</li>`).join('')}
+                  </ul>
+                </td>
+                <td class="action-cell">
+                  <a href="#" class="register-btn">Register</a>
+                </td>
+              </tr>
+            `;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 // Function to generate special categories HTML
