@@ -3735,3 +3735,179 @@ footer::before {
         align-items: center;
     }
 }
+
+/* Committee Page Styles */
+.committee-section {
+    margin-bottom: 4rem;
+}
+
+.committee-section-title {
+    font-size: 2rem;
+    color: #00315c;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Conference Chairs Grid */
+.committee-chairs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.committee-chair-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.committee-chair-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.committee-chair-image {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #FF7F00;
+}
+
+.committee-chair-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.committee-chair-content {
+    flex: 1;
+}
+
+.chair-badge {
+    background: linear-gradient(135deg, #FF7F00, #e66d00);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.committee-chair-content h4 {
+    font-size: 1.5rem;
+    color: #00315c;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.chair-position {
+    color: #004684;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.chair-bio {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Program Committee Members Grid */
+.committee-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.committee-member-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.committee-member-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+}
+
+.member-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 3px solid #FF7F00;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-content h4 {
+    font-size: 1.2rem;
+    color: #00315c;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.member-role {
+    color: #FF7F00;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.member-institution {
+    color: #004684;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Committee Mobile Responsiveness */
+@media (max-width: 768px) {
+    .committee-chairs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .committee-chair-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .committee-chair-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .committee-members-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .committee-member-card {
+        padding: 1.25rem;
+    }
+    
+    .member-image {
+        width: 80px;
+        height: 80px;
+    }
+}
