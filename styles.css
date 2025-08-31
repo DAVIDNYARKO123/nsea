@@ -1741,7 +1741,8 @@ nav {
     content: '';
     position: absolute;
     top: 0;
-    left: 60px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 2px;
     height: 100%;
     background: linear-gradient(135deg, #00315c 0%, #FF7F00 100%);
@@ -1770,6 +1771,7 @@ nav {
     position: relative;
     z-index: 3;
     margin-right: 25px;
+    margin-bottom: 0;
 }
 
 .topic-timeline-content {
@@ -2047,33 +2049,41 @@ nav {
     font-size: 0.95rem;
 }
 
-/* Special Tracks Timeline */
+/* Special Tracks Horizontal Layout */
 .special-tracks-timeline {
-    position: relative;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 40px auto 0;
+    position: relative;
 }
 
 .special-tracks-timeline::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 70px;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(135deg, #00315c 0%, #FF7F00 100%);
+    top: 35px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, #00315c 0%, #FF7F00 50%, #00315c 100%);
+    z-index: 1;
+}
+
+.special-tracks-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: start;
 }
 
 .special-track-timeline-item {
     position: relative;
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 50px;
-    padding-left: 35px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .special-track-timeline-number {
-    flex: 0 0 70px;
+    width: 70px;
     height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
@@ -2086,19 +2096,20 @@ nav {
     font-weight: 700;
     position: relative;
     z-index: 3;
-    margin-right: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(255, 127, 0, 0.3);
 }
 
 .special-track-timeline-content {
-    flex: 1;
     background: white;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 49, 92, 0.1);
     position: relative;
     z-index: 2;
-    border-left: 4px solid #004684;
+    border-top: 4px solid #004684;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .special-track-timeline-content:hover {
@@ -2124,6 +2135,7 @@ nav {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: left;
 }
 
 .track-features li {
@@ -2148,8 +2160,7 @@ nav {
     .cfp-intro-timeline::before,
     .topics-timeline::before,
     .guidelines-timeline::before,
-    .review-timeline::before,
-    .special-tracks-timeline::before {
+    .review-timeline::before {
         left: 50%;
         transform: translateX(-50%);
     }
@@ -2157,8 +2168,7 @@ nav {
     .cfp-intro-item,
     .topic-timeline-item,
     .guidelines-timeline-item,
-    .review-timeline-item,
-    .special-track-timeline-item {
+    .review-timeline-item {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -2168,8 +2178,7 @@ nav {
     .cfp-intro-number,
     .topic-timeline-number,
     .guidelines-timeline-number,
-    .review-timeline-number,
-    .special-track-timeline-number {
+    .review-timeline-number {
         margin-right: 0;
         margin-bottom: 20px;
     }
@@ -2177,6 +2186,15 @@ nav {
     .requirements-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+    
+    .special-tracks-timeline {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .special-tracks-timeline::before {
+        display: none;
     }
 }
 
