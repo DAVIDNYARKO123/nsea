@@ -137,20 +137,31 @@ function generateRegistrationCards() {
 // Function to generate special categories HTML
 function generateSpecialCategories() {
   return `
-    <div style="background: rgba(0, 49, 92, 0.1); padding: 30px; border-radius: 10px; margin-top: 40px; text-align: center;">
-      <h3 style="color: #00315c; margin-bottom: 20px;">Special Categories</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+    <div class="special-categories-section">
+      <div class="special-header">
+        <h3>Special Categories</h3>
+        <p class="special-subtitle">Exclusive invitations for distinguished speakers</p>
+      </div>
+      <div class="special-categories-grid">
         ${registrationData.specialCategories.map(category => `
-          <div style="background: white; padding: 20px; border-radius: 8px; border-left: 4px solid #FF7F00;">
-            <h4 style="color: #00315c; margin-bottom: 10px;">${category.title}</h4>
-            <p style="font-size: 1.1rem; font-weight: bold; color: #FF7F00;">${category.price}</p>
-            <p style="font-size: 0.9rem;">${category.note}</p>
+          <div class="special-category-card">
+            <div class="special-icon">🎯</div>
+            <div class="special-card-content">
+              <h4>${category.title}</h4>
+              <div class="special-price">${category.price}</div>
+              <p class="special-note">${category.note}</p>
+            </div>
           </div>
         `).join('')}
       </div>
-      <p style="margin-top: 20px; font-size: 0.95rem; color: black;">
-        <strong>Early Bird Deadline:</strong> ${registrationData.earlyBirdDeadline} | <strong>Multi-day discounts apply</strong> | ${registrationData.groupDiscountNote}
-      </p>
+      <div class="special-footer">
+        <div class="special-deadline">
+          <strong>Early Bird Deadline:</strong> ${registrationData.earlyBirdDeadline}
+        </div>
+        <div class="special-note-text">
+          <strong>Multi-day discounts apply</strong> | ${registrationData.groupDiscountNote}
+        </div>
+      </div>
     </div>
   `;
 }
