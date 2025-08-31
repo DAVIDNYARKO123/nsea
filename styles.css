@@ -1434,8 +1434,8 @@ footer::after {
 
 .keynote-badge {
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: 15px;
+    right: 15px;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
     color: white;
     font-size: 0.7rem;
