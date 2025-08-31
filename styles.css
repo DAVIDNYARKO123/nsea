@@ -240,7 +240,10 @@ nav {
 
 .registration-circle {
     flex: 0 0 120px;
+    width: 120px;
     height: 120px;
+    min-width: 120px;
+    min-height: 120px;
     border-radius: 50%;
     background: linear-gradient(135deg, #00315c 0%, #004684 100%);
     border: 4px solid #FF7F00;
@@ -1184,7 +1187,10 @@ nav {
 
 .about-timeline-number {
     flex: 0 0 80px;
+    width: 80px;
     height: 80px;
+    min-width: 80px;
+    min-height: 80px;
     border-radius: 50%;
     background: linear-gradient(135deg, #00315c 0%, #004684 100%);
     border: 4px solid #FF7F00;
@@ -1293,7 +1299,10 @@ nav {
 
 .impact-timeline-number {
     flex: 0 0 80px;
+    width: 80px;
     height: 80px;
+    min-width: 80px;
+    min-height: 80px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
     border: 4px solid #00315c;
@@ -1382,7 +1391,10 @@ nav {
 
 .theme-hero-number {
     flex: 0 0 100px;
+    width: 100px;
     height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
     border: 5px solid #00315c;
@@ -1493,7 +1505,10 @@ nav {
 
 .theme-focus-number {
     flex: 0 0 60px;
+    width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
     border: 3px solid #00315c;
@@ -1560,7 +1575,10 @@ nav {
 
 .attend-timeline-number {
     flex: 0 0 70px;
+    width: 70px;
     height: 70px;
+    min-width: 70px;
+    min-height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg, #004684 0%, #00315c 100%);
     border: 4px solid #FF7F00;
@@ -1683,7 +1701,10 @@ nav {
 
 .cfp-intro-number {
     flex: 0 0 80px;
+    width: 80px;
     height: 80px;
+    min-width: 80px;
+    min-height: 80px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
     border: 4px solid #00315c;
@@ -1758,7 +1779,10 @@ nav {
 
 .topic-timeline-number {
     flex: 0 0 60px;
+    width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, #004684 0%, #00315c 100%);
     border: 3px solid #FF7F00;
@@ -1848,7 +1872,10 @@ nav {
 
 .guidelines-timeline-number {
     flex: 0 0 70px;
+    width: 70px;
     height: 70px;
+    min-width: 70px;
+    min-height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
     border: 4px solid #00315c;
@@ -2003,7 +2030,10 @@ nav {
 
 .review-timeline-number {
     flex: 0 0 60px;
+    width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
     border-radius: 50%;
     background: linear-gradient(135deg, #004684 0%, #00315c 100%);
     border: 3px solid #FF7F00;
@@ -2085,6 +2115,8 @@ nav {
 .special-track-timeline-number {
     width: 70px;
     height: 70px;
+    min-width: 70px;
+    min-height: 70px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FF7F00 0%, #e66f00 100%);
     border: 4px solid #00315c;
@@ -2324,6 +2356,8 @@ footer::before {
 .speaker-circle {
     width: 120px;
     height: 120px;
+    min-width: 120px;
+    min-height: 120px;
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid #FF7F00;
@@ -2779,6 +2813,8 @@ footer::before {
     .speaker-circle {
         width: 100px;
         height: 100px;
+        min-width: 100px;
+        min-height: 100px;
         margin-bottom: 20px;
     }
     
