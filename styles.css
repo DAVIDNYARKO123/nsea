@@ -1184,13 +1184,12 @@ nav {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #004684 0%, #00315c 100%);
-    color: white;
-    padding: 60px 0 30px;
+    background: #f8f9fa;
+    color: #00315c;
+    padding: 50px 0 30px;
     text-align: center;
-    box-shadow: 0 -8px 25px rgba(0, 49, 92, 0.2);
+    border-top: 3px solid #FF7F00;
     position: relative;
-    overflow: hidden;
 }
 
 footer::before {
@@ -1199,24 +1198,8 @@ footer::before {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #FF7F00 0%, white 50%, #FF7F00 100%);
-}
-
-footer::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 127, 0, 0.03) 0%, transparent 50%);
-    animation: footerGlow 20s ease-in-out infinite alternate;
-}
-
-@keyframes footerGlow {
-    0% { transform: rotate(0deg) scale(1); }
-    100% { transform: rotate(180deg) scale(1.1); }
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 49, 92, 0.1) 50%, transparent 100%);
 }
 
 .footer-content {
@@ -1232,105 +1215,57 @@ footer::after {
 }
 
 .footer-section {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 35px 30px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 127, 0, 0.3);
-    transition: all 0.4s ease;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 49, 92, 0.1);
+    transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.footer-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #FF7F00 50%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.footer-section:hover::before {
-    opacity: 1;
+    box-shadow: 0 2px 8px rgba(0, 49, 92, 0.05);
 }
 
 .footer-section:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
     border-color: #FF7F00;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 49, 92, 0.1);
 }
 
 .footer-section h3 {
-    color: #FF7F00;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: #00315c;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
     position: relative;
-}
-
-.footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
-    background: #FF7F00;
-    border-radius: 1px;
+    border-bottom: 2px solid #FF7F00;
+    padding-bottom: 8px;
 }
 
 .footer-section p {
-    margin: 12px 0;
+    margin: 10px 0;
     line-height: 1.6;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    color: #666;
 }
 
 .footer-section a {
-    color: rgba(255, 255, 255, 0.9);
+    color: #004684;
     text-decoration: none;
     transition: all 0.3s ease;
     display: inline-block;
-    padding: 8px 0;
-    position: relative;
-}
-
-.footer-section a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: #FF7F00;
-    transition: width 0.3s ease;
-}
-
-.footer-section a:hover::after {
-    width: 100%;
+    padding: 4px 0;
 }
 
 .footer-section a:hover {
     color: #FF7F00;
-    transform: translateX(5px);
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: 30px;
-    margin-top: 40px;
-    color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid rgba(0, 49, 92, 0.1);
+    padding-top: 25px;
+    margin-top: 30px;
+    color: #666;
     position: relative;
-    z-index: 2;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
