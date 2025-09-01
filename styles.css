@@ -4152,8 +4152,8 @@ footer::before {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
 }
 
 .simple-shared-list li {
@@ -4188,6 +4188,11 @@ footer::before {
         grid-template-columns: repeat(2, 1fr);
         gap: 18px;
     }
+    
+    .simple-shared-list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -4197,6 +4202,196 @@ footer::before {
     }
     
     .simple-shared-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .simple-shared-list {
         grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+/* Compact Special Categories Design */
+.special-categories-section {
+    margin-top: 25px;
+    padding: 0;
+    background: transparent;
+    text-align: center;
+}
+
+.special-header {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.special-header h3 {
+    color: #00315c;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.special-subtitle {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.special-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.special-category-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 49, 92, 0.12);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+.special-category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 49, 92, 0.2);
+    border-color: #FF7F00;
+}
+
+.special-card-header {
+    padding: 25px 30px 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #00315c;
+    color: white;
+}
+
+.special-icon {
+    font-size: 3.5rem;
+    font-weight: 900;
+    opacity: 0.8;
+    line-height: 1;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.special-info h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
+    color: white;
+}
+
+.special-info p {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+    color: #FF7F00;
+    font-weight: 500;
+}
+
+.special-card-content {
+    padding: 30px;
+    background: white;
+    text-align: center;
+}
+
+.special-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #00315c;
+    margin-bottom: 10px;
+}
+
+.special-note {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    letter-spacing: 0.2px;
+}
+
+.special-footer {
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f6ff 100%);
+    border: 1px solid rgba(0, 70, 132, 0.1);
+    border-radius: 6px;
+    padding: 12px 15px;
+    text-align: center;
+    margin-top: 12px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.special-deadline {
+    color: #00315c;
+    font-weight: 600;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+}
+
+.special-deadline strong {
+    color: #FF7F00;
+}
+
+.special-note-text {
+    color: #004684;
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.special-note-text strong {
+    color: #FF7F00;
+}
+
+/* Mobile responsiveness for special categories */
+@media (max-width: 480px) {
+    .special-categories-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 280px;
+    }
+    
+    .special-category-card {
+        min-height: 80px;
+        padding: 10px 8px;
+    }
+    
+    .special-card-content h4 {
+        font-size: 0.8rem;
+    }
+    
+    .special-price {
+        font-size: 0.7rem;
+    }
+    
+    .special-note {
+        font-size: 0.6rem;
+    }
+    
+    .special-footer {
+        max-width: 280px;
+        padding: 10px 12px;
+    }
+    
+    .special-deadline {
+        font-size: 0.7rem;
+    }
+    
+    .special-note-text {
+        font-size: 0.65rem;
     }
 }
