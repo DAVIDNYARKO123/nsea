@@ -2393,7 +2393,7 @@ footer::before {
     right: -8px;
     width: 30px;
     height: 30px;
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    background: linear-gradient(135deg, #FF7F00 0%, #e66d00 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2438,8 +2438,8 @@ footer::before {
 }
 
 .keynote-badge {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    color: #00315c;
+    background: linear-gradient(135deg, #FF7F00 0%, #e66d00 100%);
+    color: white;
 }
 
 .speaker-content h4 {
