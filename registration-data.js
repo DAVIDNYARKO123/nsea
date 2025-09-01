@@ -70,65 +70,55 @@ const registrationData = {
 // Function to generate registration cards HTML
 function generateRegistrationCards() {
   return `
-    <div class="registration-timeline-container">
-      ${registrationData.categories.map((category, index) => {
-        const regularPrice = category.price === 0 ? 'FREE' : `$${category.price}`;
-        const earlyBirdPrice = category.earlyBird === 0 ? 'FREE' : `$${category.earlyBird}`;
-        const dailyRate = category.daily === 0 ? 'FREE' : `$${category.daily}`;
-        const specialNote = category.special ? `<div class="reg-special">${category.special}</div>` : '';
-        const isEven = index % 2 === 0;
-        
-        return `
-          <div class="registration-timeline-item ${category.price === 0 ? 'free-category' : ''} ${isEven ? 'even' : 'odd'}">
-            <div class="registration-circle">
-              <div class="price-display">${regularPrice}</div>
-            </div>
-            <div class="registration-content">
-              <h4>${category.title}</h4>
+    <div class="simple-registration-container">
+      <div class="simple-registration-grid">
+        ${registrationData.categories.map((category) => {
+          const regularPrice = category.price === 0 ? 'FREE' : `$${category.price}`;
+          const earlyBirdPrice = category.earlyBird === 0 ? 'FREE' : `$${category.earlyBird}`;
+          const dailyRate = category.daily === 0 ? 'FREE' : `$${category.daily}`;
+          const specialNote = category.special ? `<div class="simple-special">${category.special}</div>` : '';
+          
+          return `
+            <div class="simple-reg-card ${category.price === 0 ? 'free-card' : ''}">
+              <div class="simple-card-header">
+                <h4>${category.title}</h4>
+                <div class="simple-main-price">${regularPrice}</div>
+              </div>
               ${specialNote}
               
-              <div class="pricing-row">
-                <div class="price-group">
-                  <span class="price-label">Regular</span>
-                  <span class="price-value">${regularPrice}</span>
+              <div class="simple-pricing">
+                <div class="simple-price-item">
+                  <span>Regular: ${regularPrice}</span>
                 </div>
-                <div class="price-group early-bird">
-                  <span class="price-label">Early Bird</span>
-                  <span class="price-value">${earlyBirdPrice}</span>
+                <div class="simple-price-item early">
+                  <span>Early Bird: ${earlyBirdPrice}</span>
                 </div>
-                <div class="price-group">
-                  <span class="price-label">Daily</span>
-                  <span class="price-value">${dailyRate}</span>
+                <div class="simple-price-item">
+                  <span>Daily: ${dailyRate}</span>
                 </div>
               </div>
               
               ${category.features.length > 0 ? `
-              <div class="additional-benefits">
-                <span class="benefits-label">Additional Benefits:</span>
-                <ul class="benefits-list">
+              <div class="simple-features">
+                <ul>
                   ${category.features.map(feature => `<li>${feature}</li>`).join('')}
                 </ul>
               </div>
               ` : ''}
               
-              <div class="register-action">
-                <a href="#" class="register-timeline-btn">Register Now</a>
+              <div class="simple-button">
+                <a href="#" class="simple-register-btn">Register Now</a>
               </div>
             </div>
-          </div>
-        `;
-      }).join('')}
+          `;
+        }).join('')}
+      </div>
       
-      <div class="registration-timeline-item shared-features-card">
-        <div class="registration-circle">
-          <div class="price-display">ALL</div>
-        </div>
-        <div class="registration-content">
-          <h4>All Registrations Include</h4>
-          <ul class="shared-benefits-list">
-            ${registrationData.sharedFeatures.map(feature => `<li>${feature}</li>`).join('')}
-          </ul>
-        </div>
+      <div class="simple-shared-card">
+        <h4>All Registrations Include</h4>
+        <ul class="simple-shared-list">
+          ${registrationData.sharedFeatures.map(feature => `<li>${feature}</li>`).join('')}
+        </ul>
       </div>
     </div>
   `;
