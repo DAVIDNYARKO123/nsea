@@ -2710,8 +2710,19 @@ footer::before {
     }
     
     .hero-logo {
-        height: 150px;
-        max-width: 90%;
+        height: 120px;
+        width: auto;
+        max-width: 85%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo {
+        height: 100px;
+        width: auto;
+        max-width: 80%;
+        object-fit: contain;
     }
     
     /* Registration Timeline Mobile */
