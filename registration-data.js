@@ -135,10 +135,14 @@ function generateSpecialCategories() {
       <div class="special-categories-grid">
         ${registrationData.specialCategories.map(category => `
           <div class="special-category-card">
-            <div class="special-icon">🎯</div>
+            <div class="special-card-header">
+              <div class="special-icon">🎯</div>
+              <div class="special-info">
+                <h4>${category.title}</h4>
+                <p>${category.price}</p>
+              </div>
+            </div>
             <div class="special-card-content">
-              <h4>${category.title}</h4>
-              <div class="special-price">${category.price}</div>
               <p class="special-note">${category.note}</p>
             </div>
           </div>
