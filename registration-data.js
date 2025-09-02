@@ -127,33 +127,23 @@ function generateRegistrationCards() {
 // Function to generate special categories HTML
 function generateSpecialCategories() {
   return `
-    <div class="special-categories-section">
-      <div class="special-header">
-        <h3>Special Categories</h3>
+    <div class="special-categories-container">
+      <div class="special-categories-simple">
+        <h4>Special Categories</h4>
         <p class="special-subtitle">Exclusive invitations for distinguished speakers</p>
-      </div>
-      <div class="special-categories-grid">
-        ${registrationData.specialCategories.map(category => `
-          <div class="special-category-card">
-            <div class="special-card-header">
-              <div class="special-icon">🎯</div>
-              <div class="special-info">
-                <h4>${category.title}</h4>
-                <p>${category.price}</p>
-              </div>
+        
+        <div class="special-categories-inline">
+          ${registrationData.specialCategories.map(category => `
+            <div class="special-category-badge">
+              <span class="special-icon">🎯</span>
+              <span>${category.title}</span>
+              <span class="special-price-badge">${category.price}</span>
             </div>
-            <div class="special-card-content">
-              <p class="special-note">${category.note}</p>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="special-footer">
-        <div class="special-deadline">
-          <strong>Early Bird Deadline:</strong> ${registrationData.earlyBirdDeadline}
+          `).join('')}
         </div>
-        <div class="special-note-text">
-          <strong>Multi-day discounts apply</strong> | ${registrationData.groupDiscountNote}
+        
+        <div class="special-simple-footer">
+          <p><strong>Early Bird:</strong> ${registrationData.earlyBirdDeadline} | <strong>Group rates available</strong> for 5+ registrations</p>
         </div>
       </div>
     </div>
