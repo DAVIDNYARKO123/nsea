@@ -60,6 +60,7 @@ nav {
     display: flex;
     list-style: none;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .nav-menu li {
@@ -2678,6 +2679,33 @@ footer::before {
     color: white;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+/* Medium Screen Adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .nav-menu a {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 769px) {
+    .nav-menu {
+        gap: 15px;
+    }
+    
+    .nav-menu a {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Responsive Design */
