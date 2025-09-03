@@ -69,24 +69,23 @@
   </header>
 
   <main>
-    <section class="hero hackathon-hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center;">
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 49, 92, 0.8);"></div>
-      <div class="container" style="position: relative; z-index: 2; text-align: center; padding: 100px 0;">
-        <h1 style="font-size: 3.5rem; color: white; margin-bottom: 20px; font-weight: bold;">NSEA 2026 Hackathon</h1>
-        <p style="font-size: 1.4rem; color: #FF7F00; margin-bottom: 10px; font-weight: 600;">Building Equitable AI Solutions</p>
-        <p style="font-size: 1.2rem; color: white; margin-bottom: 30px;">June 15-16, 2026 | 48-Hour Innovation Challenge</p>
-        <div class="hackathon-stats" style="display: flex; justify-content: center; gap: 40px; margin-top: 40px;">
-          <div style="text-align: center;">
-            <div style="font-size: 2.5rem; font-weight: bold; color: #FF7F00;">48</div>
-            <div style="color: white;">Hours</div>
+    <section class="hero hackathon-hero" style="background-image: url('images/image.png');">
+      <div class="container">
+        <h1>NSEA 2026 Hackathon</h1>
+        <p class="hero-subtitle">Building Equitable AI Solutions</p>
+        <p class="hero-date">June 15-16, 2026 | 48-Hour Innovation Challenge</p>
+        <div class="hackathon-stats">
+          <div class="hackathon-stat">
+            <div class="hackathon-stat-number">48</div>
+            <div class="hackathon-stat-label">Hours</div>
           </div>
-          <div style="text-align: center;">
-            <div style="font-size: 2.5rem; font-weight: bold; color: #FF7F00;">2</div>
-            <div style="color: white;">Tracks</div>
+          <div class="hackathon-stat">
+            <div class="hackathon-stat-number">2</div>
+            <div class="hackathon-stat-label">Tracks</div>
           </div>
-          <div style="text-align: center;">
-            <div style="font-size: 2.5rem; font-weight: bold; color: #FF7F00;">$25K</div>
-            <div style="color: white;">In Prizes</div>
+          <div class="hackathon-stat">
+            <div class="hackathon-stat-number">$25K</div>
+            <div class="hackathon-stat-label">In Prizes</div>
           </div>
         </div>
         <a href="index.html#registration" class="cta-button" style="margin-top: 30px; display: inline-block;">Register for Hackathon</a>
@@ -101,71 +100,416 @@
           <p class="section-subtitle">Choose your track and build solutions that promote equitable AI</p>
         </div>
         
-        <div class="tracks-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 40px; margin-top: 40px;">
-          <div class="track-card" style="background: white; border: 3px solid #00315c; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1); transition: transform 0.3s;">
-            <div class="track-header" style="text-align: center; margin-bottom: 30px;">
-              <div class="track-icon" style="width: 80px; height: 80px; background: #FF7F00; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                <span style="font-size: 2rem;">🎓</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 40px; margin-top: 40px;">
+          <div class="program-overview-card">
+            <div class="card-header day-1">
+              <div class="day-number">01</div>
+              <div class="day-info">
+                <h3>Youth Track</h3>
+                <p>High School Students</p>
               </div>
-              <h3 style="font-size: 1.8rem; color: #00315c; margin-bottom: 10px;">Youth Track</h3>
-              <p style="color: #FF7F00; font-weight: 600; font-size: 1.1rem;">High School Students</p>
             </div>
             
-            <div class="track-details">
-              <h4 style="color: #00315c; margin-bottom: 15px;">Eligibility</h4>
-              <ul style="margin-bottom: 25px; padding-left: 20px;">
-                <li>Currently enrolled high school students (grades 9-12)</li>
-                <li>Teams of 2-4 students</li>
-                <li>Must have faculty advisor</li>
-                <li>Age limit: 14-18 years</li>
+            <div class="card-content">
+              <h4 style="color: #00315c; margin-bottom: 15px; font-weight: 600;">Eligibility Requirements</h4>
+              <ul>
+                <li><span class="session-icon">•</span>Currently enrolled high school students (grades 9-12)</li>
+                <li><span class="session-icon">•</span>Teams of 2-4 students with faculty advisor</li>
+                <li><span class="session-icon">•</span>Age requirement: 14-18 years</li>
               </ul>
               
-              <h4 style="color: #00315c; margin-bottom: 15px;">Focus Areas</h4>
-              <ul style="margin-bottom: 25px; padding-left: 20px;">
-                <li>AI for Education Equity</li>
-                <li>Bias Detection in Social Media</li>
-                <li>Accessible AI Applications</li>
-                <li>AI Ethics Awareness Tools</li>
+              <h4 style="color: #00315c; margin-bottom: 15px; margin-top: 25px; font-weight: 600;">Challenge Areas</h4>
+              <ul>
+                <li><span class="session-icon">•</span>AI for Educational Equity</li>
+                <li><span class="session-icon">•</span>Bias Detection in Social Platforms</li>
+                <li><span class="session-icon">•</span>Accessible AI Applications</li>
+                <li><span class="session-icon">•</span>AI Ethics Awareness Tools</li>
               </ul>
-              
-              <div class="prize-info" style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
-                <h4 style="color: #00315c; margin-bottom: 10px;">Prize Pool</h4>
-                <p style="font-size: 1.5rem; font-weight: bold; color: #FF7F00;">$10,000</p>
-                <p style="font-size: 0.9rem; color: #666;">1st: $5,000 | 2nd: $3,000 | 3rd: $2,000</p>
+            </div>
+            <div class="card-footer">
+              <div style="text-align: center; padding: 10px 0;">
+                <div style="font-size: 1.3rem; font-weight: bold; color: #FF7F00; margin-bottom: 5px;">$10,000 Prize Pool</div>
+                <div style="font-size: 0.9rem; color: #666;">1st: $5,000 | 2nd: $3,000 | 3rd: $2,000</div>
               </div>
             </div>
           </div>
           
-          <div class="track-card" style="background: white; border: 3px solid #00315c; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1); transition: transform 0.3s;">
-            <div class="track-header" style="text-align: center; margin-bottom: 30px;">
-              <div class="track-icon" style="width: 80px; height: 80px; background: #FF7F00; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                <span style="font-size: 2rem;">🏛️</span>
+          <div class="program-overview-card">
+            <div class="card-header day-2">
+              <div class="day-number">02</div>
+              <div class="day-info">
+                <h3>College Track</h3>
+                <p>University Students</p>
               </div>
-              <h3 style="font-size: 1.8rem; color: #00315c; margin-bottom: 10px;">College Track</h3>
-              <p style="color: #FF7F00; font-weight: 600; font-size: 1.1rem;">University Students</p>
             </div>
             
-            <div class="track-details">
-              <h4 style="color: #00315c; margin-bottom: 15px;">Eligibility</h4>
-              <ul style="margin-bottom: 25px; padding-left: 20px;">
-                <li>Currently enrolled undergraduate or graduate students</li>
-                <li>Teams of 2-5 students</li>
-                <li>Mixed university teams allowed</li>
-                <li>Valid student ID required</li>
+            <div class="card-content">
+              <h4 style="color: #00315c; margin-bottom: 15px; font-weight: 600;">Eligibility Requirements</h4>
+              <ul>
+                <li><span class="session-icon">•</span>Currently enrolled undergraduate or graduate students</li>
+                <li><span class="session-icon">•</span>Teams of 2-5 students (cross-institutional teams welcome)</li>
+                <li><span class="session-icon">•</span>Valid student ID verification required</li>
               </ul>
               
-              <h4 style="color: #00315c; margin-bottom: 15px;">Focus Areas</h4>
-              <ul style="margin-bottom: 25px; padding-left: 20px;">
-                <li>Algorithmic Fairness Solutions</li>
-                <li>Healthcare AI Equity</li>
-                <li>Financial Inclusion AI</li>
-                <li>Criminal Justice AI Reform</li>
+              <h4 style="color: #00315c; margin-bottom: 15px; margin-top: 25px; font-weight: 600;">Challenge Areas</h4>
+              <ul>
+                <li><span class="session-icon">•</span>Algorithmic Fairness Solutions</li>
+                <li><span class="session-icon">•</span>Healthcare AI Equity</li>
+                <li><span class="session-icon">•</span>Financial Inclusion AI</li>
+                <li><span class="session-icon">•</span>Criminal Justice AI Reform</li>
               </ul>
+            </div>
+            <div class="card-footer">
+              <div style="text-align: center; padding: 10px 0;">
+                <div style="font-size: 1.3rem; font-weight: bold; color: #FF7F00; margin-bottom: 5px;">$15,000 Prize Pool</div>
+                <div style="font-size: 0.9rem; color: #666;">1st: $8,000 | 2nd: $4,500 | 3rd: $2,500</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competition Guidelines -->
+    <section class="section" id="rules" style="background-color: white;">
+      <div class="container">
+        <h2 style="color: #00315c; text-align: center; margin-bottom: 40px; font-weight: 700; font-size: 2.2rem;">Competition Framework</h2>
+        <div style="max-width: 1100px; margin: 0 auto;">
+          
+          <!-- Registration Requirements -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px;">
+              <h3 style="margin: 0; font-weight: 600;">Registration & Team Formation</h3>
+            </div>
+            <div style="padding: 25px;">
+              <div style="display: grid; gap: 20px;">
+                <div style="border-left: 4px solid #00315c; padding-left: 20px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h4 style="color: #00315c; margin: 0; font-weight: 600;">Team Registration Deadline</h4>
+                    <span style="background: #00315c; color: white; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; font-weight: 600;">June 10, 2026</span>
+                  </div>
+                  <p style="color: black; margin: 0; line-height: 1.6;">All teams must register before the deadline. Late registrations will not be accepted.</p>
+                </div>
+                
+                <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h4 style="color: #00315c; margin: 0; font-weight: 600;">Team Composition Requirements</h4>
+                    <span style="background: #FF7F00; color: black; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; font-weight: 600;">2-5 Members</span>
+                  </div>
+                  <p style="color: black; margin: 0; line-height: 1.6;">Youth Track: 2-4 students with faculty advisor | College Track: 2-5 students with valid enrollment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Standards -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="background: linear-gradient(135deg, #FF7F00, #FF9933); color: black; padding: 15px 25px;">
+              <h3 style="margin: 0; font-weight: 600;">Technical Requirements & Standards</h3>
+            </div>
+            <div style="padding: 25px;">
+              <div style="display: grid; gap: 20px;">
+                <div style="border-left: 4px solid #00315c; padding-left: 20px;">
+                  <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Solution Requirements</h4>
+                  <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                    <li>Demonstrate measurable bias mitigation or equity enhancement in AI systems</li>
+                    <li>Include comprehensive data sources and methodology documentation</li>
+                    <li>Present working prototype with clear functionality demonstration</li>
+                    <li>Address scalability and real-world deployment considerations</li>
+                  </ul>
+                </div>
+                
+                <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                  <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Deliverables Portfolio</h4>
+                  <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                    <li>Source code repository with comprehensive documentation</li>
+                    <li>5-minute video demonstration showcasing key features</li>
+                    <li>Technical report (maximum 10 pages) detailing methodology and results</li>
+                    <li>Business impact assessment and implementation roadmap</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compliance Framework -->
+          <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+            <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px;">
+              <h3 style="margin: 0; font-weight: 600;">Compliance & Ethical Standards</h3>
+            </div>
+            <div style="padding: 25px;">
+              <div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Ethical AI Commitment</h4>
+                <p style="margin: 0; line-height: 1.7; color: #333;">All participants commit to developing solutions that promote equity, fairness, and social benefit. Solutions must demonstrate positive impact on underrepresented communities and address systemic biases in AI systems.</p>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                <div>
+                  <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Prohibited Practices</h4>
+                  <ul style="margin: 0; padding-left: 20px; line-height: 1.6; color: #666;">
+                    <li>Plagiarized or copied solutions</li>
+                    <li>Privacy-violating data collection</li>
+                    <li>Solutions that amplify bias or discrimination</li>
+                    <li>Unauthorized use of proprietary datasets</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Integrity Standards</h4>
+                  <ul style="margin: 0; padding-left: 20px; line-height: 1.6; color: #666;">
+                    <li>All code must be original or properly attributed</li>
+                    <li>Open-source libraries and APIs are permitted</li>
+                    <li>Transparent methodology and data documentation</li>
+                    <li>Honest representation of capabilities and limitations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evaluation Framework -->
+    <section class="section" id="judging">
+      <div class="container">
+        <h2 style="color: #00315c; text-align: center; margin-bottom: 40px; font-weight: 700; font-size: 2.2rem;">Evaluation Framework</h2>
+        
+        <!-- Judging Process Overview -->
+        <div style="background: white; border: 3px solid #FF7F00; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(255, 127, 0, 0.1); max-width: 1000px; margin: 0 auto 40px;">
+          <h3 style="color: #00315c; margin-bottom: 20px; font-weight: 700; font-size: 1.5rem; text-align: center;">Expert Panel Assessment Process</h3>
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; color: #333; text-align: center;">Solutions undergo comprehensive evaluation by distinguished judges from academia, industry, and policy sectors. Each team presents their solution in a structured 15-minute session (10-minute presentation + 5-minute Q&A).</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px;">
+            <div style="text-align: center; padding: 20px;">
+              <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.3rem; font-weight: bold;">01</div>
+              <h4 style="color: #00315c; margin-bottom: 8px; font-weight: 600;">Technical Review</h4>
+              <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Code quality, architecture, and implementation assessment</p>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+              <div style="background: linear-gradient(135deg, #FF7F00, #FF9933); color: black; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.3rem; font-weight: bold;">02</div>
+              <h4 style="color: #00315c; margin-bottom: 8px; font-weight: 600;">Impact Evaluation</h4>
+              <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Social benefit and equity advancement measurement</p>
+            </div>
+            <div style="text-align: center; padding: 20px;">
+              <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.3rem; font-weight: bold;">03</div>
+              <h4 style="color: #00315c; margin-bottom: 8px; font-weight: 600;">Presentation Assessment</h4>
+              <p style="color: #666; font-size: 0.95rem; line-height: 1.5;">Communication clarity and demonstration effectiveness</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scoring Framework -->
+        <div style="max-width: 1200px; margin: 0 auto;">
+          <h3 style="color: #00315c; text-align: center; margin-bottom: 40px; font-weight: 700; font-size: 2rem;">Comprehensive Assessment Matrix</h3>
+          
+          <!-- Evaluation Criteria Cards -->
+          <div style="display: grid; gap: 20px; margin-bottom: 50px;">
+            
+            <!-- Criterion 1: Social Impact & Equity -->
+            <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+              <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0; font-weight: 600; font-size: 1.3rem;">Social Impact & Equity Assessment</h3>
+                <div style="background: #FF7F00; color: black; padding: 8px 15px; border-radius: 15px; font-weight: bold; font-size: 0.9rem;">30 Points</div>
+              </div>
+              <div style="padding: 25px;">
+                <div style="display: grid; gap: 20px;">
+                  <div style="border-left: 4px solid #00315c; padding-left: 20px;">
+                    <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Primary Evaluation Criteria</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Addresses documented AI system disparities</li>
+                        <li>Demonstrates measurable bias reduction</li>
+                        <li>Shows scalable social benefit potential</li>
+                      </ul>
+                      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Considers diverse stakeholder perspectives</li>
+                        <li>Provides evidence of community engagement</li>
+                        <li>Aligns with equitable AI principles</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Criterion 2: Technical Implementation -->
+            <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+              <div style="background: linear-gradient(135deg, #FF7F00, #FF9933); color: black; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0; font-weight: 600; font-size: 1.3rem;">Technical Implementation Excellence</h3>
+                <div style="background: #00315c; color: white; padding: 8px 15px; border-radius: 15px; font-weight: bold; font-size: 0.9rem;">25 Points</div>
+              </div>
+              <div style="padding: 25px;">
+                <div style="display: grid; gap: 20px;">
+                  <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                    <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Technical Standards Assessment</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Code quality and comprehensive documentation</li>
+                        <li>Appropriate AI/ML methodology selection</li>
+                        <li>Robust system architecture and design</li>
+                      </ul>
+                      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Performance optimization and scalability</li>
+                        <li>Security and privacy implementation</li>
+                        <li>Integration capabilities and compatibility</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Criterion 3: Innovation & Methodology -->
+            <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+              <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0; font-weight: 600; font-size: 1.3rem;">Innovation & Research Methodology</h3>
+                <div style="background: #FF7F00; color: black; padding: 8px 15px; border-radius: 15px; font-weight: bold; font-size: 0.9rem;">20 Points</div>
+              </div>
+              <div style="padding: 25px;">
+                <div style="display: grid; gap: 20px;">
+                  <div style="border-left: 4px solid #00315c; padding-left: 20px;">
+                    <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Innovation Evaluation Framework</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Novel algorithmic fairness approaches</li>
+                        <li>Creative technology application strategies</li>
+                        <li>Unique problem-solving methodologies</li>
+                      </ul>
+                      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                        <li>Original research insights and contributions</li>
+                        <li>Interdisciplinary integration effectiveness</li>
+                        <li>Breakthrough thinking demonstration</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Combined Criteria for Deployment & Communication -->
+            <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 20px;">
+              <!-- Criterion 4: Deployment Readiness -->
+              <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <div style="background: linear-gradient(135deg, #FF7F00, #FF9933); color: black; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center;">
+                  <h3 style="margin: 0; font-weight: 600; font-size: 1.2rem;">Deployment Viability</h3>
+                  <div style="background: #00315c; color: white; padding: 8px 15px; border-radius: 15px; font-weight: bold; font-size: 0.9rem;">15 Points</div>
+                </div>
+                <div style="padding: 25px;">
+                  <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                    <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Implementation Assessment</h4>
+                    <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                      <li>Functional prototype demonstration</li>
+                      <li>Realistic deployment pathways</li>
+                      <li>Resource requirements planning</li>
+                      <li>Long-term sustainability considerations</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Criterion 5: Presentation Excellence -->
+              <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center;">
+                  <h3 style="margin: 0; font-weight: 600; font-size: 1.2rem;">Communication</h3>
+                  <div style="background: #FF7F00; color: black; padding: 8px 15px; border-radius: 15px; font-weight: bold; font-size: 0.9rem;">10 Points</div>
+                </div>
+                <div style="padding: 25px;">
+                  <div style="border-left: 4px solid #00315c; padding-left: 20px;">
+                    <h4 style="color: #00315c; margin: 0 0 15px 0; font-weight: 600;">Presentation Quality</h4>
+                    <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                      <li>Clear problem articulation</li>
+                      <li>Effective demonstration</li>
+                      <li>Professional delivery</li>
+                      <li>Technical Q&A proficiency</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Awards & Recognition -->
+        <div style="margin-top: 60px;">
+          <h3 style="text-align: center; color: #00315c; margin-bottom: 40px; font-weight: 700; font-size: 2rem;">Distinguished Awards Program</h3>
+          
+          <!-- Main Competition Awards -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
+            
+            <!-- Youth Track Awards -->
+            <div style="background: white; border: 3px solid #00315c; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1);">
+              <div style="text-align: center; margin-bottom: 25px;">
+                <div style="background: #00315c; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem; font-weight: bold;">01</div>
+                <h4 style="color: #00315c; margin-bottom: 10px; font-weight: 700; font-size: 1.3rem;">Youth Track Recognition</h4>
+                <div style="background: #FF7F00; color: black; padding: 8px 20px; border-radius: 20px; font-weight: bold; display: inline-block; font-size: 1rem;">$10,000 Prize Pool</div>
+              </div>
+              <div style="border-top: 2px solid #f8f9fa; padding-top: 20px;">
+                <div style="display: grid; gap: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; background: #f8f9fa; border-radius: 8px;">
+                    <span style="font-weight: 600; color: #00315c;">First Place</span>
+                    <span style="color: #FF7F00; font-weight: bold;">$5,000</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; background: #f8f9fa; border-radius: 8px;">
+                    <span style="font-weight: 600; color: #00315c;">Second Place</span>
+                    <span style="color: #FF7F00; font-weight: bold;">$3,000</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; background: #f8f9fa; border-radius: 8px;">
+                    <span style="font-weight: 600; color: #00315c;">Third Place</span>
+                    <span style="color: #FF7F00; font-weight: bold;">$2,000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- College Track Awards -->
+            <div style="background: white; border: 3px solid #FF7F00; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(255, 127, 0, 0.1);">
+              <div style="text-align: center; margin-bottom: 25px;">
+                <div style="background: #FF7F00; color: black; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem; font-weight: bold;">02</div>
+                <h4 style="color: #00315c; margin-bottom: 10px; font-weight: 700; font-size: 1.3rem;">College Track Recognition</h4>
+                <div style="background: #00315c; color: white; padding: 8px 20px; border-radius: 20px; font-weight: bold; display: inline-block; font-size: 1rem;">$15,000 Prize Pool</div>
+              </div>
+              <div style="border-top: 2px solid #f8f9fa; padding-top: 20px;">
+                <div style="display: grid; gap: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; background: #f8f9fa; border-radius: 8px;">
+                    <span style="font-weight: 600; color: #00315c;">First Place</span>
+                    <span style="color: #FF7F00; font-weight: bold;">$8,000</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; background: #f8f9fa; border-radius: 8px;">
+                    <span style="font-weight: 600; color: #00315c;">Second Place</span>
+                    <span style="color: #FF7F00; font-weight: bold;">$4,500</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 15px; background: #f8f9fa; border-radius: 8px;">
+                    <span style="font-weight: 600; color: #00315c;">Third Place</span>
+                    <span style="color: #FF7F00; font-weight: bold;">$2,500</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Special Recognition Awards -->
+          <div style="background: white; border: 2px solid #00315c; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1);">
+            <h4 style="text-align: center; color: #00315c; margin-bottom: 25px; font-weight: 700; font-size: 1.4rem;">Special Recognition Categories</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
               
-              <div class="prize-info" style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
-                <h4 style="color: #00315c; margin-bottom: 10px;">Prize Pool</h4>
-                <p style="font-size: 1.5rem; font-weight: bold; color: #FF7F00;">$15,000</p>
-                <p style="font-size: 0.9rem; color: #666;">1st: $8,000 | 2nd: $4,500 | 3rd: $2,500</p>
+              <div style="text-align: center; padding: 20px;">
+                <div style="background: #00315c; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.2rem; font-weight: bold;">01</div>
+                <h5 style="color: #00315c; margin-bottom: 8px; font-weight: 600;">Innovation Excellence</h5>
+                <p style="color: #FF7F00; font-weight: bold; margin: 5px 0;">$1,000 + Mentorship</p>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Breakthrough approaches to AI fairness and bias mitigation</p>
+              </div>
+
+              <div style="text-align: center; padding: 20px;">
+                <div style="background: #FF7F00; color: black; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.2rem; font-weight: bold;">02</div>
+                <h5 style="color: #00315c; margin-bottom: 8px; font-weight: 600;">Social Impact Leadership</h5>
+                <p style="color: #FF7F00; font-weight: bold; margin: 5px 0;">$1,000 + Platform Feature</p>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Solutions with measurable community benefit and equity advancement</p>
+              </div>
+
+              <div style="text-align: center; padding: 20px;">
+                <div style="background: #00315c; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.2rem; font-weight: bold;">03</div>
+                <h5 style="color: #00315c; margin-bottom: 8px; font-weight: 600;">Community Choice</h5>
+                <p style="color: #FF7F00; font-weight: bold; margin: 5px 0;">$500 + Recognition</p>
+                <p style="font-size: 0.9rem; color: #666; line-height: 1.5;">Voted by conference attendees and community stakeholders</p>
               </div>
             </div>
           </div>
@@ -173,210 +517,118 @@
       </div>
     </section>
 
-    <!-- Rules and Guidelines -->
-    <section class="home-section" id="rules" style="background: #f8f9fa;">
+    <!-- Registration Process -->
+    <section class="section" id="registration" style="background: #00315c; color: white;">
       <div class="container">
-        <div class="section-header">
-          <h2>Rules & Guidelines</h2>
-          <p class="section-subtitle">Important information for all participants</p>
-        </div>
-        
-        <div class="rules-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 40px;">
-          <div class="rules-section" style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 49, 92, 0.1);">
-            <h3 style="color: #00315c; margin-bottom: 20px; display: flex; align-items: center;"><span style="margin-right: 10px;">⚖️</span>General Rules</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 10px;">All solutions must address equitable AI challenges</li>
-              <li style="margin-bottom: 10px;">Teams must register by June 10, 2026</li>
-              <li style="margin-bottom: 10px;">Maximum team size: 4 (Youth) or 5 (College)</li>
-              <li style="margin-bottom: 10px;">All code must be original or properly attributed</li>
-              <li style="margin-bottom: 10px;">Use of pre-built APIs and frameworks is allowed</li>
-              <li style="margin-bottom: 10px;">Final submission deadline: June 16, 6:00 PM EDT</li>
-            </ul>
-          </div>
+        <div style="max-width: 1200px; margin: 0 auto;">
+          <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; text-align: center;">Registration & Competition Process</h2>
+          <p style="font-size: 1.3rem; margin-bottom: 50px; opacity: 0.9; text-align: center; max-width: 800px; margin: 0 auto 50px;">Participate in NSEA 2026's flagship hackathon competition. Competitive registration with limited capacity - secure your team's position by June 10, 2026.</p>
           
-          <div class="rules-section" style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 49, 92, 0.1);">
-            <h3 style="color: #00315c; margin-bottom: 20px; display: flex; align-items: center;"><span style="margin-right: 10px;">🎯</span>Solution Requirements</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 10px;">Must demonstrate clear bias mitigation or equity enhancement</li>
-              <li style="margin-bottom: 10px;">Include data sources and methodology documentation</li>
-              <li style="margin-bottom: 10px;">Working prototype or proof-of-concept required</li>
-              <li style="margin-bottom: 10px;">Consider ethical implications and potential harm</li>
-              <li style="margin-bottom: 10px;">Solutions should be scalable and practical</li>
-              <li style="margin-bottom: 10px;">Must align with NSEA 2026 equitable AI theme</li>
-            </ul>
-          </div>
-          
-          <div class="rules-section" style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 49, 92, 0.1);">
-            <h3 style="color: #00315c; margin-bottom: 20px; display: flex; align-items: center;"><span style="margin-right: 10px;">📋</span>Submission Format</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 10px;">5-minute video demonstration</li>
-              <li style="margin-bottom: 10px;">Source code repository (GitHub preferred)</li>
-              <li style="margin-bottom: 10px;">Technical documentation (max 10 pages)</li>
-              <li style="margin-bottom: 10px;">Live presentation to judges (10 minutes + Q&A)</li>
-              <li style="margin-bottom: 10px;">Business/impact plan (optional but recommended)</li>
-              <li style="margin-bottom: 10px;">All submissions must be in English</li>
-            </ul>
-          </div>
-          
-          <div class="rules-section" style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0, 49, 92, 0.1);">
-            <h3 style="color: #00315c; margin-bottom: 20px; display: flex; align-items: center;"><span style="margin-right: 10px;">🚫</span>Prohibited Content</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 10px;">Solutions that increase bias or discrimination</li>
-              <li style="margin-bottom: 10px;">Privacy-violating applications</li>
-              <li style="margin-bottom: 10px;">Plagiarized or copied solutions</li>
-              <li style="margin-bottom: 10px;">Offensive, harmful, or inappropriate content</li>
-              <li style="margin-bottom: 10px;">Solutions using unauthorized proprietary data</li>
-              <li style="margin-bottom: 10px;">Weaponization of AI technologies</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="ethics-notice" style="background: #00315c; color: white; padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center;">
-          <h3 style="color: #FF7F00; margin-bottom: 15px;">📜 Ethics & Integrity Commitment</h3>
-          <p style="line-height: 1.8;">All participants must commit to developing AI solutions that promote equity, fairness, and social good. We encourage participants to consider the broader societal impacts of their innovations and to build responsibly.</p>
-        </div>
-      </div>
-    </section>
+          <!-- Process Timeline -->
+          <div style="margin-bottom: 50px;">
+            <h3 style="text-align: center; color: #FF7F00; margin-bottom: 30px; font-weight: 600; font-size: 1.6rem;">Competition Process & Timeline</h3>
+            
+            <!-- Timeline Cards -->
+            <div style="display: grid; gap: 20px; max-width: 900px; margin: 0 auto;">
+              
+              <!-- Registration Phase -->
+              <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px;">
+                  <h3 style="margin: 0; font-weight: 600;">Phase 1: Registration & Team Formation</h3>
+                </div>
+                <div style="padding: 25px;">
+                  <div style="display: grid; gap: 20px;">
+                    <div style="border-left: 4px solid #00315c; padding-left: 20px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="color: #00315c; margin: 0; font-weight: 600;">Registration Period</h4>
+                        <span style="background: #FF7F00; color: black; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; font-weight: 600;">Now through June 10, 2026</span>
+                      </div>
+                      <p style="color: black; margin: 0; line-height: 1.6;">Team registration, eligibility verification, and preliminary project concept submission</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <!-- Judging Criteria -->
-    <section class="home-section" id="judging">
-      <div class="container">
-        <div class="section-header">
-          <h2>Judging Criteria</h2>
-          <p class="section-subtitle">How your solutions will be evaluated</p>
-        </div>
-        
-        <div class="judging-overview" style="background: white; border: 3px solid #FF7F00; border-radius: 20px; padding: 40px; margin-bottom: 40px; text-align: center;">
-          <h3 style="color: #00315c; margin-bottom: 20px;">Evaluation Process</h3>
-          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">Solutions will be evaluated by a panel of expert judges including AI researchers, industry professionals, and ethics specialists. Each team will present their solution in a 10-minute pitch followed by a 5-minute Q&A session.</p>
-          <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
-            <div>
-              <div style="font-size: 2rem; color: #FF7F00; margin-bottom: 10px;">⚖️</div>
-              <div style="font-weight: 600;">Fair & Impartial</div>
-            </div>
-            <div>
-              <div style="font-size: 2rem; color: #FF7F00; margin-bottom: 10px;">👥</div>
-              <div style="font-weight: 600;">Expert Panel</div>
-            </div>
-            <div>
-              <div style="font-size: 2rem; color: #FF7F00; margin-bottom: 10px;">📊</div>
-              <div style="font-weight: 600;">Comprehensive</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="criteria-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
-          <div class="criteria-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1); position: relative;">
-            <div class="criteria-weight" style="position: absolute; top: -15px; right: 20px; background: #FF7F00; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold;">30%</div>
-            <div class="criteria-icon" style="font-size: 3rem; margin-bottom: 20px;">🎯</div>
-            <h3 style="color: #00315c; margin-bottom: 15px;">Impact & Equity Focus</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Addresses real-world equity challenges</li>
-              <li style="margin-bottom: 8px;">Demonstrates clear bias reduction</li>
-              <li style="margin-bottom: 8px;">Potential for positive social impact</li>
-              <li style="margin-bottom: 8px;">Considers diverse user groups</li>
-            </ul>
-          </div>
-          
-          <div class="criteria-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1); position: relative;">
-            <div class="criteria-weight" style="position: absolute; top: -15px; right: 20px; background: #FF7F00; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold;">25%</div>
-            <div class="criteria-icon" style="font-size: 3rem; margin-bottom: 20px;">⚙️</div>
-            <h3 style="color: #00315c; margin-bottom: 15px;">Technical Excellence</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Code quality and documentation</li>
-              <li style="margin-bottom: 8px;">Use of appropriate AI/ML techniques</li>
-              <li style="margin-bottom: 8px;">System architecture and design</li>
-              <li style="margin-bottom: 8px;">Performance and scalability</li>
-            </ul>
-          </div>
-          
-          <div class="criteria-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1); position: relative;">
-            <div class="criteria-weight" style="position: absolute; top: -15px; right: 20px; background: #FF7F00; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold;">20%</div>
-            <div class="criteria-icon" style="font-size: 3rem; margin-bottom: 20px;">💡</div>
-            <h3 style="color: #00315c; margin-bottom: 15px;">Innovation & Creativity</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Novel approach to problem-solving</li>
-              <li style="margin-bottom: 8px;">Creative use of technology</li>
-              <li style="margin-bottom: 8px;">Unique perspective or methodology</li>
-              <li style="margin-bottom: 8px;">Originality of the solution</li>
-            </ul>
-          </div>
-          
-          <div class="criteria-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1); position: relative;">
-            <div class="criteria-weight" style="position: absolute; top: -15px; right: 20px; background: #FF7F00; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold;">15%</div>
-            <div class="criteria-icon" style="font-size: 3rem; margin-bottom: 20px;">🚀</div>
-            <h3 style="color: #00315c; margin-bottom: 15px;">Implementation & Viability</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Working prototype demonstration</li>
-              <li style="margin-bottom: 8px;">Feasibility of deployment</li>
-              <li style="margin-bottom: 8px;">Resource requirements</li>
-              <li style="margin-bottom: 8px;">Sustainability considerations</li>
-            </ul>
-          </div>
-          
-          <div class="criteria-card" style="background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 49, 92, 0.1); position: relative;">
-            <div class="criteria-weight" style="position: absolute; top: -15px; right: 20px; background: #FF7F00; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold;">10%</div>
-            <div class="criteria-icon" style="font-size: 3rem; margin-bottom: 20px;">🎤</div>
-            <h3 style="color: #00315c; margin-bottom: 15px;">Presentation Quality</h3>
-            <ul style="padding-left: 20px;">
-              <li style="margin-bottom: 8px;">Clarity of explanation</li>
-              <li style="margin-bottom: 8px;">Effective demonstration</li>
-              <li style="margin-bottom: 8px;">Team communication skills</li>
-              <li style="margin-bottom: 8px;">Response to judge questions</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="special-awards" style="margin-top: 60px;">
-          <h3 style="text-align: center; color: #00315c; margin-bottom: 30px;">🏆 Special Recognition Awards</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-            <div style="background: linear-gradient(135deg, #FF7F00 0%, #ffaa00 100%); color: white; padding: 25px; border-radius: 15px; text-align: center;">
-              <h4>Most Innovative Solution</h4>
-              <p style="margin-top: 10px; opacity: 0.9;">$1,000 + Mentorship</p>
-            </div>
-            <div style="background: linear-gradient(135deg, #00315c 0%, #004684 100%); color: white; padding: 25px; border-radius: 15px; text-align: center;">
-              <h4>Best Social Impact</h4>
-              <p style="margin-top: 10px; opacity: 0.9;">$1,000 + Platform Feature</p>
-            </div>
-            <div style="background: linear-gradient(135deg, #28a745 0%, #34ce57 100%); color: white; padding: 25px; border-radius: 15px; text-align: center;">
-              <h4>People's Choice</h4>
-              <p style="margin-top: 10px; opacity: 0.9;">$500 + Community Recognition</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              <!-- Competition Phase -->
+              <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <div style="background: linear-gradient(135deg, #FF7F00, #FF9933); color: black; padding: 15px 25px;">
+                  <h3 style="margin: 0; font-weight: 600;">Phase 2: Development Competition</h3>
+                </div>
+                <div style="padding: 25px;">
+                  <div style="display: grid; gap: 20px;">
+                    <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="color: #00315c; margin: 0; font-weight: 600;">48-Hour Development Sprint</h4>
+                        <span style="background: #00315c; color: white; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; font-weight: 600;">June 15-16, 2026</span>
+                      </div>
+                      <p style="color: black; margin: 0; line-height: 1.6;">Intensive development period with mentor support, technical resources, and comprehensive workspace facilities</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <!-- Registration CTA -->
-    <section class="home-section" id="registration" style="background: linear-gradient(135deg, #00315c 0%, #004684 100%); color: white; text-align: center;">
-      <div class="container">
-        <div style="max-width: 800px; margin: 0 auto;">
-          <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: white;">Ready to Build the Future?</h2>
-          <p style="font-size: 1.3rem; margin-bottom: 30px; opacity: 0.9;">Join the NSEA 2026 Hackathon and create AI solutions that make a difference. Registration closes June 10, 2026.</p>
-          
-          <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 40px;">
-            <a href="mailto:hackathon@nsea2026.org" class="cta-button" style="background: #FF7F00; color: white; border: none;">Register Your Team</a>
-            <a href="contact.html" class="cta-button" style="background: transparent; border: 2px solid white; color: white;">Ask Questions</a>
+              <!-- Presentation Phase -->
+              <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px;">
+                  <h3 style="margin: 0; font-weight: 600;">Phase 3: Presentations & Recognition</h3>
+                </div>
+                <div style="padding: 25px;">
+                  <div style="display: grid; gap: 20px;">
+                    <div style="border-left: 4px solid #00315c; padding-left: 20px;">
+                      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h4 style="color: #00315c; margin: 0; font-weight: 600;">Final Presentations & Awards Ceremony</h4>
+                        <span style="background: #FF7F00; color: black; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; font-weight: 600;">June 17, 2026</span>
+                      </div>
+                      <p style="color: black; margin: 0; line-height: 1.6;">Team presentations to expert panel, awards ceremony, and recognition during NSEA 2026 closing session</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div style="background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px;">
-            <h3 style="margin-bottom: 20px; color: #FF7F00;">Important Dates</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-              <div>
-                <div style="font-size: 1.2rem; font-weight: bold;">June 10</div>
-                <div style="opacity: 0.8;">Registration Deadline</div>
+          <!-- Registration Actions -->
+          <div style="text-align: center; margin-bottom: 50px;">
+            <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
+              <a href="mailto:hackathon@nsea2026.org" style="background: #FF7F00; color: black; text-decoration: none; padding: 18px 35px; border-radius: 8px; font-size: 1.1rem; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 127, 0, 0.3); transition: all 0.3s ease;">Register Your Team</a>
+              <a href="contact.html" style="background: transparent; border: 2px solid #FF7F00; color: #FF7F00; text-decoration: none; padding: 16px 35px; border-radius: 8px; font-size: 1.1rem; font-weight: 700; transition: all 0.3s ease;">Contact Organizers</a>
+            </div>
+            <p style="font-size: 0.95rem; opacity: 0.8; max-width: 600px; margin: 0 auto;">Registration questions or technical requirements clarification? Contact our organizing committee for comprehensive support.</p>
+          </div>
+          
+          <!-- Support Infrastructure -->
+          <div style="background: rgba(255, 127, 0, 0.1); border: 2px solid #FF7F00; border-radius: 15px; padding: 40px;">
+            <h3 style="color: #FF7F00; margin-bottom: 30px; font-weight: 600; font-size: 1.5rem; text-align: center;">Competition Infrastructure & Support</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px;">
+              
+              <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                <h4 style="margin-bottom: 15px; color: #FF7F00; font-weight: 600; font-size: 1.2rem;">Technical Resources</h4>
+                <ul style="color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 0.95rem; margin: 0; padding-left: 20px;">
+                  <li>High-performance computing environment with GPU clusters</li>
+                  <li>Enterprise-grade internet connectivity and cloud services</li>
+                  <li>Premium development platforms and AI/ML toolkits</li>
+                  <li>24/7 technical support and infrastructure monitoring</li>
+                </ul>
               </div>
-              <div>
-                <div style="font-size: 1.2rem; font-weight: bold;">June 15</div>
-                <div style="opacity: 0.8;">Hackathon Begins</div>
+
+              <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                <h4 style="margin-bottom: 15px; color: #FF7F00; font-weight: 600; font-size: 1.2rem;">Expert Mentorship</h4>
+                <ul style="color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 0.95rem; margin: 0; padding-left: 20px;">
+                  <li>Distinguished mentors from leading AI research institutions</li>
+                  <li>Industry experts from major technology companies</li>
+                  <li>Specialized workshops on fairness metrics and bias detection</li>
+                  <li>Business development and commercialization guidance</li>
+                </ul>
               </div>
-              <div>
-                <div style="font-size: 1.2rem; font-weight: bold;">June 16</div>
-                <div style="opacity: 0.8;">Final Presentations</div>
-              </div>
-              <div>
-                <div style="font-size: 1.2rem; font-weight: bold;">June 17</div>
-                <div style="opacity: 0.8;">Awards Ceremony</div>
+
+              <div style="border-left: 4px solid #FF7F00; padding-left: 20px;">
+                <h4 style="margin-bottom: 15px; color: #FF7F00; font-weight: 600; font-size: 1.2rem;">Comprehensive Support</h4>
+                <ul style="color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 0.95rem; margin: 0; padding-left: 20px;">
+                  <li>Complete meal service and refreshment provisions</li>
+                  <li>Ergonomic workspace with collaborative facilities</li>
+                  <li>Executive networking opportunities and industry connections</li>
+                  <li>Post-competition incubation and funding pathway access</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -430,15 +682,7 @@
       });
     });
 
-    // Add hover effects to track cards
-    document.querySelectorAll('.track-card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-      });
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-      });
-    });
+    // Track card hover effects are now handled by CSS
   </script>
 </body>
 </html>
