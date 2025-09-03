@@ -145,29 +145,35 @@ function generateRegistrationCards() {
 // Function to generate special categories HTML
 function generateSpecialCategories() {
   return `
-    <div class="special-categories-container">
-      <div class="special-categories-simple">
-        <h4>Special Categories</h4>
-        <p class="special-subtitle">Exclusive invitations for distinguished speakers</p>
-        
-        <div class="special-categories-inline">
+    <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 20px;">
+      <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px;">
+        <h4 style="margin: 0; font-weight: 600;">Special Categories</h4>
+        <p style="margin: 8px 0 0 0; font-size: 0.95rem; opacity: 0.9;">Exclusive invitations for distinguished speakers</p>
+      </div>
+      <div style="padding: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
           ${registrationData.specialCategories
             .map(
-              (category) => `
-            <div class="special-category-badge">
-              <span class="special-icon">🎯</span>
-              <span>${category.title}</span>
-              <span class="special-price-badge">${category.price}</span>
+              (category, index) => `
+            <div style="display: flex; align-items: center; gap: 12px; padding: 15px 20px; background: linear-gradient(135deg, ${index % 2 === 0 ? '#00315c' : '#FF7F00'}, ${index % 2 === 0 ? '#004684' : '#FF9933'}); color: ${index % 2 === 0 ? 'white' : 'black'}; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+              <div style="background: ${index % 2 === 0 ? 'white' : '#00315c'}; color: ${index % 2 === 0 ? '#00315c' : 'white'}; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; flex-shrink: 0;">
+                ${String(index + 1).padStart(2, '0')}
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 2px;">${category.title}</div>
+                <div style="font-weight: bold; font-size: 0.9rem; opacity: 0.9;">${category.price}</div>
+              </div>
             </div>
           `
             )
             .join("")}
         </div>
         
-        <div class="special-simple-footer">
-          <p><strong>Early Bird:</strong> ${
-            registrationData.earlyBirdDeadline
-          } | <strong>Group rates available</strong> for 5+ registrations</p>
+        <div style="border-top: 2px solid #00315c; padding-top: 15px; text-align: center;">
+          <p style="margin: 0; color: #666; font-size: 0.95rem; line-height: 1.5;">
+            <strong style="color: #00315c;">Early Bird:</strong> ${registrationData.earlyBirdDeadline} | 
+            <strong style="color: #FF7F00;">Group rates available</strong> for 5+ registrations
+          </p>
         </div>
       </div>
     </div>
