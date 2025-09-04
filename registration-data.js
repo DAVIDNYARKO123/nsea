@@ -8,7 +8,6 @@ const registrationData = {
       daily: 75,
       features: ["Digital certificate", "Student poster session"],
       link: "https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/",
-      widget: `<div id="whova-regform-widget" data-reactroot=""></div><div id="whova-regform-seo-widget" data-reactroot="">Powered By <a class="brandlink" target="_blank" href="https://whova.com/"><b>Whova</b></a><br/><a class="brandanchorlink" target="_blank" href="https://whova.com/event-registration-software/">Event registration software</a></div><script src="https://whova.com/static/frontend/xems/js/whova-regform-widget.js?eid=JAZH@ay79U76bklpttLE&amp;host=https://whova.com&amp;registration=attendee&amp;regpagetoken=" type="text/javascript" id="whova-embeded-regform-script" data-reactroot=""></script>`,
     },
     {
       title: "Student Presenter",
@@ -22,7 +21,6 @@ const registrationData = {
         "Certificate of presentation",
       ],
       link: "https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/9hx0qvdk",
-      widget: `<div id="whova-regform-widget" data-reactroot=""></div><div id="whova-regform-seo-widget" data-reactroot="">Powered By <a class="brandlink" target="_blank" href="https://whova.com/"><b>Whova</b></a><br/><a class="brandanchorlink" target="_blank" href="https://whova.com/event-registration-software/">Event registration software</a></div><script src="https://whova.com/static/frontend/xems/js/whova-regform-widget.js?eid=JAZH@ay79U76bklpttLE&amp;host=https://whova.com&amp;registration=attendee&amp;regpagetoken=9hx0qvdk" type="text/javascript" id="whova-embeded-regform-script" data-reactroot=""></script>`,
     },
     {
       title: "General Attendee",
@@ -31,7 +29,6 @@ const registrationData = {
       daily: 100,
       features: ["Digital certificate"],
       link: "https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/zoaamyjp",
-      widget: `<div id="whova-regform-widget" data-reactroot=""></div><div id="whova-regform-seo-widget" data-reactroot="">Powered By <a class="brandlink" target="_blank" href="https://whova.com/"><b>Whova</b></a><br/><a class="brandanchorlink" target="_blank" href="https://whova.com/event-registration-software/">Event registration software</a></div><script src="https://whova.com/static/frontend/xems/js/whova-regform-widget.js?eid=JAZH@ay79U76bklpttLE&amp;host=https://whova.com&amp;registration=attendee&amp;regpagetoken=zoaamyjp" type="text/javascript" id="whova-embeded-regform-script" data-reactroot=""></script>`,
     },
     {
       title: "Non-Student Presenter",
@@ -44,7 +41,6 @@ const registrationData = {
         "Certificate of presentation",
       ],
       link: "https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/wm749txe",
-      widget: `<div id="whova-regform-widget" data-reactroot=""></div><div id="whova-regform-seo-widget" data-reactroot="">Powered By <a class="brandlink" target="_blank" href="https://whova.com/"><b>Whova</b></a><br/><a class="brandanchorlink" target="_blank" href="https://whova.com/event-registration-software/">Event registration software</a></div><script src="https://whova.com/static/frontend/xems/js/whova-regform-widget.js?eid=JAZH@ay79U76bklpttLE&amp;host=https://whova.com&amp;registration=attendee&amp;regpagetoken=wm749txe" type="text/javascript" id="whova-embeded-regform-script" data-reactroot=""></script>`,
     },
   ],
   sharedFeatures: [
