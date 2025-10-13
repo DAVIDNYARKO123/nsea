@@ -2266,23 +2266,23 @@ footer::before {
 }
 
 .footer-section {
-    background: white;
+    background: linear-gradient(135deg, #00315c, #004684);
     padding: 30px 25px;
     border-radius: 10px;
-    border: 1px solid rgba(0, 49, 92, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     position: relative;
-    box-shadow: 0 2px 8px rgba(0, 49, 92, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .footer-section:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     border-color: #FF7F00;
-    box-shadow: 0 4px 15px rgba(0, 49, 92, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .footer-section h3 {
-    color: #00315c;
+    color: white;
     margin-bottom: 20px;
     font-size: 1.3rem;
     font-weight: 600;
@@ -2295,11 +2295,11 @@ footer::before {
     margin: 10px 0;
     line-height: 1.6;
     font-size: 0.95rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-section a {
-    color: #004684;
+    color: #FF7F00;
     text-decoration: none;
     transition: all 0.3s ease;
     display: inline-block;
@@ -2307,7 +2307,8 @@ footer::before {
 }
 
 .footer-section a:hover {
-    color: #FF7F00;
+    color: white;
+    text-decoration: underline;
 }
 
 .footer-bottom {
