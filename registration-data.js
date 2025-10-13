@@ -62,7 +62,7 @@ const registrationData = {
       note: "By invitation only",
     },
   ],
-  earlyBirdDeadline: "April 15, 2026",
+  earlyBirdDeadline: "January 1, 2026",
   groupDiscountNote: "Group rates available for 5+ registrations",
 };
 
