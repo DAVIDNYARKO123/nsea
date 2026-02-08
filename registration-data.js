@@ -3,10 +3,10 @@ const registrationData = {
   categories: [
     {
       title: "Student Attendee",
-      price: 150,
-      earlyBird: 120,
-      daily: 75,
-      features: ["Digital certificate", "Student poster session"],
+      price: 99,
+      earlyBird: 75,
+      daily: 49.5,
+      features: ["Breakfast included", "Lunch included", "Digital certificate", "Student poster session"],
       link: "https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/",
     },
     {
@@ -14,8 +14,9 @@ const registrationData = {
       price: 0,
       earlyBird: 0,
       daily: 0,
-      special: "FREE with accepted paper",
       features: [
+        "Breakfast included",
+        "Lunch included",
         "Presentation opportunity",
         "Priority travel scholarships",
         "Certificate of presentation",
@@ -27,7 +28,7 @@ const registrationData = {
       price: 200,
       earlyBird: 180,
       daily: 100,
-      features: ["Digital certificate"],
+      features: ["Breakfast included", "Lunch included", "Digital certificate"],
       link: "https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/zoaamyjp",
     },
     {
@@ -36,8 +37,9 @@ const registrationData = {
       earlyBird: 157.5,
       daily: 87.5,
       features: [
+        "Breakfast included",
+        "Lunch included",
         "Presentation opportunity",
-        "Paper publication",
         "Certificate of presentation",
       ],
       link: "https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/wm749txe",
@@ -46,6 +48,8 @@ const registrationData = {
   sharedFeatures: [
     "Access to all sessions",
     "Conference materials",
+    "Breakfast included",
+    "Lunch included",
     "Networking events",
     "Workshop access",
     "Exhibition hall access",
@@ -62,7 +66,7 @@ const registrationData = {
       note: "By invitation only",
     },
   ],
-  earlyBirdDeadline: "April 1, 2026",
+  earlyBirdDeadline: "April 30, 2026",
   groupDiscountNote: "Group rates available for 5+ registrations",
 };
 
