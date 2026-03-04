@@ -2389,18 +2389,40 @@ footer::before {
     min-width: 120px;
     min-height: 120px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     border: 4px solid #004684;
-    background: white;
+    background: linear-gradient(135deg, #00315c, #004684);
     box-shadow: 0 8px 25px rgba(0, 49, 92, 0.15);
     position: relative;
     margin-bottom: 25px;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .speaker-circle:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 35px rgba(0, 49, 92, 0.2);
+}
+
+/* White Person Silhouette on blue background */
+.speaker-circle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center 55%;
+    opacity: 0.6;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.speaker-circle > div {
+    display: none;
 }
 
 .keynote-circle {
@@ -3853,10 +3875,27 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    position: relative;
+    overflow: visible;
+    color: transparent;
     font-size: 3rem;
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(0, 49, 92, 0.2);
+}
+
+/* White Person Silhouette for chair */
+.chair-circle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center 55%;
+    opacity: 0.6;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .chair-content-section {
@@ -3989,15 +4028,41 @@ footer::before {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    overflow: hidden;
+    overflow: visible;
     margin: 0 auto 1.5rem;
     border: 3px solid #FF7F00;
+    background: linear-gradient(135deg, #00315c, #004684);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* White Person Silhouette for committee members */
+.member-image::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+    background-size: 65%;
+    background-repeat: no-repeat;
+    background-position: center 55%;
+    opacity: 0.6;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.member-image > div {
+    display: none !important;
 }
 
 .member-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
+    z-index: 3;
 }
 
 .member-content h4 {
