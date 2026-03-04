@@ -5,61 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Program - NSEA 2026</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="load-components.js"></script>
 </head>
 <body>
-  <header>
-    <div class="header-top">
-      <div class="container">
-        <div>ashlee.kirkland@morgan.edu | (443) 885-4630</div>
-        <div>Morgan State University - Baltimore, MD</div>
-      </div>
-    </div>
-    
-    <nav>
-      <div class="container nav-container">
-        <a href="index.html" class="logo">NSEA 2026</a>
-        
-        <button class="mobile-menu-toggle">☰</button>
-        
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="about.html">About</a>
-            <div class="dropdown">
-              <a href="about.html#ceamls">About CEAMLS</a>
-              <a href="about.html#theme">Conference Theme</a>
-              <a href="venue.html">Venue & Location</a>
-            </div>
-          </li>
-          <li>
-            <a href="call-for-papers.html">Call for Abstracts</a>
-            <div class="dropdown">
-              <a href="call-for-papers.html#guidelines">Submission Guidelines</a>
-              <a href="call-for-papers.html#topics">Research Topics</a>
-              <a href="index.html#dates">Important Dates</a>
-            </div>
-          </li>
-          <li>
-            <a href="index.html#registration">Registration</a>
-            <div class="dropdown">
-              <a href="index.html#registration">Pricing</a>
-              <a href="index.html#registration">Categories</a>
-              <a href="program.html">Program</a>
-              <a href="hackathon.html">Hackathon</a>
-            </div>
-          </li>
-          <li>
-            <a href="committee.html">Committee</a>
-            <div class="dropdown">
-              <a href="committee.html#chairs">Conference Chairs</a>
-              <a href="committee.html#program">Program Committee Members</a>
-            </div>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <div id="header-placeholder"></div>
 
   <main>
     <section class="hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center;">
@@ -475,36 +424,7 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Contact Information</h3>
-          <p>ashlee.kirkland@morgan.edu</p>
-          <p>(443) 885-4630</p>
-          <p>Morgan State University</p>
-          <p>Baltimore, MD 21251</p>
-        </div>
-        <div class="footer-section">
-          <h3>Important Links</h3>
-          <p><a href="index.html#registration" style="color: #FF7F00;">Registration</a></p>
-          <p><a href="call-for-papers.html" style="color: #FF7F00;">Call for Abstracts</a></p>
-          <p><a href="about.html" style="color: #FF7F00;">About CEAMLS</a></p>
-          <p><a href="https://www.morgan.edu" style="color: #FF7F00;" target="_blank">Morgan State University</a></p>
-        </div>
-        <div class="footer-section">
-          <h3>Follow Us</h3>
-          <p>Twitter: @MorganStateU</p>
-          <p>LinkedIn: Morgan State University</p>
-          <p>Facebook: Morgan State University</p>
-          <p>Website: <a href="https://www.morgan.edu" style="color: #FF7F00;" target="_blank">morgan.edu</a></p>
-        </div>
-      </div>
-      <div style="border-top: 1px solid black; padding-top: 20px; margin-top: 30px;">
-        <p>&copy; 2026 Center for Equitable AI & Machine Learning Systems (CEAMLS), Morgan State University. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <style>
     @media print {
@@ -547,9 +467,7 @@
   </style>
 
   <script>
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    });
+    
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
