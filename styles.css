@@ -3791,6 +3791,79 @@ footer::before {
     font-weight: 600;
 }
 
+/* New Committee Chair Card */
+.committee-chair-wrapper {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+}
+
+.committee-chair-card-new {
+    background: white;
+    border: 2px solid #00315c;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 49, 92, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.committee-chair-card-new:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 49, 92, 0.15);
+}
+
+.chair-image-section {
+    flex-shrink: 0;
+}
+
+.chair-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00315c, #004684);
+    border: 4px solid #FF7F00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 49, 92, 0.2);
+}
+
+.chair-content-section {
+    flex: 1;
+}
+
+.chair-badge {
+    display: inline-block;
+    background: #00315c;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.chair-name {
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+    color: #00315c;
+    font-weight: 700;
+}
+
+.chair-title {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
 /* Conference Chairs Grid */
 .committee-chairs-grid {
     display: grid;
@@ -3887,8 +3960,8 @@ footer::before {
 }
 
 .member-image {
-    width: 90px;
-    height: 90px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 1.5rem;
@@ -3923,34 +3996,64 @@ footer::before {
 
 /* Committee Mobile Responsiveness */
 @media (max-width: 768px) {
+    .committee-chair-wrapper {
+        padding: 0 15px;
+    }
+
+    .committee-chair-card-new {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .chair-circle {
+        width: 120px;
+        height: 120px;
+        font-size: 2.5rem;
+    }
+
+    .chair-badge {
+        font-size: 0.7rem;
+        padding: 5px 14px;
+    }
+
+    .chair-name {
+        font-size: 1.6rem;
+    }
+
+    .chair-title {
+        font-size: 1rem;
+    }
+
     .committee-chairs-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .committee-chair-card {
         flex-direction: column;
         text-align: center;
         padding: 1.5rem;
     }
-    
+
     .committee-chair-image {
         width: 100px;
         height: 100px;
     }
-    
+
     .committee-members-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
     }
-    
+
     .committee-member-card {
         padding: 1.25rem;
     }
-    
+
     .member-image {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
     }
 }
 
