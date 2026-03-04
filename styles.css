@@ -1754,38 +1754,29 @@ nav {
     margin-bottom: 15px;
 }
 
-/* Topics Timeline */
+/* Topics Timeline - 2 Column Grid */
 .topics-timeline {
-    position: relative;
-    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1400px;
     margin: 40px auto 0;
 }
 
 .topics-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(135deg, #00315c 0%, #FF7F00 100%);
+    display: none;
 }
 
 .topic-timeline-item {
     position: relative;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 40px;
-    padding-left: 30px;
+    display: block;
+    margin-bottom: 0;
+    padding-left: 0;
 }
 
 .topic-timeline-number {
-    flex: 0 0 60px;
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
-    min-height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: linear-gradient(135deg, #004684 0%, #00315c 100%);
     border: 3px solid #FF7F00;
@@ -1793,24 +1784,22 @@ nav {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
-    position: relative;
+    position: absolute;
+    top: -15px;
+    left: 20px;
     z-index: 3;
-    margin-right: 25px;
-    margin-bottom: 0;
 }
 
 .topic-timeline-content {
-    flex: 1;
     background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 49, 92, 0.08);
-    position: relative;
-    z-index: 2;
-    border-left: 3px solid #004684;
+    padding: 40px 25px 25px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 49, 92, 0.12);
+    border-top: 4px solid #FF7F00;
     transition: all 0.3s ease;
+    height: 100%;
 }
 
 .topic-timeline-content:hover {
@@ -2190,6 +2179,19 @@ nav {
     font-weight: bold;
 }
 
+/* Tablet Responsiveness */
+@media (max-width: 1024px) {
+    .topics-timeline {
+        gap: 25px;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .topic-timeline-content {
+        padding: 35px 20px 20px 20px;
+    }
+}
+
 /* Mobile Responsiveness for Call for Papers */
 @media (max-width: 768px) {
     .cfp-intro-timeline::before,
@@ -2199,9 +2201,32 @@ nav {
         left: 50%;
         transform: translateX(-50%);
     }
-    
+
+    .topics-timeline {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px;
+    }
+
+    .topic-timeline-item {
+        text-align: center;
+    }
+
+    .topic-timeline-number {
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .topic-timeline-content {
+        padding: 50px 20px 25px 20px;
+    }
+
+    .topic-timeline-content h3 {
+        font-size: 1.1rem;
+    }
+
     .cfp-intro-item,
-    .topic-timeline-item,
     .guidelines-timeline-item,
     .review-timeline-item {
         flex-direction: column;
@@ -2209,19 +2234,20 @@ nav {
         text-align: center;
         padding-left: 0;
     }
-    
+
     .cfp-intro-number,
-    .topic-timeline-number,
     .guidelines-timeline-number,
     .review-timeline-number {
         margin-right: 0;
         margin-bottom: 20px;
     }
-    
-    .requirements-grid {
+
+    .requirements-grid,
+    .topics-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+}
     
     .special-tracks-timeline {
         grid-template-columns: 1fr;
