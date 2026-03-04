@@ -149,12 +149,13 @@ function generateRegistrationCards() {
 // Function to generate special categories HTML
 function generateSpecialCategories() {
   return `
-    <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 20px;">
-      <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px;">
-        <h4 style="margin: 0; font-weight: 600;">Special Categories</h4>
-        <p style="margin: 8px 0 0 0; font-size: 0.95rem; opacity: 0.9;">Exclusive invitations for distinguished speakers</p>
-      </div>
-      <div style="padding: 25px;">
+    <div class="simple-registration-container" style="padding: 0 20px;">
+      <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-top: 20px;">
+        <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 15px 25px;">
+          <h4 style="margin: 0; font-weight: 600;">Special Categories</h4>
+          <p style="margin: 8px 0 0 0; font-size: 0.95rem; opacity: 0.9;">Exclusive invitations for distinguished speakers</p>
+        </div>
+        <div style="padding: 25px;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
           ${registrationData.specialCategories
             .map(
@@ -175,9 +176,10 @@ function generateSpecialCategories() {
         
         <div style="border-top: 2px solid #00315c; padding-top: 15px; text-align: center;">
           <p style="margin: 0; color: #666; font-size: 0.95rem; line-height: 1.5;">
-            <strong style="color: #00315c;">Early Bird:</strong> ${registrationData.earlyBirdDeadline} | 
+            <strong style="color: #00315c;">Early Bird:</strong> ${registrationData.earlyBirdDeadline} |
             <strong style="color: #FF7F00;">Group rates available</strong> for 5+ registrations
           </p>
+        </div>
         </div>
       </div>
     </div>
