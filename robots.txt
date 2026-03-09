@@ -1,0 +1,14 @@
+# robots.txt for NSEA 2026 - National Symposium on Effective & Ethical AI
+# Website: https://www.equitableaisymposium.com
+
+User-agent: *
+Allow: /
+
+# Disallow backup files
+Disallow: /program-detailed-BACKUP.html
+
+# Sitemaps
+Sitemap: https://www.equitableaisymposium.com/sitemap.xml
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
