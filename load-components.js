@@ -1,7 +1,10 @@
 // Load header and footer components
 async function loadComponent(elementId, filePath) {
   try {
-    const response = await fetch(filePath);
+    // Add cache busting to prevent stale content
+    const response = await fetch(filePath + '?v=' + Date.now(), {
+      cache: 'no-store'
+    });
     const html = await response.text();
     document.getElementById(elementId).innerHTML = html;
 
