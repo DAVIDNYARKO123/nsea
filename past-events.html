@@ -6,16 +6,82 @@
   <title>Past Events (2024-2025) - NSEA</title>
   <link rel="stylesheet" href="styles.css">
   <script src="load-components.js"></script>
+  <style>
+    .speaker-card {
+      background: #f8f9fa;
+      border-left: 4px solid #004684;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .speaker-card:not(.orange):hover {
+      background: white !important;
+      box-shadow: 0 4px 12px rgba(0, 70, 132, 0.3) !important;
+      transform: translateX(5px) !important;
+      outline: 2px solid #004684 !important;
+      border: none !important;
+    }
+
+    .speaker-card.orange {
+      border-left-color: #FF7F00;
+    }
+
+    .speaker-card.orange:hover {
+      background: white;
+      box-shadow: 0 4px 12px rgba(255, 127, 0, 0.3);
+      transform: translateX(5px);
+      outline: 2px solid #FF7F00;
+    }
+
+    .speaker-name {
+      color: #00315c;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin: 0 0 5px 0;
+    }
+
+    .speaker-affiliation {
+      color: #666;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .topic-card {
+      background: linear-gradient(135deg, #00315c, #004684);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 49, 92, 0.3);
+    }
+
+    .topic-card.orange {
+      background: linear-gradient(135deg, #FF7F00, #ff9933);
+    }
+  </style>
 </head>
 <body>
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center;">
+    <section class="hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center; padding: 150px 0;">
       <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 49, 92, 0.7);"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <h1>Past NSEA Events</h1>
         <div class="subtitle">Previous National Symposia on Equitable AI</div>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; margin-top: 20px;">
+          Explore highlights from previous symposia featuring renowned speakers, groundbreaking research, and collaborative discussions on building fair and responsible AI systems
+        </p>
       </div>
     </section>
 
@@ -30,30 +96,39 @@
         <div style="background: white; border: 2px solid #e0e0e0; border-radius: 10px; padding: 40px; margin-bottom: 40px;">
           <div style="border-left: 5px solid #004684; padding-left: 20px; margin-bottom: 30px;">
             <h3 style="color: #00315c; font-size: 2rem; margin-bottom: 10px;">NSEA 2025</h3>
-            <p style="color: #FF7F00; font-size: 1.3rem; font-weight: 600; margin-bottom: 5px;">AI in Practice: Impacts, Risks, and Opportunities</p>
+            <p style="color: #004684; font-size: 1.3rem; font-weight: 600; margin-bottom: 5px;">AI in Practice: Impacts, Risks, and Opportunities</p>
             <p style="color: #666; font-size: 1rem;">April 5-6, 2025 | Earl G. Graves School of Business, Morgan State University</p>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
-            <div>
-              <h4 style="color: #00315c; margin-bottom: 15px; font-size: 1.2rem;">Keynote Speakers</h4>
-              <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><strong>Arjune Sen</strong> - Oxford University</li>
-                <li><strong>Fay Cobb Payton</strong> - Rutgers U. / NC State U.</li>
-                <li><strong>Sina Fazelpour</strong> - Northeastern University</li>
-                <li><strong>Agus Sudjianto</strong> - Wells Fargo / UNC Charlotte</li>
-              </ul>
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #00315c; margin-bottom: 20px; font-size: 1.2rem;">Keynote Speakers</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+              <div class="speaker-card">
+                <p class="speaker-name">Dr. Arjune Sen</p>
+                <p class="speaker-affiliation">Oxford University</p>
+              </div>
+              <div class="speaker-card">
+                <p class="speaker-name">Dr. Fay Cobb Payton</p>
+                <p class="speaker-affiliation">Rutgers U. / NC State U.</p>
+              </div>
+              <div class="speaker-card">
+                <p class="speaker-name">Dr. Sina Fazelpour</p>
+                <p class="speaker-affiliation">Northeastern University</p>
+              </div>
+              <div class="speaker-card">
+                <p class="speaker-name">Dr. Agus Sudjianto</p>
+                <p class="speaker-affiliation">Wells Fargo / UNC Charlotte</p>
+              </div>
             </div>
-            <div>
-              <h4 style="color: #00315c; margin-bottom: 15px; font-size: 1.2rem;">Topics Covered</h4>
-              <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li>• AI & Society, Medicine, Ethics</li>
-                <li>• AI & Education, Environment</li>
-                <li>• Bias Mitigation & Fairness</li>
-                <li>• Explainability, Safety & Reliability</li>
-                <li>• AI & Decision Sciences, Philosophy</li>
-              </ul>
-            </div>
+          </div>
+
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #00315c; margin-bottom: 20px; font-size: 1.2rem;">Topics Covered</h4>
+            <div class="topic-card">AI & Society, Medicine, Ethics</div>
+            <div class="topic-card">AI & Education, Environment</div>
+            <div class="topic-card">Bias Mitigation & Fairness</div>
+            <div class="topic-card">Explainability, Safety & Reliability</div>
+            <div class="topic-card">AI & Decision Sciences, Philosophy</div>
           </div>
 
           <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
@@ -65,7 +140,7 @@
           </div>
 
           <div style="text-align: center;">
-            <a href="past_programs/nsea 2025 program.pdf" class="cta-button" target="_blank">View Full 2025 Program (PDF)</a>
+            <a href="past_programs/nsea 2025 program.pdf" class="cta-button" target="_blank" style="background: #004684; border-color: #004684; color: white;">View Full 2025 Program (PDF)</a>
           </div>
         </div>
 
@@ -73,30 +148,42 @@
         <div style="background: white; border: 2px solid #e0e0e0; border-radius: 10px; padding: 40px;">
           <div style="border-left: 5px solid #FF7F00; padding-left: 20px; margin-bottom: 30px;">
             <h3 style="color: #00315c; font-size: 2rem; margin-bottom: 10px;">NSEA 2024</h3>
-            <p style="color: #004684; font-size: 1.3rem; font-weight: 600; margin-bottom: 5px;">Elevate Equity: Reimagining AI's Potential</p>
+            <p style="color: #FF7F00; font-size: 1.3rem; font-weight: 600; margin-bottom: 5px;">Elevate Equity: Reimagining AI's Potential</p>
             <p style="color: #666; font-size: 1rem;">2024 | Morgan State University, Baltimore, MD</p>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
-            <div>
-              <h4 style="color: #00315c; margin-bottom: 15px; font-size: 1.2rem;">Keynote Speakers</h4>
-              <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><strong>Rachele Hendricks-Sturrup</strong> - Duke University</li>
-                <li><strong>Michael Running Wolf</strong> - First Languages AI Reality</li>
-                <li><strong>John Pasmore & Chuck Faush</strong> - Latimer / Miles College</li>
-                <li><strong>Hal Daumé III</strong> - University of Maryland</li>
-                <li><strong>Solon Barocas</strong> - Microsoft / Cornell Univ.</li>
-              </ul>
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #00315c; margin-bottom: 20px; font-size: 1.2rem;">Keynote Speakers</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+              <div class="speaker-card orange">
+                <p class="speaker-name">Dr. Rachele Hendricks-Sturrup</p>
+                <p class="speaker-affiliation">Duke University</p>
+              </div>
+              <div class="speaker-card orange">
+                <p class="speaker-name">Michael Running Wolf</p>
+                <p class="speaker-affiliation">First Languages AI Reality</p>
+              </div>
+              <div class="speaker-card orange">
+                <p class="speaker-name">John Pasmore & Chuck Faush</p>
+                <p class="speaker-affiliation">Latimer / Miles College</p>
+              </div>
+              <div class="speaker-card orange">
+                <p class="speaker-name">Dr. Hal Daumé III</p>
+                <p class="speaker-affiliation">University of Maryland</p>
+              </div>
+              <div class="speaker-card orange">
+                <p class="speaker-name">Solon Barocas</p>
+                <p class="speaker-affiliation">Microsoft / Cornell University</p>
+              </div>
             </div>
-            <div>
-              <h4 style="color: #00315c; margin-bottom: 15px; font-size: 1.2rem;">Topics Covered</h4>
-              <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li>• Equitable AI in Law and Policy</li>
-                <li>• Equitable AI in Research</li>
-                <li>• Algorithmic Fairness</li>
-                <li>• AI in Engineering, Industry, Government</li>
-              </ul>
-            </div>
+          </div>
+
+          <div style="margin-bottom: 30px;">
+            <h4 style="color: #00315c; margin-bottom: 20px; font-size: 1.2rem;">Topics Covered</h4>
+            <div class="topic-card orange">Equitable AI in Law and Policy</div>
+            <div class="topic-card orange">Equitable AI in Research</div>
+            <div class="topic-card orange">Algorithmic Fairness</div>
+            <div class="topic-card orange">AI in Engineering, Industry, Government</div>
           </div>
 
           <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
