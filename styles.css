@@ -2382,7 +2382,7 @@ footer {
     min-width: 160px;
     min-height: 160px;
     border-radius: 50%;
-    overflow: visible;
+    overflow: hidden;
     border: 5px solid #004684;
     background: linear-gradient(135deg, #00315c, #004684);
     box-shadow: 0 8px 25px rgba(0, 49, 92, 0.15);
@@ -2399,7 +2399,7 @@ footer {
     box-shadow: 0 12px 35px rgba(0, 49, 92, 0.2);
 }
 
-/* White Person Silhouette on blue background */
+/* White Person Silhouette on blue background - only show when NO image */
 .speaker-circle::after {
     content: '';
     position: absolute;
@@ -2414,6 +2414,11 @@ footer {
     pointer-events: none;
 }
 
+/* Hide placeholder icon when .has-image class is present */
+.speaker-circle.has-image::after {
+    display: none;
+}
+
 .speaker-circle > div {
     display: none;
 }
@@ -2424,6 +2429,9 @@ footer {
 }
 
 .speaker-circle img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
