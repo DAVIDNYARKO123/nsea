@@ -4923,3 +4923,18 @@ footer {
         font-size: 1.1rem;
     }
 }
+
+/* Late-submission note shown after the extended deadline */
+.late-submission-note {
+    font-size: 0.85em;
+    font-style: italic;
+    opacity: 0.85;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .late-submission-note {
+        white-space: normal;
+        font-size: 0.8em;
+    }
+}
