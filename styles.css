@@ -5021,6 +5021,39 @@ footer {
     }
 }
 
+/* Custom sponsorship inquiry note (under the Whova sponsor form) */
+.custom-sponsorship-note {
+    margin-top: 28px;
+    padding: 18px 20px;
+    border-left: 4px solid #FF7F00;
+    background: #FFF8F1;
+    border-radius: 8px;
+}
+
+.custom-sponsorship-note strong {
+    display: block;
+    color: #00315c;
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.custom-sponsorship-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #555;
+}
+
+.custom-sponsorship-note a {
+    color: #00315c;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.custom-sponsorship-note a:hover {
+    color: #FF7F00;
+}
+
 /* Visionary Sponsor showcase (sponsors page) */
 .visionary-sponsor-card {
     background: white;
