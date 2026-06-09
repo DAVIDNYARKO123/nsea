@@ -5082,6 +5082,165 @@ footer {
     }
 }
 
+/* Sponsor-Supported Registration modal (intercepts paid Register Now clicks) */
+.sponsor-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sponsor-modal.open {
+    display: flex;
+}
+
+.sponsor-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 20, 40, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: sponsorModalFade 0.2s ease-out;
+}
+
+.sponsor-modal-dialog {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 2.25rem 2rem 2rem;
+    max-width: 540px;
+    width: 100%;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    border-top: 4px solid #FF7F00;
+    animation: sponsorModalRise 0.25s ease-out;
+}
+
+@keyframes sponsorModalFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes sponsorModalRise {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.sponsor-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #888;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sponsor-modal-close:hover {
+    background: #f0f0f0;
+    color: #00315c;
+}
+
+.sponsor-modal-tag {
+    display: inline-block;
+    background: #FFF3E5;
+    color: #C75A00;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+.sponsor-modal-dialog h3 {
+    margin: 0 0 12px;
+    font-size: 1.5rem;
+    color: #00315c;
+    line-height: 1.3;
+}
+
+.sponsor-modal-dialog p {
+    margin: 0 0 14px;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.sponsor-modal-dialog p strong {
+    color: #00315c;
+    font-weight: 600;
+}
+
+.sponsor-modal-category {
+    color: #00315c;
+    font-weight: 600;
+}
+
+.sponsor-modal-sub {
+    color: #666 !important;
+    font-size: 0.92rem !important;
+}
+
+.sponsor-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.sponsor-modal-btn {
+    display: block;
+    text-align: center;
+    padding: 13px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: transform 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.sponsor-modal-btn.primary {
+    background: #FF7F00;
+    color: #000;
+    border-color: #FF7F00;
+}
+
+.sponsor-modal-btn.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(255, 127, 0, 0.35);
+}
+
+.sponsor-modal-btn.secondary {
+    background: white;
+    color: #00315c;
+    border-color: #cfd6df;
+}
+
+.sponsor-modal-btn.secondary:hover {
+    border-color: #00315c;
+    background: #f7f9fb;
+}
+
+@media (max-width: 480px) {
+    .sponsor-modal-dialog {
+        padding: 1.75rem 1.25rem 1.5rem;
+    }
+
+    .sponsor-modal-dialog h3 {
+        font-size: 1.25rem;
+    }
+}
+
 /* Sponsor-Supported Registration highlight card */
 .sponsor-supported-card {
     background: white;

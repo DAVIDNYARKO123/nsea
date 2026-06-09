@@ -386,6 +386,33 @@
     </section>
   </main>
 
+  <!-- Sponsor-Supported Registration Modal -->
+  <div id="sponsor-modal" class="sponsor-modal" role="dialog" aria-modal="true" aria-labelledby="sponsor-modal-title" aria-hidden="true">
+    <div class="sponsor-modal-backdrop" data-close></div>
+    <div class="sponsor-modal-dialog" role="document">
+      <button type="button" class="sponsor-modal-close" aria-label="Close" data-close>&times;</button>
+      <span class="sponsor-modal-tag">Before you pay</span>
+      <h3 id="sponsor-modal-title">Free registration is available</h3>
+      <p>
+        Thanks to <strong>Google</strong> and other sponsors, the first
+        <strong>150 in-person NSEA 2026 registrants</strong> can register at
+        <strong>no cost</strong> &ndash; including your category
+        <span id="sponsor-modal-category" class="sponsor-modal-category"></span>.
+      </p>
+      <p class="sponsor-modal-sub">
+        You may either claim a sponsor-supported free spot, or continue with paid registration as a voluntary contribution to support the symposium.
+      </p>
+      <div class="sponsor-modal-actions">
+        <a id="sponsor-modal-free" href="https://whova.com/portal/registration/JAZH@ay79U76bklpttLE/zw1ovvg8" target="_blank" rel="noopener" class="sponsor-modal-btn primary">
+          Use Free Sponsor-Supported Registration
+        </a>
+        <a id="sponsor-modal-pay" href="#" target="_blank" rel="noopener" class="sponsor-modal-btn secondary">
+          Continue with Paid Registration
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div id="footer-placeholder"></div>
 
   <script>
@@ -397,6 +424,47 @@
         });
       });
     });
+
+    // Sponsor-supported registration interceptor
+    (function setupSponsorModal() {
+      const modal = document.getElementById('sponsor-modal');
+      if (!modal) return;
+      const categoryEl = document.getElementById('sponsor-modal-category');
+      const payBtn = document.getElementById('sponsor-modal-pay');
+
+      function openModal(title, payLink) {
+        categoryEl.textContent = title ? `(${title})` : '';
+        payBtn.href = payLink || '#';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('.simple-register-btn[data-paid="true"]');
+        if (trigger) {
+          e.preventDefault();
+          openModal(trigger.dataset.categoryTitle, trigger.dataset.paidLink);
+          return;
+        }
+        if (e.target.closest('[data-close]')) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      payBtn.addEventListener('click', closeModal);
+      document.getElementById('sponsor-modal-free').addEventListener('click', closeModal);
+    })();
 
     // Load registration data when page loads
     document.addEventListener('DOMContentLoaded', function() {

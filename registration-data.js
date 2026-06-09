@@ -124,9 +124,12 @@ function generateRegistrationCards() {
               }
               
               <div class="simple-button">
-                <a href="${
-                  category.link
-                }" class="simple-register-btn" target="_blank">Register Now</a>
+                <a href="${category.link}"
+                   class="simple-register-btn"
+                   target="_blank"
+                   data-paid="${category.price > 0}"
+                   data-category-title="${category.title}"
+                   data-paid-link="${category.link}">Register Now</a>
               </div>
             </div>
           `;
