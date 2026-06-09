@@ -4962,6 +4962,67 @@ footer {
     }
 }
 
+/* Visionary Sponsor showcase (sponsors page) */
+.visionary-sponsor-card {
+    background: white;
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    margin: 40px auto 20px;
+    max-width: 520px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(0, 49, 92, 0.08);
+    border-top: 4px solid #00315c;
+}
+
+.visionary-sponsor-tier {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #00315c;
+    margin-bottom: 22px;
+}
+
+.visionary-sponsor-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visionary-sponsor-logo img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+}
+
+.visionary-sponsor-blurb {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #555;
+    margin: 0 auto;
+    max-width: 560px;
+    text-align: center;
+}
+
+.visionary-sponsor-blurb strong {
+    color: #00315c;
+}
+
+@media (max-width: 600px) {
+    .visionary-sponsor-card {
+        padding: 2rem 1.25rem;
+    }
+
+    .visionary-sponsor-logo img {
+        max-width: 160px;
+    }
+
+    .visionary-sponsor-blurb {
+        font-size: 0.92rem;
+    }
+}
+
 /* Sponsor-Supported Registration highlight card */
 .sponsor-supported-card {
     position: relative;
