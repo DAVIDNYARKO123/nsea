@@ -207,15 +207,15 @@ nav {
     max-width: 100%;
 }
 
-/* Sponsor acknowledgment strip (between hero and Featured Speakers) */
+/* Sponsor acknowledgment strip (between hero and next section) */
 .sponsor-strip {
     background: white;
-    padding: 28px 20px 16px;
+    padding: 26px 20px 26px;
     text-align: center;
 }
 
-.sponsor-strip + .home-section {
-    padding-top: 30px;
+#sponsor-strip-placeholder + section {
+    padding-top: 26px;
 }
 
 .sponsor-strip-link {

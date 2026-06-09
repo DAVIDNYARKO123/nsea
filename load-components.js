@@ -21,5 +21,8 @@ async function loadComponent(elementId, filePath) {
 // Load components when DOM is ready
 document.addEventListener('DOMContentLoaded', async function() {
   await loadComponent('header-placeholder', 'header.html');
+  if (document.getElementById('sponsor-strip-placeholder')) {
+    await loadComponent('sponsor-strip-placeholder', 'sponsor-strip.html');
+  }
   await loadComponent('footer-placeholder', 'footer.html');
 });
