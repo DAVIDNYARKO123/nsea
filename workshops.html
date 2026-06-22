@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Workshops - NSEA 2026 | Sessions & Presenters</title>
+  <meta name="title" content="Workshops - NSEA 2026 | Sessions & Presenters">
+  <meta name="description" content="Explore the hands-on workshops at NSEA 2026 and meet the presenters leading them. Practical sessions on building effective and ethical AI systems.">
+  <meta name="keywords" content="NSEA workshops, AI workshops, AI ethics sessions, symposium presenters, hands-on AI training, CEAMLS">
+  <meta name="author" content="Center for Equitable AI & Machine Learning Systems (CEAMLS), Morgan State University">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.equitableaisymposium.com/workshops.html">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.equitableaisymposium.com/workshops.html">
+  <meta property="og:title" content="Workshops - NSEA 2026 | Sessions & Presenters">
+  <meta property="og:description" content="Explore the hands-on workshops at NSEA 2026 and meet the presenters leading them. Practical sessions on building effective and ethical AI systems.">
+  <meta property="og:image" content="https://www.equitableaisymposium.com/images/Logo-2026.png">
+  <meta property="og:site_name" content="NSEA 2026">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.equitableaisymposium.com/workshops.html">
+  <meta property="twitter:title" content="Workshops - NSEA 2026 | Sessions & Presenters">
+  <meta property="twitter:description" content="Explore the hands-on workshops at NSEA 2026 and meet the presenters leading them. Practical sessions on building effective and ethical AI systems.">
+  <meta property="twitter:image" content="https://www.equitableaisymposium.com/images/Logo-2026.png">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="load-components.js"></script>
+
+  <style>
+    /* Workshops page */
+    .workshops-list {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .workshop-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0, 49, 92, 0.08);
+      border: 1px solid rgba(0, 49, 92, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .workshop-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 45px rgba(0, 49, 92, 0.14);
+    }
+
+    .workshop-presenter {
+      background: linear-gradient(135deg, #00315c 0%, #014a87 100%);
+      padding: 40px 25px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .workshop-presenter img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 127, 0, 0.85);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .workshop-presenter .presenter-name {
+      margin: 20px 0 6px;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .workshop-presenter .presenter-role {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
+    }
+
+    .workshop-body {
+      padding: 40px;
+    }
+
+    .workshop-tag {
+      display: inline-block;
+      background: rgba(255, 127, 0, 0.12);
+      color: #d96b00;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .workshop-body h3 {
+      font-size: 1.6rem;
+      color: #00315c;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .workshop-body h4 {
+      font-size: 1.05rem;
+      color: #00315c;
+      margin: 24px 0 10px;
+      font-weight: 700;
+    }
+
+    .workshop-body p {
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .workshop-divider {
+      border: none;
+      border-top: 1px solid rgba(0, 49, 92, 0.1);
+      margin: 24px 0;
+    }
+
+    @media (max-width: 768px) {
+      .workshop-card {
+        grid-template-columns: 1fr;
+      }
+
+      .workshop-presenter {
+        padding: 35px 25px 30px;
+      }
+
+      .workshop-body {
+        padding: 30px 25px;
+      }
+
+      .workshop-body h3 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 49, 92, 0.7);"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <h1>Workshops</h1>
+        <div class="subtitle">NSEA 2026 Hands-On Sessions</div>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; margin-bottom: 30px;">
+          Practical, interactive sessions led by leading practitioners—meet the presenters and explore what you'll learn.
+        </p>
+        <a href="#workshops" class="cta-button">View Workshops</a>
+      </div>
+    </section>
+
+    <div id="sponsor-strip-placeholder"></div>
+
+    <section class="home-section speakers-section" id="workshops">
+      <div class="container">
+        <div class="section-header">
+          <h2>Workshop Sessions</h2>
+          <p class="section-subtitle">Explore the workshops on offer at NSEA 2026 and the presenters leading them.</p>
+        </div>
+
+        <div class="workshops-list">
+
+          <!-- Workshop: Aligned, Not Automated -->
+          <article class="workshop-card">
+            <div class="workshop-presenter">
+              <img src="images/workshop/bree-nachelle.png" alt="Aubrée &quot;Brée&quot; Nachelle Hill">
+              <p class="presenter-name">Aubrée &ldquo;Brée&rdquo; Nachelle Hill</p>
+              <p class="presenter-role">Founder, Brée Nachelle Innovations<br>Author of <em>Aligned, Not Automated</em></p>
+            </div>
+            <div class="workshop-body">
+              <span class="workshop-tag">Workshop</span>
+              <h3>Aligned, Not Automated: Designing AI Systems That Preserve Human Agency</h3>
+
+              <h4>Abstract</h4>
+              <p>
+                As AI rapidly transforms how we work, create, and make decisions, the conversation has become
+                dominated by efficiency. But what happens when optimization comes at the expense of discernment,
+                creativity, and human connection?
+              </p>
+              <p>
+                In this engaging session, founder and author Aubrée &ldquo;Brée&rdquo; Nachelle Hill introduces a
+                practical framework for building AI-assisted systems that amplify human intelligence rather than
+                replace it. Drawing from her experience in digital strategy, community building, mindfulness, and
+                emerging technology, Brée explores how individuals and organizations can adopt AI in ways that reduce
+                burnout, strengthen decision-making, and preserve human agency.
+              </p>
+              <p>
+                Attendees will leave with actionable tools for designing workflows that are not only efficient, but
+                aligned.
+              </p>
+
+              <hr class="workshop-divider">
+
+              <h4>About the Presenter</h4>
+              <p>
+                Brée Nachelle is what happens when a mindfulness facilitator, AI practitioner, digital strategist, and
+                pop-culture enthusiast find a Wi-Fi signal. She is the founder of Brée Nachelle Innovations, where she
+                helps creatives align their presence with their purpose—without burning out or blending in.
+              </p>
+              <p>
+                She is the author of <em>Aligned, Not Automated</em>, creator of the Mindful Moments newsletter, founder
+                of Build in Beta for the AI Curious, and head instigator of the Synergy Squad, an accountability
+                collective for soft hustlers with big visions and even bigger hearts.
+              </p>
+              <p>
+                Her two-decade career includes serving as a digital strategist at NASA, where she helped bring the
+                universe to newsfeeds and timelines around the world. Today, she blends mindful practices with
+                AI-powered strategy, teaching creators how to BREATHE through their content plan, automate their
+                brilliance, and build sustainable momentum in both work and life.
+              </p>
+              <p>
+                When she's not coaching or speaking, you can usually find Brée sipping peppermint tea, crafting lead
+                magnets in Notion, or plotting the next creative revolution—likely accompanied by a meme that's equal
+                parts funny and healing.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
