@@ -43,14 +43,18 @@
       --c-keynote: #FF7F00;
       --c-research: #00315c;
       --c-workshop: #b8005f;
-      --c-demo: #0d7d7d;
+      --c-demo: #c0392b;
       --c-poster: #6a4bbf;
-      --c-sairi: #0f8a3c;
-      --c-k12: #1266c9;
+      --c-sairi: #a0522d;
+      --c-k12: #b8860b;
       --c-logistics: #8a94a2;
     }
 
     .program-page { background: #eef2f7; }
+
+    /* Use more horizontal space on the schedule */
+    #program-overview .container,
+    .schedule-section .container { max-width: 1440px; }
 
     /* ===== Intro / overview ===== */
     .program-intro {
@@ -92,7 +96,7 @@
     }
     .keynote-strip {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 26px; max-width: 1120px; margin: 0 auto;
+      gap: 26px; max-width: 1440px; margin: 0 auto;
     }
     .keynote-card {
       position: relative;
@@ -129,13 +133,36 @@
     .day-switch button.active { background: var(--navy); color: #fff; box-shadow: 0 8px 20px rgba(0, 49, 92, 0.25); }
     .day-switch button.active .sub { color: rgba(255, 255, 255, 0.75); }
 
-    /* ===== Legend ===== */
+    /* ===== Legend / filters ===== */
     .legend {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 8px 18px; max-width: 1000px; margin: 26px auto 34px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 10px; max-width: 1440px; margin: 26px auto 12px;
     }
-    .legend span { display: inline-flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
-    .legend span::before { content: ""; width: 12px; height: 12px; border-radius: 4px; background: var(--dot, #ccc); }
+    .legend-label { font-size: 0.82rem; font-weight: 700; color: var(--navy); margin-right: 4px; flex: 0 0 auto; }
+    .legend .lg {
+      flex: 1 1 0; min-width: 130px;
+      font-family: inherit; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 600; color: var(--muted);
+      background: #fff; border: 1px solid var(--line); border-radius: 24px;
+      padding: 10px 16px; transition: all 0.18s ease;
+    }
+    .legend .lg::before { content: ""; width: 12px; height: 12px; border-radius: 4px; background: var(--dot, #ccc); }
+    .legend .lg:hover { border-color: var(--dot); color: var(--navy); transform: translateY(-1px); }
+    .legend .lg.sel { background: var(--dot); color: #fff; border-color: var(--dot); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+    .legend .lg.sel::before { background: #fff; }
+    .legend-clear {
+      display: none; cursor: pointer; font-family: inherit;
+      font-size: 0.78rem; font-weight: 700; color: var(--orange);
+      background: none; border: none; padding: 6px 4px; text-decoration: underline;
+    }
+    .legend-clear.show { display: inline; }
+    .legend-empty {
+      display: none; text-align: center; color: var(--muted);
+      font-style: italic; margin: 20px auto 34px;
+    }
+    .legend-empty.show { display: block; }
+    .legend + * { margin-top: 22px; }
 
     /* ===== Day panel ===== */
     .day-panel { display: block; scroll-margin-top: 90px; }
@@ -150,7 +177,7 @@
     .day-title h2 { color: var(--navy); font-size: 2rem; margin: 0; }
 
     /* ===== Time blocks ===== */
-    .agenda { max-width: 1080px; margin: 0 auto; }
+    .agenda { max-width: 1440px; margin: 0 auto; }
 
     .tblock {
       display: grid;
@@ -174,63 +201,71 @@
     .tblock-time .start { font-size: 1.35rem; font-weight: 800; line-height: 1.1; }
     .tblock-time .end { font-size: 0.82rem; color: rgba(255, 255, 255, 0.72); margin-top: 3px; }
 
-    .tblock-rows { display: flex; flex-direction: column; }
+    .tblock-rows {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+      gap: 12px;
+      padding: 14px;
+    }
 
     .srow {
       display: flex;
-      gap: 18px;
-      align-items: flex-start;
-      padding: 16px 22px;
-      border-top: 1px solid var(--line);
+      flex-direction: column;
+      gap: 5px;
+      padding: 14px 16px;
+      background: #fff;
+      border: 1px solid var(--line);
       border-left: 5px solid var(--dot, var(--navy));
+      border-radius: 11px;
     }
-    .srow:first-child { border-top: none; }
+
+    /* Full-bleed rows that should span the whole block (keynotes, single events) */
+    .srow.full { grid-column: 1 / -1; }
+
+    .srow-tag {
+      order: -1;
+      align-self: flex-start;
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--dot, var(--navy));
+      background: color-mix(in srgb, var(--dot, var(--navy)) 13%, #fff);
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-bottom: 3px;
+    }
 
     .srow-room {
-      flex: 0 0 148px;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.4px;
       color: var(--muted);
-      padding-top: 3px;
       line-height: 1.4;
     }
 
-    .srow-main { flex: 1; min-width: 0; }
+    .srow-main { min-width: 0; }
     .srow-title { display: block; font-weight: 700; color: var(--navy); font-size: 1.05rem; line-height: 1.35; }
     .srow-who { margin-top: 3px; color: #55606d; font-size: 0.93rem; }
     .srow-note { margin-top: 8px; font-size: 0.78rem; font-style: italic; color: var(--muted); }
 
     .srow-speakers {
       list-style: none; margin: 10px 0 0; padding: 0;
-      columns: 2; column-gap: 28px;
     }
     .srow-speakers li {
       font-size: 0.9rem; color: #444; padding: 4px 0; line-height: 1.4;
-      break-inside: avoid; border-top: 1px dashed var(--line);
+      border-top: 1px dashed var(--line);
     }
     .srow-speakers li:first-child { border-top: none; }
     .srow-speakers li span { color: #9aa0a8; }
 
-    .srow-tag {
-      margin-left: auto;
-      align-self: flex-start;
-      flex-shrink: 0;
-      font-size: 0.66rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--dot, var(--navy));
-      background: color-mix(in srgb, var(--dot, var(--navy)) 13%, #fff);
-      padding: 5px 11px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
     /* Keynote highlighted row */
     .srow.key {
       background: linear-gradient(120deg, var(--navy), var(--navy-2));
+      border: none;
       border-left: 5px solid var(--orange);
     }
     .srow.key .srow-room { color: rgba(255, 255, 255, 0.7); }
@@ -239,7 +274,7 @@
     .srow.key .srow-tag { background: var(--orange); color: #fff; }
 
     .vendor-note {
-      max-width: 1080px; margin: 30px auto 0; text-align: center;
+      max-width: 1440px; margin: 30px auto 0; text-align: center;
       font-weight: 600; color: var(--navy);
       background: rgba(255, 127, 0, 0.09); border-radius: 12px; padding: 15px 20px;
     }
@@ -253,10 +288,6 @@
         flex-direction: row; align-items: baseline; gap: 10px; padding: 14px 20px;
       }
       .tblock-time .end { margin-top: 0; }
-      .srow { flex-wrap: wrap; gap: 6px 14px; }
-      .srow-room { flex-basis: 100%; }
-      .srow-tag { margin-left: 0; }
-      .srow-speakers { columns: 1; }
     }
   </style>
 </head>
@@ -292,7 +323,7 @@
         <div class="keynote-strip">
           <div class="keynote-card">
             <span class="kh-tag">Keynote 1 &middot; Day 1</span>
-            <h4>Juan Gilbert</h4>
+            <h4>Juan E. Gilbert</h4>
             <p>University of Florida</p>
           </div>
           <div class="keynote-card">
@@ -316,19 +347,22 @@
       </div>
     </div>
 
-    <section class="section" style="padding-top: 20px;">
+    <section class="section schedule-section" style="padding-top: 20px;">
       <div class="container">
 
         <div class="legend">
-          <span style="--dot: var(--c-keynote)">Keynote</span>
-          <span style="--dot: var(--c-research)">Research Track</span>
-          <span style="--dot: var(--c-workshop)">Workshop</span>
-          <span style="--dot: var(--c-sairi)">SAIRI Track</span>
-          <span style="--dot: var(--c-k12)">K-12</span>
-          <span style="--dot: var(--c-poster)">Poster</span>
-          <span style="--dot: var(--c-demo)">Demo</span>
-          <span style="--dot: var(--c-logistics)">Break / Meal</span>
+          <span class="legend-label">Filter by type:</span>
+          <button type="button" class="lg" data-filter="keynote" style="--dot: var(--c-keynote)">Keynote</button>
+          <button type="button" class="lg" data-filter="research" style="--dot: var(--c-research)">Research Track</button>
+          <button type="button" class="lg" data-filter="workshop" style="--dot: var(--c-workshop)">Workshop</button>
+          <button type="button" class="lg" data-filter="sairi" style="--dot: var(--c-sairi)">SAIRI Track</button>
+          <button type="button" class="lg" data-filter="k12" style="--dot: var(--c-k12)">K-12</button>
+          <button type="button" class="lg" data-filter="poster" style="--dot: var(--c-poster)">Poster</button>
+          <button type="button" class="lg" data-filter="demo" style="--dot: var(--c-demo)">Demo</button>
+          <button type="button" class="lg" data-filter="logistics" style="--dot: var(--c-logistics)">Break / Meal</button>
+          <button type="button" class="legend-clear" id="clearFilters">Clear filters &times;</button>
         </div>
+        <p class="legend-empty" id="filterEmpty">No sessions match the selected filters.</p>
 
         <!-- ============ DAY 1 ============ -->
         <div class="day-panel active" id="day1">
@@ -898,6 +932,54 @@
       });
     }, { rootMargin: '-45% 0px -45% 0px' });
     dayPanels.forEach(p => dayObserver.observe(p));
+
+    // ===== Type filters =====
+    (function setupFilters() {
+      const rows = document.querySelectorAll('.srow');
+      const blocks = document.querySelectorAll('.tblock');
+      const panels = document.querySelectorAll('.day-panel');
+      const chips = document.querySelectorAll('.legend .lg');
+      const clearBtn = document.getElementById('clearFilters');
+      const emptyMsg = document.getElementById('filterEmpty');
+      const active = new Set();
+
+      // Tag each row with its type (from its --dot color var, or the keynote class)
+      rows.forEach(r => {
+        const m = (r.getAttribute('style') || '').match(/--c-([a-z0-9]+)/i);
+        r.dataset.type = m ? m[1] : (r.classList.contains('key') ? 'keynote' : 'other');
+      });
+
+      function apply() {
+        const filtering = active.size > 0;
+        rows.forEach(r => {
+          r.style.display = (!filtering || active.has(r.dataset.type)) ? '' : 'none';
+        });
+        blocks.forEach(b => {
+          const anyRow = [...b.querySelectorAll('.srow')].some(r => r.style.display !== 'none');
+          b.style.display = anyRow ? '' : 'none';
+        });
+        panels.forEach(p => {
+          const anyBlock = [...p.querySelectorAll('.tblock')].some(b => b.style.display !== 'none');
+          p.style.display = anyBlock ? '' : 'none';
+        });
+        clearBtn.classList.toggle('show', filtering);
+        const anyVisible = [...panels].some(p => p.style.display !== 'none');
+        emptyMsg.classList.toggle('show', filtering && !anyVisible);
+      }
+
+      chips.forEach(chip => chip.addEventListener('click', () => {
+        const t = chip.dataset.filter;
+        if (active.has(t)) { active.delete(t); chip.classList.remove('sel'); }
+        else { active.add(t); chip.classList.add('sel'); }
+        apply();
+      }));
+
+      clearBtn.addEventListener('click', () => {
+        active.clear();
+        chips.forEach(c => c.classList.remove('sel'));
+        apply();
+      });
+    })();
 
     // Smooth scroll for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
