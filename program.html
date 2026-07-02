@@ -31,8 +31,236 @@
 
   <link rel="stylesheet" href="styles.css">
   <script src="load-components.js"></script>
+
+  <style>
+    :root {
+      --navy: #00315c;
+      --navy-2: #014a87;
+      --orange: #FF7F00;
+      --muted: #6b7a8d;
+      --line: rgba(0, 49, 92, 0.10);
+
+      --c-keynote: #FF7F00;
+      --c-research: #00315c;
+      --c-workshop: #b8005f;
+      --c-demo: #0d7d7d;
+      --c-poster: #6a4bbf;
+      --c-sairi: #0f8a3c;
+      --c-k12: #1266c9;
+      --c-logistics: #8a94a2;
+    }
+
+    .program-page { background: #eef2f7; }
+
+    /* ===== Intro / overview ===== */
+    .program-intro {
+      max-width: 780px;
+      margin: 0 auto 46px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.75;
+    }
+
+    .at-a-glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+      max-width: 1080px;
+      margin: 0 auto 50px;
+    }
+    .glance-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 22px 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 49, 92, 0.06);
+      border: 1px solid var(--line);
+    }
+    .glance-card .num { font-size: 2rem; font-weight: 800; color: var(--navy); line-height: 1; }
+    .glance-card .lbl { margin-top: 8px; font-size: 0.85rem; color: var(--muted); font-weight: 600; letter-spacing: 0.3px; }
+
+    /* ===== Keynote spotlight ===== */
+    .spotlight-head { text-align: center; margin: 0 auto 26px; }
+    .spotlight-head h3 {
+      color: var(--navy); font-size: 1.5rem;
+      display: inline-flex; align-items: center; gap: 12px;
+    }
+    .spotlight-head h3::before,
+    .spotlight-head h3::after {
+      content: ""; width: 46px; height: 3px; background: var(--orange); border-radius: 3px;
+    }
+    .keynote-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px; max-width: 1120px; margin: 0 auto;
+    }
+    .keynote-card {
+      position: relative;
+      background: linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: #fff; border-radius: 18px; padding: 30px 26px 28px;
+      box-shadow: 0 16px 40px rgba(0, 49, 92, 0.20); overflow: hidden;
+    }
+    .keynote-card::after {
+      content: ""; position: absolute; top: -40px; right: -40px;
+      width: 130px; height: 130px; background: rgba(255, 127, 0, 0.18); border-radius: 50%;
+    }
+    .keynote-card .kh-tag {
+      display: inline-block; background: var(--orange); color: #fff;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 6px 13px; border-radius: 20px; margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .keynote-card h4 { margin: 0 0 6px; font-size: 1.5rem; font-weight: 800; position: relative; z-index: 1; }
+    .keynote-card p { margin: 0; color: rgba(255, 255, 255, 0.82); font-size: 0.98rem; position: relative; z-index: 1; }
+
+    /* ===== Sticky day switcher ===== */
+    .day-switch-wrap {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(238, 242, 247, 0.92); backdrop-filter: blur(8px);
+      padding: 16px 0; border-bottom: 1px solid var(--line);
+    }
+    .day-switch { display: flex; justify-content: center; gap: 10px; }
+    .day-switch button {
+      font-family: inherit; cursor: pointer;
+      border: 2px solid var(--navy); background: #fff; color: var(--navy);
+      font-weight: 700; font-size: 1rem; padding: 11px 30px; border-radius: 30px;
+      transition: all 0.2s ease;
+    }
+    .day-switch button .sub { display: block; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
+    .day-switch button.active { background: var(--navy); color: #fff; box-shadow: 0 8px 20px rgba(0, 49, 92, 0.25); }
+    .day-switch button.active .sub { color: rgba(255, 255, 255, 0.75); }
+
+    /* ===== Legend ===== */
+    .legend {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px 18px; max-width: 1000px; margin: 26px auto 34px;
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+    .legend span::before { content: ""; width: 12px; height: 12px; border-radius: 4px; background: var(--dot, #ccc); }
+
+    /* ===== Day panel ===== */
+    .day-panel { display: block; scroll-margin-top: 90px; }
+    .day-panel + .day-panel { margin-top: 70px; }
+
+    .day-title { text-align: center; margin-bottom: 30px; }
+    .day-title .badge {
+      display: inline-block; background: rgba(255, 127, 0, 0.12); color: #d96b00;
+      font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; font-size: 0.8rem;
+      padding: 6px 18px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .day-title h2 { color: var(--navy); font-size: 2rem; margin: 0; }
+
+    /* ===== Time blocks ===== */
+    .agenda { max-width: 1080px; margin: 0 auto; }
+
+    .tblock {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 26px rgba(0, 49, 92, 0.07);
+      border: 1px solid var(--line);
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .tblock-time {
+      background: linear-gradient(160deg, var(--navy), var(--navy-2));
+      color: #fff;
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .tblock-time .start { font-size: 1.35rem; font-weight: 800; line-height: 1.1; }
+    .tblock-time .end { font-size: 0.82rem; color: rgba(255, 255, 255, 0.72); margin-top: 3px; }
+
+    .tblock-rows { display: flex; flex-direction: column; }
+
+    .srow {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 16px 22px;
+      border-top: 1px solid var(--line);
+      border-left: 5px solid var(--dot, var(--navy));
+    }
+    .srow:first-child { border-top: none; }
+
+    .srow-room {
+      flex: 0 0 148px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--muted);
+      padding-top: 3px;
+      line-height: 1.4;
+    }
+
+    .srow-main { flex: 1; min-width: 0; }
+    .srow-title { display: block; font-weight: 700; color: var(--navy); font-size: 1.05rem; line-height: 1.35; }
+    .srow-who { margin-top: 3px; color: #55606d; font-size: 0.93rem; }
+    .srow-note { margin-top: 8px; font-size: 0.78rem; font-style: italic; color: var(--muted); }
+
+    .srow-speakers {
+      list-style: none; margin: 10px 0 0; padding: 0;
+      columns: 2; column-gap: 28px;
+    }
+    .srow-speakers li {
+      font-size: 0.9rem; color: #444; padding: 4px 0; line-height: 1.4;
+      break-inside: avoid; border-top: 1px dashed var(--line);
+    }
+    .srow-speakers li:first-child { border-top: none; }
+    .srow-speakers li span { color: #9aa0a8; }
+
+    .srow-tag {
+      margin-left: auto;
+      align-self: flex-start;
+      flex-shrink: 0;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--dot, var(--navy));
+      background: color-mix(in srgb, var(--dot, var(--navy)) 13%, #fff);
+      padding: 5px 11px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* Keynote highlighted row */
+    .srow.key {
+      background: linear-gradient(120deg, var(--navy), var(--navy-2));
+      border-left: 5px solid var(--orange);
+    }
+    .srow.key .srow-room { color: rgba(255, 255, 255, 0.7); }
+    .srow.key .srow-title { color: #fff; font-size: 1.2rem; }
+    .srow.key .srow-who { color: rgba(255, 255, 255, 0.82); }
+    .srow.key .srow-tag { background: var(--orange); color: #fff; }
+
+    .vendor-note {
+      max-width: 1080px; margin: 30px auto 0; text-align: center;
+      font-weight: 600; color: var(--navy);
+      background: rgba(255, 127, 0, 0.09); border-radius: 12px; padding: 15px 20px;
+    }
+
+    .program-contact { text-align: center; margin-top: 44px; color: var(--muted); }
+    .program-contact a { color: var(--orange); font-weight: 600; }
+
+    @media (max-width: 720px) {
+      .tblock { grid-template-columns: 1fr; }
+      .tblock-time {
+        flex-direction: row; align-items: baseline; gap: 10px; padding: 14px 20px;
+      }
+      .tblock-time .end { margin-top: 0; }
+      .srow { flex-wrap: wrap; gap: 6px 14px; }
+      .srow-room { flex-basis: 100%; }
+      .srow-tag { margin-left: 0; }
+      .srow-speakers { columns: 1; }
+    }
+  </style>
 </head>
-<body>
+<body class="program-page">
   <div id="header-placeholder"></div>
 
   <main>
@@ -40,7 +268,7 @@
       <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 49, 92, 0.7);"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <h1>Conference Program</h1>
-        <div class="subtitle">N-SEA 2026 — Two Days of Innovation</div>
+        <div class="subtitle">NSEA 2026 - Two Days of Innovation</div>
         <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; margin-bottom: 30px;">
           July 25-26, 2026 | Morgan State University, Baltimore, MD
         </p>
@@ -52,20 +280,606 @@
 
     <section class="section" id="program-overview">
       <div class="container">
-        <div style="max-width: 800px; margin: 0 auto; text-align: center; padding: 60px 20px;">
-          <h2 style="color: #00315c; font-size: 2.5rem; margin-bottom: 30px;">Conference Program</h2>
-          <div style="background: linear-gradient(135deg, #00315c, #004684); color: white; padding: 50px 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 2rem; margin-bottom: 20px;">TBD</h3>
-            <p style="font-size: 1.2rem; line-height: 1.6; margin: 0;">
-              The detailed conference program will be announced soon. Please check back later for the complete schedule of sessions, workshops, and events.
-            </p>
+        <div class="section-header" style="text-align: center;">
+          <h2 style="color: #00315c; font-size: 2.4rem; margin-bottom: 16px;">Symposium Schedule</h2>
+          <p class="program-intro">
+            Two full days of keynotes, research tracks, hands-on workshops, live demos, and poster sessions at the
+            University Student Center, Morgan State University. Schedule is subject to change.
+          </p>
+        </div>
+
+        <div class="spotlight-head"><h3>Featured Keynotes</h3></div>
+        <div class="keynote-strip">
+          <div class="keynote-card">
+            <span class="kh-tag">Keynote 1 &middot; Day 1</span>
+            <h4>Juan Gilbert</h4>
+            <p>University of Florida</p>
           </div>
-          <div style="margin-top: 40px;">
-            <p style="color: #666; font-size: 1rem;">
-              For questions about the program, contact: <a href="mailto:nsea@morgan.edu" style="color: #FF7F00;">nsea@morgan.edu</a>
-            </p>
+          <div class="keynote-card">
+            <span class="kh-tag">Keynote 2 &middot; Day 1</span>
+            <h4>Jeffrey Bardzell</h4>
+            <p>UNC Chapel Hill</p>
+          </div>
+          <div class="keynote-card">
+            <span class="kh-tag">Keynote 3 &middot; Day 2</span>
+            <h4>Reva Schwartz</h4>
+            <p>Civitaas</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <div class="day-switch-wrap">
+      <div class="day-switch">
+        <a href="#day1"><button type="button" class="active" data-day="day1">Day 1 <span class="sub">Sat, July 25</span></button></a>
+        <a href="#day2"><button type="button" data-day="day2">Day 2 <span class="sub">Sun, July 26</span></button></a>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top: 20px;">
+      <div class="container">
+
+        <div class="legend">
+          <span style="--dot: var(--c-keynote)">Keynote</span>
+          <span style="--dot: var(--c-research)">Research Track</span>
+          <span style="--dot: var(--c-workshop)">Workshop</span>
+          <span style="--dot: var(--c-sairi)">SAIRI Track</span>
+          <span style="--dot: var(--c-k12)">K-12</span>
+          <span style="--dot: var(--c-poster)">Poster</span>
+          <span style="--dot: var(--c-demo)">Demo</span>
+          <span style="--dot: var(--c-logistics)">Break / Meal</span>
+        </div>
+
+        <!-- ============ DAY 1 ============ -->
+        <div class="day-panel active" id="day1">
+          <div class="day-title">
+            <span class="badge">Day 1</span>
+            <h2>Saturday, July 25, 2026</h2>
+          </div>
+
+          <div class="agenda">
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">8:30</span><span class="end">9:15 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Ballroom A &amp; B</span>
+                  <div class="srow-main"><span class="srow-title">Registration &amp; Breakfast</span></div>
+                  <span class="srow-tag">Welcome</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Demo Setup</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">9:15</span><span class="end">9:30 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Opening Remarks</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">9:30</span><span class="end">10:15 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow key">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Juan Gilbert</span><div class="srow-who">University of Florida</div></div>
+                  <span class="srow-tag">Keynote 1</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">10:15</span><span class="end">10:30 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Break</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">10:30</span><span class="end">12:00 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main">
+                    <span class="srow-title">CEAMLS Featured</span>
+                    <ul class="srow-speakers">
+                      <li>Chuncheng Liu <span>(Northeastern)</span></li>
+                      <li>A. Michael West, Jr. <span>(JHU)</span></li>
+                      <li>Gabriella Waters <span>(VSU)</span></li>
+                      <li>Jere Boudell <span>(Clayton State U.)</span></li>
+                      <li>Talitha Washington <span>(Howard)</span></li>
+                    </ul>
+                    <p class="srow-note">Session ends 12:20 pm</p>
+                  </div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Ballroom A &amp; B</span>
+                  <div class="srow-main">
+                    <span class="srow-title">Business &amp; Organization</span>
+                    <ul class="srow-speakers">
+                      <li>Muddas Siddiqi <span>(College of DuPage)</span></li>
+                      <li>Omolulu Adeyemi <span>(U. Baltimore)</span></li>
+                      <li>Shirin Hasavari <span>(Morgan State)</span></li>
+                      <li>Dina El-Mahdy <span>(Morgan State)</span></li>
+                      <li>Mayowa Onare <span>(CITI Bank)</span></li>
+                    </ul>
+                    <p class="srow-note">Session ends 12:20 pm</p>
+                  </div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-k12)">
+                  <span class="srow-room">Workshop &middot; 208</span>
+                  <div class="srow-main"><span class="srow-title">K12 Learning Lab</span></div>
+                  <span class="srow-tag">K-12</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Robot Osuagwu</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Rooms 210A &amp; 210B</span>
+                  <div class="srow-main"><span class="srow-title">Open for additional speakers</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">12:00</span><span class="end">1:15 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Lunch</span></div>
+                  <span class="srow-tag">Meal</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">High Traffic Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">1:15</span><span class="end">2:15 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-workshop)">
+                  <span class="srow-room">Workshop &middot; 208</span>
+                  <div class="srow-main"><span class="srow-title">Aligned, Not Automated</span><div class="srow-who">Bree Nachelle</div></div>
+                  <span class="srow-tag">Workshop</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Room 210A</span>
+                  <div class="srow-main"><span class="srow-title">Mixed Methods Research</span><div class="srow-who">Krishna Bista</div></div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Room 210B</span>
+                  <div class="srow-main"><span class="srow-title">Open Code</span><div class="srow-who">Dr. Idris</div></div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-k12)">
+                  <span class="srow-room">Rooms 212A &amp; 212B</span>
+                  <div class="srow-main"><span class="srow-title">K-12 Teachers</span></div>
+                  <span class="srow-tag">K-12</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Posters Displayed</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">2:15</span><span class="end">3:15 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-workshop)">
+                  <span class="srow-room">Room 210A</span>
+                  <div class="srow-main"><span class="srow-title">Build ML Pipelines the WYSIWYG Way</span><div class="srow-who">Derrick Cook &amp; David Nyarko</div></div>
+                  <span class="srow-tag">Workshop</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-workshop)">
+                  <span class="srow-room">Workshop &middot; 208</span>
+                  <div class="srow-main"><span class="srow-title">EdgeAI4LEGO</span><div class="srow-who">Yuhan Jiang</div></div>
+                  <span class="srow-tag">Workshop</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-k12)">
+                  <span class="srow-room">Rooms 212A &amp; 212B</span>
+                  <div class="srow-main"><span class="srow-title">K-12 Teachers Presentations</span></div>
+                  <span class="srow-tag">K-12</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Posters Displayed</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">3:15</span><span class="end">3:30 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Break</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demos</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">3:30</span><span class="end">4:45 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-k12)">
+                  <span class="srow-room">Rooms 212A &amp; 212B</span>
+                  <div class="srow-main"><span class="srow-title">K-12 Teachers Presentations</span></div>
+                  <span class="srow-tag">K-12</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Poster Session</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">4:45</span><span class="end">5:30 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow key">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Jeffrey Bardzell</span><div class="srow-who">UNC Chapel Hill</div></div>
+                  <span class="srow-tag">Keynote 2</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">5:30</span><span class="end">6:30 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Reception</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demo / Activities</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <p class="vendor-note">Vendors will have a space in the atrium all day.</p>
+        </div>
+
+        <!-- ============ DAY 2 ============ -->
+        <div class="day-panel" id="day2">
+          <div class="day-title">
+            <span class="badge">Day 2</span>
+            <h2>Sunday, July 26, 2026</h2>
+          </div>
+
+          <div class="agenda">
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">8:30</span><span class="end">9:15 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Ballroom A &amp; B</span>
+                  <div class="srow-main"><span class="srow-title">Breakfast</span></div>
+                  <span class="srow-tag">Meal</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Demo Setup</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">9:15</span><span class="end">9:30 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Opening Remarks</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Posters Displayed</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">9:30</span><span class="end">10:15 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow key">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Reva Schwartz</span><div class="srow-who">Civitaas</div></div>
+                  <span class="srow-tag">Keynote 3</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">10:15</span><span class="end">10:25 AM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Break</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">10:25</span><span class="end">12:00 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main">
+                    <span class="srow-title">Education</span>
+                    <ul class="srow-speakers">
+                      <li>Bryn Seabrook <span>(UVA)</span></li>
+                      <li>Celia Chen <span>(UMD)</span></li>
+                      <li>Robin Butler <span>(Morgan State)</span></li>
+                      <li>Lena Hejmej <span>(Hong Kong)</span></li>
+                    </ul>
+                  </div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Ballroom A &amp; B</span>
+                  <div class="srow-main">
+                    <span class="srow-title">Engineering &amp; Computer Science</span>
+                    <ul class="srow-speakers">
+                      <li>Adrinne Raglin <span>(DEVCom)</span></li>
+                      <li>Dhanaraj Thakur <span>(GWU)</span></li>
+                      <li>Olusola Olabanjo <span>(Howard)</span></li>
+                      <li>Gloria Washington <span>(Howard)</span></li>
+                    </ul>
+                  </div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-sairi)">
+                  <span class="srow-room">Room 3 &middot; 210A-B</span>
+                  <div class="srow-main"><span class="srow-title">SAIRI Session</span><div class="srow-who">3 Talks</div></div>
+                  <span class="srow-tag">SAIRI</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Posters Displayed</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">12:00</span><span class="end">1:00 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Lunch</span></div>
+                  <span class="srow-tag">Meal</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Poster Session</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">High Traffic Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">1:00</span><span class="end">1:55 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main">
+                    <span class="srow-title">Ethics &amp; Art</span>
+                    <ul class="srow-speakers">
+                      <li>Laura Fichtner <span>(UMD)</span></li>
+                      <li>Tyechia Thompson <span>(Virginia Tech)</span></li>
+                      <li>Sherri Conklin <span>(Washington State U.)</span></li>
+                      <li>TBA</li>
+                    </ul>
+                    <p class="srow-note">Session runs to 2:30 pm</p>
+                  </div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Ballroom A &amp; B</span>
+                  <div class="srow-main">
+                    <span class="srow-title">AI Startups</span>
+                    <ul class="srow-speakers">
+                      <li>Arthur Sidney <span>(Sidney Group)</span></li>
+                      <li>Anita Jarman <span>(Ji Li Project)</span></li>
+                      <li>Jiang Pu <span>(NextGen Founder)</span></li>
+                      <li>Erica Miller <span>(Emethia.ai)</span></li>
+                    </ul>
+                    <p class="srow-note">Session runs to 2:30 pm</p>
+                  </div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-workshop)">
+                  <span class="srow-room">Workshop &middot; 208</span>
+                  <div class="srow-main"><span class="srow-title">FIFA</span><div class="srow-who">Anjolie Anthony</div></div>
+                  <span class="srow-tag">Workshop</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-sairi)">
+                  <span class="srow-room">Room 3 &middot; 210A-B</span>
+                  <div class="srow-main"><span class="srow-title">SAIRI Session</span><div class="srow-who">4 Talks</div></div>
+                  <span class="srow-tag">SAIRI</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Posters Displayed</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">1:55</span><span class="end">2:45 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-workshop)">
+                  <span class="srow-room">Workshop &middot; 208</span>
+                  <div class="srow-main"><span class="srow-title">Building Sustainable Software</span><div class="srow-who">Addy de la Cruz</div></div>
+                  <span class="srow-tag">Workshop</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Room 212A</span>
+                  <div class="srow-main"><span class="srow-title">Open Code</span><div class="srow-who">Dr. Idris</div></div>
+                  <span class="srow-tag">Research</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Posters Displayed</span></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">2:50</span><span class="end">3:00 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Break</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Live Demo &amp; SAIRI Demo</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">3:00</span><span class="end">3:45 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-sairi)">
+                  <span class="srow-room">Room 3 &middot; 210A-B</span>
+                  <div class="srow-main"><span class="srow-title">SAIRI Session</span><div class="srow-who">2 Talks</div></div>
+                  <span class="srow-tag">SAIRI</span>
+                </div>
+                <div class="srow" style="--dot: var(--c-research)">
+                  <span class="srow-room">Ballroom A &amp; B</span>
+                  <div class="srow-main"><span class="srow-title">Special Discussion Groups (SDGs)</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-poster)">
+                  <span class="srow-room">Ballroom C</span>
+                  <div class="srow-main"><span class="srow-title">Judges Meet</span><div class="srow-who">Poster Sessions, K12</div></div>
+                  <span class="srow-tag">Poster</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">3:45</span><span class="end">4:00 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Break</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">4:00</span><span class="end">4:45 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-keynote)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Poster / SAIRI Awards / K-12 Awards</span></div>
+                  <span class="srow-tag">Awards</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">4:45</span><span class="end">5:00 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Closing Remarks</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tblock">
+              <div class="tblock-time"><span class="start">5:00</span><span class="end">6:00 PM</span></div>
+              <div class="tblock-rows">
+                <div class="srow" style="--dot: var(--c-logistics)">
+                  <span class="srow-room">Auditorium</span>
+                  <div class="srow-main"><span class="srow-title">Networking / Reception</span></div>
+                </div>
+                <div class="srow" style="--dot: var(--c-demo)">
+                  <span class="srow-room">Demo Space &middot; 204</span>
+                  <div class="srow-main"><span class="srow-title">Final Demo Access</span></div>
+                  <span class="srow-tag">Demo</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <p class="vendor-note">Vendors will have a space in the atrium all day.</p>
+        </div>
+
+        <div class="program-contact">
+          <p>For questions about the program, contact:
+            <a href="mailto:nsea@morgan.edu">nsea@morgan.edu</a>
+          </p>
+        </div>
+
       </div>
     </section>
   </main>
@@ -73,11 +887,24 @@
   <div id="footer-placeholder"></div>
 
   <script>
+    // Highlight the day button matching the section in view
+    const dayButtons = document.querySelectorAll('.day-switch button');
+    const dayPanels = document.querySelectorAll('.day-panel');
+    const dayObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          dayButtons.forEach(b => b.classList.toggle('active', b.dataset.day === entry.target.id));
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    dayPanels.forEach(p => dayObserver.observe(p));
+
+    // Smooth scroll for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
+          e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
         }
       });
