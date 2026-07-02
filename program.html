@@ -210,15 +210,36 @@
     }
 
     .srow {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 5px;
-      padding: 14px 16px;
+      padding: 14px 46px 14px 16px;
       background: #fff;
       border: 1px solid var(--line);
       border-left: 5px solid var(--dot, var(--navy));
       border-radius: 11px;
     }
+
+    .cal-link {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      background: rgba(0, 49, 92, 0.06);
+      opacity: 0.6;
+      transition: all 0.15s ease;
+    }
+    .srow:hover .cal-link { opacity: 1; }
+    .cal-link:hover { background: var(--orange); color: #fff; transform: scale(1.08); }
+    .srow.key .cal-link { color: #fff; background: rgba(255, 255, 255, 0.2); opacity: 0.85; }
+    .srow.key .cal-link:hover { background: var(--orange); }
 
     /* Full-bleed rows that should span the whole block (keynotes, single events) */
     .srow.full { grid-column: 1 / -1; }
@@ -932,6 +953,60 @@
       });
     }, { rootMargin: '-45% 0px -45% 0px' });
     dayPanels.forEach(p => dayObserver.observe(p));
+
+    // ===== Add-to-calendar links per session =====
+    (function setupCalendarLinks() {
+      const VENUE = ', University Student Center, Morgan State University, Baltimore, MD';
+      const DETAILS = 'NSEA 2026 Symposium. Details: https://www.equitableaisymposium.com/program.html';
+      const pad = n => String(n).padStart(2, '0');
+
+      // "10:30" or "12:00 PM" -> "HHMMSS" (24h). Infers AM/PM for this event's hours.
+      function toTime(str) {
+        const m = str.trim().match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
+        if (!m) return null;
+        let h = +m[1];
+        const min = +m[2];
+        const mer = m[3] ? m[3].toUpperCase() : (h >= 8 && h <= 11 ? 'AM' : 'PM');
+        if (mer === 'PM' && h !== 12) h += 12;
+        if (mer === 'AM' && h === 12) h = 0;
+        return pad(h) + pad(min) + '00';
+      }
+
+      const calIcon = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><line x1="12" y1="14" x2="12" y2="18"></line><line x1="10" y1="16" x2="14" y2="16"></line></svg>';
+
+      document.querySelectorAll('.tblock').forEach(block => {
+        const startEl = block.querySelector('.tblock-time .start');
+        const endEl = block.querySelector('.tblock-time .end');
+        const start = startEl && toTime(startEl.textContent);
+        const end = endEl && toTime(endEl.textContent);
+        if (!start || !end) return;
+        const date = block.closest('#day2') ? '20260726' : '20260725';
+
+        block.querySelectorAll('.srow').forEach(row => {
+          const title = (row.querySelector('.srow-title')?.textContent || 'Session').trim();
+          const who = row.querySelector('.srow-who')?.textContent.trim();
+          const room = (row.querySelector('.srow-room')?.textContent || '').trim();
+          const text = who ? `${title} - ${who}` : title;
+
+          const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+            + '&text=' + encodeURIComponent(text)
+            + '&dates=' + date + 'T' + start + '/' + date + 'T' + end
+            + '&ctz=America/New_York'
+            + '&location=' + encodeURIComponent(room + VENUE)
+            + '&details=' + encodeURIComponent(DETAILS);
+
+          const a = document.createElement('a');
+          a.className = 'cal-link';
+          a.href = url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.title = 'Add to Google Calendar';
+          a.setAttribute('aria-label', 'Add "' + text + '" to Google Calendar');
+          a.innerHTML = calIcon;
+          row.appendChild(a);
+        });
+      });
+    })();
 
     // ===== Type filters =====
     (function setupFilters() {
