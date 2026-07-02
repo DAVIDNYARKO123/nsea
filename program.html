@@ -986,7 +986,7 @@
           const title = (row.querySelector('.srow-title')?.textContent || 'Session').trim();
           const who = row.querySelector('.srow-who')?.textContent.trim();
           const room = (row.querySelector('.srow-room')?.textContent || '').trim();
-          const text = who ? `${title} - ${who}` : title;
+          const text = 'NSEA 2026: ' + (who ? `${title} - ${who}` : title);
 
           const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
             + '&text=' + encodeURIComponent(text)
