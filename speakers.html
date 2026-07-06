@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Speakers &amp; Presenters - NSEA 2026 | Bios &amp; Presentation Titles</title>
+  <meta name="title" content="Speakers & Presenters - NSEA 2026 | Bios & Presentation Titles">
+  <meta name="description" content="Meet the keynote speakers and presenters of NSEA 2026. Read their bios and presentation titles. July 25-26, 2026 at Morgan State University, Baltimore.">
+  <meta name="keywords" content="NSEA speakers, AI presenters, keynote speakers, AI researchers, symposium presenters, speaker bios, CEAMLS">
+  <meta name="author" content="Center for Equitable AI & Machine Learning Systems (CEAMLS), Morgan State University">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.equitableaisymposium.com/speakers.html">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.equitableaisymposium.com/speakers.html">
+  <meta property="og:title" content="Speakers & Presenters - NSEA 2026 | Bios & Presentation Titles">
+  <meta property="og:description" content="Meet the keynote speakers and presenters of NSEA 2026. Read their bios and presentation titles. July 25-26, 2026 at Morgan State University, Baltimore.">
+  <meta property="og:image" content="https://www.equitableaisymposium.com/images/Logo-2026.png">
+  <meta property="og:site_name" content="NSEA 2026">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.equitableaisymposium.com/speakers.html">
+  <meta property="twitter:title" content="Speakers & Presenters - NSEA 2026 | Bios & Presentation Titles">
+  <meta property="twitter:description" content="Meet the keynote speakers and presenters of NSEA 2026. Read their bios and presentation titles.">
+  <meta property="twitter:image" content="https://www.equitableaisymposium.com/images/Logo-2026.png">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="load-components.js"></script>
+
+  <style>
+    /* Speakers page - mirrors the workshops page look */
+    .speakers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    #speakers .container {
+      max-width: 1600px;
+    }
+
+    .speaker-group {
+      margin-bottom: 70px;
+    }
+    .speaker-group:last-child { margin-bottom: 0; }
+
+    .speaker-group-head { text-align: center; margin: 0 auto 36px; }
+    .speaker-group-head h3 {
+      color: #00315c; font-size: 1.7rem;
+      display: inline-flex; align-items: center; gap: 14px;
+    }
+    .speaker-group-head h3::before,
+    .speaker-group-head h3::after {
+      content: ""; width: 52px; height: 3px; background: #FF7F00; border-radius: 3px;
+    }
+    .speaker-group-head p {
+      margin: 8px 0 0; color: #6b7a8d; font-size: 0.98rem;
+    }
+
+    .speaker-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0, 49, 92, 0.08);
+      border: 1px solid rgba(0, 49, 92, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      scroll-margin-top: 110px;
+    }
+
+    .speaker-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 45px rgba(0, 49, 92, 0.14);
+    }
+
+    .speaker-card:target {
+      box-shadow: 0 0 0 3px rgba(255, 127, 0, 0.55), 0 16px 45px rgba(0, 49, 92, 0.14);
+    }
+
+    .speaker-side {
+      background: linear-gradient(135deg, #00315c 0%, #014a87 100%);
+      padding: 40px 25px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .speaker-side img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 127, 0, 0.85);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      background: #f1f4f8;
+    }
+
+    .speaker-side .presenter-name {
+      margin: 20px 0 6px;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .speaker-side .presenter-role {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
+    }
+
+    .speaker-body {
+      padding: 40px;
+    }
+
+    .speaker-tag {
+      display: inline-block;
+      background: rgba(255, 127, 0, 0.12);
+      color: #d96b00;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .speaker-body h3 {
+      font-size: 1.6rem;
+      color: #00315c;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .speaker-body h4 {
+      font-size: 1.05rem;
+      color: #00315c;
+      margin: 24px 0 10px;
+      font-weight: 700;
+    }
+
+    .speaker-body p {
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .speaker-divider {
+      border: none;
+      border-top: 1px solid rgba(0, 49, 92, 0.1);
+      margin: 24px 0;
+    }
+
+    .speakers-contact { text-align: center; margin-top: 60px; color: #6b7a8d; }
+    .speakers-contact a { color: #FF7F00; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .speaker-card {
+        grid-template-columns: 1fr;
+      }
+
+      .speaker-side {
+        padding: 35px 25px 30px;
+      }
+
+      .speaker-body {
+        padding: 30px 25px;
+      }
+
+      .speaker-body h3 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 49, 92, 0.7);"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <h1>Speakers &amp; Presenters</h1>
+        <div class="subtitle">NSEA 2026 - Meet the People Behind the Program</div>
+        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; margin-bottom: 30px;">
+          July 25-26, 2026 | Morgan State University, Baltimore, MD
+        </p>
+        <a href="program.html" class="cta-button">View Schedule</a>
+      </div>
+    </section>
+
+    <div id="sponsor-strip-placeholder"></div>
+
+    <section class="home-section speakers-section" id="speakers">
+      <div class="container">
+        <div class="section-header">
+          <h2>Presentation Titles &amp; Bios</h2>
+          <p class="section-subtitle">Keynote speakers and presenters at NSEA 2026, grouped by day. Additional profiles will be added as they are confirmed.</p>
+        </div>
+
+        <!-- ==================== DAY 1 ==================== -->
+        <div class="speaker-group" id="day1-speakers">
+          <div class="speaker-group-head">
+            <h3>Day 1 &mdash; Saturday, July 25</h3>
+          </div>
+          <div class="speakers-list">
+
+            <article class="speaker-card" id="juan-gilbert">
+              <div class="speaker-side">
+                <img src="images/speakers/juan-gilbert.jpg" alt="Juan E. Gilbert">
+                <p class="presenter-name">Juan E. Gilbert, Ph.D.</p>
+                <p class="presenter-role">Andrew Banks Family Preeminence Endowed Professor &amp; Distinguished Professor<br>University of Florida</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Keynote 1 &middot; Day 1, 9:30 AM &middot; Ballroom A &amp; B</span>
+                <h3>Equitable AI in the post SFFA SCOTUS decision in Admissions</h3>
+                <h4>About the Speaker</h4>
+                <p>Dr. Juan E. Gilbert is the Andrew Banks Family Preeminence Endowed Professor and a Distinguished Professor at the University of Florida where he leads the Computing for Social Good Lab. He is a Fellow of the ACM, IEEE, and American Association for the Advancement of Science. He is a member of the American Academy of Arts and Sciences and the National Academy of Inventors. In 2012, he received the Presidential Award for Excellence in Science, Mathematics, and Engineering Mentoring from President Barack Obama. In 2023, he received the National Medal of Technology and Innovation from President Joe Biden.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="jeffrey-bardzell">
+              <div class="speaker-side">
+                <img src="images/invited_speakers/bardzell.jpeg" alt="Jeffrey Bardzell" style="object-position: 60% top;">
+                <p class="presenter-name">Jeffrey Bardzell</p>
+                <p class="presenter-role">Worcester Polytechnic Institute</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Keynote 2 &middot; Day 1, 4:45 PM &middot; Ballroom A &amp; B</span>
+                <h3>Title to be announced</h3>
+                <h4>About the Speaker</h4>
+                <p>Bio coming soon.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="omololu-adeyemi">
+              <div class="speaker-side">
+                <img src="images/speakers/omololu-adeyemi.jpg" alt="Omololu Adeyemi">
+                <p class="presenter-name">Omololu Adeyemi</p>
+                <p class="presenter-role">Doctoral Student, Public Administration<br>College of Public Affairs, University of Baltimore</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 1 &middot; Research Track: Business &amp; Organization</span>
+                <h3>Human-AI Collaboration in Federal Performance Management: Integrating Relational Competencies into AI-Supported Appraisal Systems</h3>
+                <h4>About the Presenter</h4>
+                <p>Omololu Adeyemi is a Doctoral Student in Public Administration at the University of Baltimore and a U.S. Army Veteran. His research focuses on performance management, organizational effectiveness, culturally competent leadership, and the implications of artificial intelligence for public-sector workforce management. His current work examines how federal performance appraisal systems can be redesigned to better capture relational competencies, human judgment, and accountability in AI-enabled government workplaces.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="jere-boudell">
+              <div class="speaker-side">
+                <img src="images/invited_speakers/jboudellCrop.jpg" alt="Jere A. Boudell">
+                <p class="presenter-name">Jere A. Boudell</p>
+                <p class="presenter-role">Director, Applied AI Institute; Associate Dean<br>College of STEM, Clayton State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 1 &middot; Research Track: CEAMLS Featured</span>
+                <h3>The Augmented Scientist: Human-AI Collaboration in Scientific Discovery</h3>
+                <h4>About the Presenter</h4>
+                <p>Dr. Jere Boudell is Associate Dean of the College of STEM, Director of the Applied AI Institute, and Professor of Biology. As a plant ecologist and technologist, she works at the intersection of environment, artificial intelligence, and human learning. Her research and leadership focus on using AI to augment scientific discovery, strengthen education, and support ecological stewardship. Through faculty and student workshops, student innovation programs, and interdisciplinary collaborations, she helps build more inclusive and human-centered futures for science and technology.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="dina-el-mahdy">
+              <div class="speaker-side">
+                <img src="images/speakers/dina-el-mahdy.jpg" alt="Dina El Mahdy">
+                <p class="presenter-name">Dina El Mahdy</p>
+                <p class="presenter-role">Professor of Accounting<br>Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 1 &middot; Research Track: Business &amp; Organization</span>
+                <h3>Measuring the Local and Global Impact of Corporate Social Responsibility Using Artificial Intelligence</h3>
+                <h4>About the Presenter</h4>
+                <p>Dina El Mahdy is a Professor of Accounting at Morgan State University. Her research spans accounting education and technology, corporate social responsibility, and corporate governance. Her work has been cited by the Securities and Exchange Commission, the Public Company Accounting Oversight Board, Forbes, The New York Post, and Bloomberg. Her publications have appeared in top journals such as Auditing: A Journal of Practice and Theory, Accounting and Finance, Review of Quantitative Finance and Accounting, Issues in Accounting Education, Journal of Risk and Financial Management, International Journal of Accounting and Information Management, and Journal of Forensic and Investigative Accounting.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="chuncheng-liu">
+              <div class="speaker-side">
+                <img src="images/invited_speakers/Chuncheng Liu.jpg" alt="Chuncheng Liu">
+                <p class="presenter-name">Chuncheng Liu</p>
+                <p class="presenter-role">Assistant Professor<br>Northeastern University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 1 &middot; Research Track: CEAMLS Featured</span>
+                <h3>Mediated Recognition: Perceived AI Appreciation and Evaluative Preference</h3>
+                <h4>About the Presenter</h4>
+                <p>Bio coming soon.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="muddassir-siddiqi">
+              <div class="speaker-side">
+                <img src="images/speakers/muddassir-siddiqi.jpg" alt="Dr. Muddassir Siddiqi">
+                <p class="presenter-name">Dr. Muddassir Siddiqi</p>
+                <p class="presenter-role">President<br>College of DuPage</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 1 &middot; Research Track: Business &amp; Organization</span>
+                <h3>AI Governance for Human-AI Collaboration in Higher Education</h3>
+                <h4>About the Presenter</h4>
+                <p>Dr. Muddassir Siddiqi is President of the College of DuPage, one of the nation&rsquo;s largest community colleges. A higher education leader, scholar, and practitioner, he brings more than two decades of executive experience advancing institutional transformation, workforce development, student success, and organizational effectiveness. He has held senior leadership positions at Houston Community College, City Colleges of Chicago, and Morton College, leading initiatives in innovation, digital learning, and applied education. Dr. Siddiqi holds doctoral and graduate degrees in education, business, and technology. He is a prolific scholar, graduate faculty member, and frequent national and international presenter whose work focuses on leadership, governance, strategy, and continuous improvement in higher education.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ==================== DAY 2 ==================== -->
+        <div class="speaker-group" id="day2-speakers">
+          <div class="speaker-group-head">
+            <h3>Day 2 &mdash; Sunday, July 26</h3>
+          </div>
+          <div class="speakers-list">
+
+            <article class="speaker-card" id="reva-schwartz">
+              <div class="speaker-side">
+                <img src="images/speakers/reva-schwartz.jpg" alt="Reva Schwartz">
+                <p class="presenter-name">Reva Schwartz</p>
+                <p class="presenter-role">Co-founder<br>Civitaas Insights LLC</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Keynote 3 &middot; Day 2, 9:30 AM &middot; Ballroom A &amp; B</span>
+                <h3>Stepping Outside the Stack</h3>
+                <h4>About the Speaker</h4>
+                <p>Reva Schwartz is a research scientist, linguist, and co-founder of Civitaas Insights, pioneering real-world AI evaluation. She also directs the Forum for Real-World AI Measurement and Evaluation at Virginia State University. With over 20 years in federal service, Reva's career includes roles as a forensic scientist and advisor to the intelligence community and other federal agencies. At NIST, she founded the ARIA program and served as core author of the AI Risk Management Framework and lead architect of the AI RMF Playbook. Her work integrates machine learning, measurement science, and social science to improve AI evaluation in practical, real-world applications.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="robin-butler">
+              <div class="speaker-side">
+                <img src="images/speakers/robin-butler.jpg" alt="Dr. Robin Butler">
+                <p class="presenter-name">Dr. Robin Butler</p>
+                <p class="presenter-role">Assistant Professor<br>School of Community Health &amp; Policy, Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 2 &middot; Research Track: Education</span>
+                <h3>Empowering Health Equity: Training HBCU Students in Data Literacy and Community-Engaged Research</h3>
+                <h4>About the Presenter</h4>
+                <p>As an Assistant Professor at Morgan State University, School of Community Health &amp; Policy, Health Education program, Dr. Robin Butler presents over 20 years of experience working with distressed communities. Dr. Butler&rsquo;s interdisciplinary research focus supports health informatics, STI prevention, health education, college student career pathways, and culturally tailored health literacy interventions messaging through barbershop dialogue and engagement. Her research also focuses on built community environments and data sovereignty to address inequitable health outcomes using artificial intelligence and machine learning.</p>
+                <p>More recently, Dr. Butler actively serves as a Co-Principal Investigator for an HPV uptake study in collaboration with Johns Hopkins University and the Sidney Kimmel Comprehensive Cancer Center. Her efforts have been recognized with grants from the NIH, Bristol Myers Squibb, JP Morgan, the Maryland Cigarette Restitution Fund, and the Morgan State University Office of Academic Affairs. She also serves as a co-advisor for the Morgan Chapter's My Sisters Keeper and as a practicum coordinator for the Department of Public and Allied Health&rsquo;s Health Education senior students.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="laura-fichtner">
+              <div class="speaker-side">
+                <img src="images/speakers/laura-fichtner.jpg" alt="Laura Fichtner">
+                <p class="presenter-name">Laura Fichtner</p>
+                <p class="presenter-role">Postdoctoral Associate<br>Institute for Trustworthy AI in Law and Society (TRAILS), University of Maryland</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 2 &middot; Research Track: Ethics &amp; Art</span>
+                <h3>A Trust Map for AI: Conceptualizing Trustworthy AI as a Socio-Technical Research Practice</h3>
+                <h4>About the Presenter</h4>
+                <p>Laura Fichtner is a postdoctoral associate at the University of Maryland and the Institute for Trustworthy AI in Law &amp; Society (TRAILS). Her research focuses on the intersections of information technology, ethics and politics. In her current project, Laura explores how different research practices seek to make AI technologies more trustworthy and if and how participatory methods are engaged in this effort.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="erica-miller">
+              <div class="speaker-side">
+                <img src="images/speakers/erica-miller.jpg" alt="Erica L. Miller">
+                <p class="presenter-name">Erica L. Miller</p>
+                <p class="presenter-role">Senior Lead, Enterprise AI Architect &amp; AI Governance Lead<br>Founder, Emethia</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 2 &middot; Research Track: AI Startups</span>
+                <h3>Autonomous AI Accountability: Building Predictive Governance Before Harm Materializes</h3>
+                <h4>About the Presenter</h4>
+                <p>Erica L. Miller is a Senior Lead, Enterprise AI Architect and AI Governance Lead at Under Armour, with 20+ years building the infrastructure enterprises need to operationalize AI. She is the founder of Emethia, an AI Governance Operations platform, and creator of the ADOPT Framework&trade;, a five-gate system for AI product validation. Her work sits at the intersection of AI adoption, enablement, and governance. She speaks, consults, and builds at the point where AI ambition meets operational reality.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="jiang-pu">
+              <div class="speaker-side">
+                <img src="images/speakers/jiang-pu.jpg" alt="Dr. Jiang Pu">
+                <p class="presenter-name">Dr. Jiang Pu</p>
+                <p class="presenter-role">Founder and Principal Consultant<br>NextGen Education</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 2 &middot; Research Track: AI Startups</span>
+                <h3>From Sycophancy to Socratic Dialogue: Using Interactional Architecture as an Agency-shield in AI-assisted Inquiry</h3>
+                <h4>About the Presenter</h4>
+                <p>Dr. Jiang Pu has been a dedicated advocate and practitioner of whole-child, competency-based learning for over 15 years. She bridges educational research and systemic reform by architecting human-centered, future-ready, and nature-positive learning environments rooted in empathy for the learner and the planet. Her expertise spans consulting for the World Bank's Renovation of General Education Project with Vietnam&rsquo;s Ministry of Education and Training, designing innovative K-16 curricula, and researching responsible AI in education. Using qualitative and mixed-method insights, she ensures digital transformations remain ethical, inclusive, equitable, and profoundly human.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="arthur-sidney">
+              <div class="speaker-side">
+                <img src="images/speakers/arthur-sidney.jpg" alt="Arthur D. Sidney">
+                <p class="presenter-name">Arthur D. Sidney</p>
+                <p class="presenter-role">Attorney &amp; AI Governance Strategist<br>Founder &amp; Principal, The Sidney Group PLLC</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 2 &middot; Research Track: AI Startups</span>
+                <h3>Who Can Stop the Machine? Building Institutions That Can Govern AI</h3>
+                <h4>About the Presenter</h4>
+                <p>Arthur D. Sidney is an attorney, AI governance strategist, and Founder &amp; Principal of The Sidney Group PLLC. A former Chief of Staff and Chief Counsel in the U.S. House of Representatives, he has also served as Vice President of Government Affairs at CCIA and Senior Vice President at Forbes Tate Partners. He has taught law and policy as an adjunct professor, presented on panels in the U.S. and abroad, and written extensively on AI governance, institutional accountability, and technology policy. His work focuses on helping organizations build governance frameworks that keep AI systems accountable, transparent, and subject to meaningful human authority.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="dhanaraj-thakur">
+              <div class="speaker-side">
+                <img src="images/speakers/dhanaraj-thakur.jpg" alt="Dhanaraj Thakur">
+                <p class="presenter-name">Dhanaraj Thakur</p>
+                <p class="presenter-role">Director, Fair Technology Initiative<br>George Washington University Law School</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 2 &middot; Research Track: Engineering &amp; Computer Science</span>
+                <h3>Intersectionality in AI &mdash; Examining Trust and Safety Systems in Social Media</h3>
+                <h4>About the Presenter</h4>
+                <p>Dhanaraj Thakur leads the Fair Technology Initiative which is part of the Multiracial Democracy Project at the George Washington University Law School. The Initiative aims to center racial justice in technical, governance, and policy questions about AI and democracy. Over the last 20 years he worked to advance equity and human rights in tech policy primarily through academic publications and research for policy audiences and advocates. He holds a PhD in Public Policy from the Georgia Institute of Technology, and is a graduate of the London School of Economics, and the University of the West Indies, Mona.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="michael-west">
+              <div class="speaker-side">
+                <img src="images/speakers/michael-west.jpg" alt="A. Michael West, Jr.">
+                <p class="presenter-name">A. Michael West, Jr.</p>
+                <p class="presenter-role">Provost&rsquo;s Postdoctoral Research Fellow<br>Department of Mechanical Engineering, Johns Hopkins University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Day 2 &middot; Research Track: Engineering &amp; Computer Science</span>
+                <h3>Latent Structures in Human Motor Control and Perception: Implications for Robotic Coaches</h3>
+                <h4>About the Presenter</h4>
+                <p>Dr. Michael West Jr. is a postdoctoral research fellow in the Haptics and Medical Robotics Laboratory at Johns Hopkins University and will join the Woodruff School of Mechanical Engineering at Georgia Tech as an Assistant Professor in August 2027. He earned his Ph.D. and M.S. in Mechanical Engineering from MIT under Professor Neville Hogan and his B.S. in Mechanical Engineering from Yale University. His research integrates human motor control, perception, learning, and robotics to improve applications in rehabilitation robotics, surgical robotics, human&ndash;robot interaction, and dexterous manipulation. He is currently recruiting motivated and curious Ph.D. students to join his lab at Georgia Tech next fall.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ==================== POSTERS ==================== -->
+        <div class="speaker-group" id="poster-presenters">
+          <div class="speaker-group-head">
+            <h3>Poster Presenters</h3>
+            <p>Posters are on display in Ballroom C throughout the symposium.</p>
+          </div>
+          <div class="speakers-list">
+
+            <article class="speaker-card" id="oluwafisayo-adeolu">
+              <div class="speaker-side">
+                <img src="images/speakers/oluwafisayo-adeolu.jpg" alt="Oluwafisayo Jessica Adeolu">
+                <p class="presenter-name">Oluwafisayo Jessica Adeolu</p>
+                <p class="presenter-role">Graduate Research Assistant<br>Department of Civil Engineering, Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Presentation</span>
+                <h3>Digital Equity, Student Agency, and Ethical AI Readiness: Evidence from an HBCU Broadband Intervention</h3>
+                <h4>About the Presenter</h4>
+                <p>Oluwafisayo Jessica Adeolu is a graduate student in Data Analytics and Visualization at Morgan State University, where she also serves as a Graduate Research Assistant in the Department of Civil Engineering. Her research focuses on digital equity, urban infrastructure, transportation systems, and data-driven approaches to inclusive planning and evidence-based policy. She applies quantitative analysis, geospatial methods, and data visualization to examine how technology, infrastructure, and access shape institutional and community outcomes. Her broader research interests include ethical AI readiness, urban systems, and equity-centered decision support.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="olamide-adeyelu">
+              <div class="speaker-side">
+                <img src="images/speakers/olamide-adeyelu.jpg" alt="Olamide Adeyelu">
+                <p class="presenter-name">Olamide Adeyelu</p>
+                <p class="presenter-role">Graduate Research Assistant, M.S. Candidate in Biomedical Sciences<br>Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Presentation</span>
+                <h3>Human-AI Collaboration in Stress and Pain Monitoring Using Psychophysiological Signals</h3>
+                <h4>About the Presenter</h4>
+                <p>Olamide Adeyelu is a Graduate Research Assistant and M.S. candidate in Biomedical Sciences at Morgan State University. Her research focuses on neuroscience, pain perception, anxiety, and psychophysiological signal analysis using electroencephalography (EEG) and event-related potentials. She is interested in applying computational methods and neurotechnology to better understand brain function and improve patient care. Her broader research interests include clinical neuroscience, biomedical data analysis, and translational research aimed at advancing neurological health.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="tarique-cummings">
+              <div class="speaker-side">
+                <img src="images/speakers/tarique-cummings.jpg" alt="Tarique Cummings">
+                <p class="presenter-name">Tarique Cummings</p>
+                <p class="presenter-role">Undergraduate Researcher, Computer Science<br>Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Presentation</span>
+                <h3>Adaptive Cybersecurity with Human-in-the-Loop Policy Learning: A Simulation-Driven Framework for Collaborative AI Defense</h3>
+                <h4>About the Presenter</h4>
+                <p>Tarique Cummings is an undergraduate Computer Science student at Morgan State University whose research spans trustworthy artificial intelligence, cybersecurity, adaptive machine learning, quantum computing, and algorithmic trading. His work focuses on developing robust, human-centered intelligent systems through continual learning, explainable AI, simulation, and secure system design. He has contributed to research in intrusion detection, adaptive policy learning, AI infrastructure, and intelligent decision-support systems, and has industry experience in AI and data analytics through Pfizer Digital IT. He aspires to develop resilient technologies that advance responsible AI and cybersecurity.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="julius-etuke">
+              <div class="speaker-side">
+                <img src="images/speakers/julius-etuke.jpg" alt="Julius Ogaga Etuke">
+                <p class="presenter-name">Julius Ogaga Etuke</p>
+                <p class="presenter-role">Ph.D. Student, Civil Engineering<br>Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Presentation</span>
+                <h3>Human-AI Collaborative Digital Twins for Climate-Resilient Transportation Infrastructure</h3>
+                <h4>About the Presenter</h4>
+                <p>Julius Ogaga Etuke is a Ph.D. student in Civil Engineering at Morgan State University, specializing in sustainable and resilient transportation infrastructure. He serves as a Graduate Research Assistant in the Sustainable and Resilient Infrastructure Engineering Research Laboratory. His research interests include transportation resilience, digital twins, immersive technologies, pavement performance, rubber-modified asphalt, and AI-supported infrastructure decision-making. He has contributed to multiple research projects, conference papers, and technical studies focused on resilient infrastructure systems, engineering education, and emerging technologies for sustainable transportation.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="minista-jazz">
+              <div class="speaker-side">
+                <img src="images/speakers/minista-jazz.jpg" alt="Minista Jazz (Rev. Dr. Jasmaine Cook-Kendrick)">
+                <p class="presenter-name">Minista Jazz</p>
+                <p class="presenter-role">(Rev. Dr. Jasmaine Cook-Kendrick)<br>Founder &amp; CEO, Much Different World; Liberation Technologist &amp; Artist/Activist</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Presentation</span>
+                <h3>A New iDDentity: Governed Digital Doubles and the Consent Layer for Human Agency in AI</h3>
+                <h4>About the Presenter</h4>
+                <p>Minista Jazz (Rev. Jasmaine Cook-Kendrick) is a radical liberation technologist, artist, and founder of Much Different World, building consent-governed infrastructure for voice, likeness, and personality in the age of AI. A self-taught Black queer woman, she learned to code at 40 after 20+ years as an award-winning hair artist who performed with global icons across 40+ countries. That craft became reparative technology that centers Black women first. Her Afrotemporal Witness Rooms braid past, present, and future, activating the public record of Black historical figures through source-credited, non-impersonating digital doubles. Rooted in Diasporic Intelligence and afrotemporalism, her work treats consent, provenance, and repair as civic acts.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="emmanuel-opoku">
+              <div class="speaker-side">
+                <img src="images/speakers/emmanuel-opoku.jpg" alt="Emmanuel Akwasi Opoku">
+                <p class="presenter-name">Emmanuel Akwasi Opoku</p>
+                <p class="presenter-role">Undergraduate Student<br>Grambling State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Poster</span>
+                <h3>Whose Classroom Is It? Teacher Agency in the Age of Agentic AI</h3>
+                <h4>About the Presenter</h4>
+                <p>Emmanuel Akwasi Opoku is a student at Grambling State University interested in how AI is changing classrooms. His research looks at what happens to teachers and students when AI systems start handling parts of instruction on their own. At N-SEA 2026, he is presenting a poster that breaks down the different ways teachers show up when AI is running the lesson, and what that means for how well students actually learn.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="sujata-sharma">
+              <div class="speaker-side">
+                <img src="images/speakers/sujata-sharma.jpg" alt="Sujata Sharma">
+                <p class="presenter-name">Sujata Sharma</p>
+                <p class="presenter-role">MPH, BSN-RN<br>Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Poster</span>
+                <h3>Poster presentation &mdash; title to be announced</h3>
+                <h4>About the Presenter</h4>
+                <p>Sujata Sharma earned a Master of Public Health degree from Morgan State University (Spring 2026) and is a registered nurse licensed in both the United States and Nepal. She has clinical experience in Medical/Surgical, Cardiac, and Progressive care nursing. Her research interests include cardiovascular disease prevention, music as medicine, health literacy, digital inclusion, and health equity. She has contributed to qualitative and quantitative public health research, data analysis, and scholarly dissemination while serving as a graduate researcher. As a graduate teaching assistant, she has supported nursing and biostatistics education while mentoring students. She is passionate about integrating research, education, leadership, and community engagement to improve health outcomes.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="rezoan-sultan">
+              <div class="speaker-side">
+                <img src="images/speakers/rezoan-sultan.jpg" alt="Rezoan Sultan">
+                <p class="presenter-name">Rezoan Sultan</p>
+                <p class="presenter-role">Applied ML Engineer &amp; Research Assistant<br>Electrical &amp; Computer Engineering, Morgan State University</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Presentation</span>
+                <h3>AI CYBERCHECK: Quantifying the Faithfulness of LLM-Augmented Explanations in Hybrid Network Intrusion and Phishing Detection Framework</h3>
+                <h4>About the Presenter</h4>
+                <p>Rezoan Sultan is a PhD student in Electrical and Computer Engineering at Morgan State University and an Applied Machine Learning Engineer specializing in real-world AI systems. He is the founder of an AI solutions company focused on building intelligent platforms across healthcare, education, cybersecurity, and environmental risk management. His work includes developing Mediscan AI, a system that simplifies complex medical reports for better patient understanding, an AI Academic Advisor for personalized student guidance, a machine learning&ndash;based natural calamity risk reduction system for early warning and safety, and AI-driven approaches in cybersecurity for threat detection and analysis. His mission is to design human-centered AI solutions that bridge the gap between advanced machine learning and practical, impactful applications.</p>
+              </div>
+            </article>
+
+            <article class="speaker-card" id="tamara-ward-lucas">
+              <div class="speaker-side">
+                <img src="images/speakers/tamara-ward-lucas.jpg" alt="Tamara Ward-Lucas">
+                <p class="presenter-name">Tamara Ward-Lucas</p>
+                <p class="presenter-role">AI Ethics Researcher; M.S. Candidate, AI for Business<br>University of Baltimore</p>
+              </div>
+              <div class="speaker-body">
+                <span class="speaker-tag">Poster</span>
+                <h3>Business Risk in Machine-Generated News Summaries: A Four-Model Accuracy and Bias Audit</h3>
+                <h4>About the Presenter</h4>
+                <p>Tamara Ward-Lucas is a MS candidate in Artificial Intelligence for Business at the University of Baltimore, focused on AI ethics and governance. Her research evaluates accuracy, hallucination, and bias in AI-generated news summaries, alongside work on bias in mortgage lending and power grid cybersecurity. A former federal employee and journalist, she covered government, politics, and environment in Maryland and Capitol Hill. She holds a bachelor&rsquo;s and master&rsquo;s degree from the University of Maryland College Park, authored an Olin Brookings Commission paper on AI and machine learning for opioid diversion, and completed fellowships in Congress and with NABJ and Pew Research Center.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="speakers-contact">
+          <p>Are you presenting at NSEA 2026 and don't see your profile here? Send your presentation title, bio, and headshot to
+            <a href="mailto:nsea@morgan.edu">nsea@morgan.edu</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

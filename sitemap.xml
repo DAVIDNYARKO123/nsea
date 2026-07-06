@@ -30,6 +30,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Speakers & Presenters -->
+  <url>
+    <loc>https://www.equitableaisymposium.com/speakers.html</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Committee -->
   <url>
     <loc>https://www.equitableaisymposium.com/committee.html</loc>
