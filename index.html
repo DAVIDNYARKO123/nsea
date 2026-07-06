@@ -91,7 +91,7 @@
         <div class="date-location">
           July 25-26, 2026 | Morgan State University, Baltimore, MD
         </div>
-        <a href="#registration" class="cta-button">Register Now</a>
+        <a href="#registration" class="cta-button" id="hero-cta">Register Now</a>
       </div>
     </section>
 
@@ -410,10 +410,13 @@
   <script>
     document.querySelectorAll('a[href^="#"]:not(#sponsor-modal-pay)').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        // Only smooth-scroll true in-page anchors; let cross-page links (e.g. program.html#location) navigate normally
+        if (!href || !href.startsWith('#')) return;
+        const target = document.querySelector(href);
+        if (!target) return;
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        target.scrollIntoView({ behavior: 'smooth' });
       });
     });
 
@@ -475,6 +478,19 @@
       setInterval(() => {
         currentImage = (currentImage + 1) % images.length;
         hero.style.backgroundImage = `url('${images[currentImage]}')`;
+      }, 5000);
+
+      // Alternating hero call-to-action button
+      const heroCta = document.getElementById('hero-cta');
+      const ctas = [
+        { label: 'Register Now', href: '#registration' },
+        { label: 'Location & Parking', href: 'program.html#location' }
+      ];
+      let currentCta = 0;
+      setInterval(() => {
+        currentCta = (currentCta + 1) % ctas.length;
+        heroCta.textContent = ctas[currentCta].label;
+        heroCta.setAttribute('href', ctas[currentCta].href);
       }, 5000);
     });
   </script>

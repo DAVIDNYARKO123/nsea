@@ -301,22 +301,43 @@
       background: rgba(255, 127, 0, 0.09); border-radius: 12px; padding: 15px 20px;
     }
 
-    .floor-map {
-      max-width: 1440px;
-      margin: 40px auto 0;
-      text-align: center;
-    }
-    .floor-map h3 {
+    /* ===== Location & Parking ===== */
+    .location-section { background: #fff; border-top: 1px solid var(--line); }
+    .location-wrap { max-width: 1080px; margin: 0 auto; }
+
+    .loc-item { margin-bottom: 56px; }
+    .loc-item:last-child { margin-bottom: 0; }
+    .loc-item h3 {
       color: var(--navy);
-      font-size: 1.5rem;
-      margin-bottom: 18px;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .floor-map img {
+    .loc-item h3::before {
+      content: "";
+      width: 8px; height: 26px;
+      background: var(--orange);
+      border-radius: 4px;
+      flex: 0 0 auto;
+    }
+    .loc-item p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; margin: 0 0 18px 18px; }
+    .loc-item p a { color: var(--orange); font-weight: 600; }
+    .loc-note {
+      font-style: italic;
+      background: rgba(255, 127, 0, 0.09);
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: inline-block;
+    }
+    .loc-item img {
       width: 100%;
       height: auto;
       border-radius: 16px;
       border: 1px solid var(--line);
       box-shadow: 0 10px 30px rgba(0, 49, 92, 0.10);
+      display: block;
     }
 
     .program-contact { text-align: center; margin-top: 44px; color: var(--muted); }
@@ -946,11 +967,6 @@
 
           </div>
           <p class="vendor-note">Vendors will have a space in the atrium all day.</p>
-
-          <div class="floor-map">
-            <h3>Event Floor Map</h3>
-            <img src="program/event_floor_map.png" alt="NSEA 2026 event floor map, University Student Center, Morgan State University">
-          </div>
         </div>
 
         <div class="program-contact">
@@ -959,6 +975,52 @@
           </p>
         </div>
 
+      </div>
+    </section>
+
+    <section class="section location-section" id="location">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <h2 style="color: #00315c; font-size: 2.4rem; margin-bottom: 16px;">Location &amp; Parking</h2>
+          <p class="program-intro">
+            Everything you need to find us on the day of the symposium, from the venue building to parking and
+            on-campus signage.
+          </p>
+        </div>
+
+        <div class="location-wrap">
+
+          <div class="loc-item">
+            <h3>The Venue</h3>
+            <p>NSEA is at the University Student Center Building.</p>
+            <img src="program/student-center.png" alt="University Student Center Building, Morgan State University">
+          </div>
+
+          <div class="loc-item">
+            <h3>Event Floor Map</h3>
+            <p>Find your way around the sessions, demos, and poster areas inside the Student Center.</p>
+            <img src="program/event_floor_map.png" alt="NSEA 2026 event floor map, University Student Center, Morgan State University">
+          </div>
+
+          <div class="loc-item">
+            <h3>Parking</h3>
+            <p>
+              Parking is in the Morgan Commons Garage.
+              Campus Map: <a href="https://map.morgan.edu" target="_blank" rel="noopener">map.morgan.edu</a>
+            </p>
+            <img src="program/morgan-commons-garage.png" alt="Morgan Commons Garage location on the Morgan State University campus map">
+          </div>
+
+          <div class="loc-item">
+            <h3>Finding Your Way</h3>
+            <p>
+              Look for the Yellow Directional Signs.
+              <span class="loc-note">A version of this sign with arrows is being made that will be directing you to the event.</span>
+            </p>
+            <img src="program/yellow-directional-signs.png" alt="Yellow directional signs guiding attendees to NSEA 2026">
+          </div>
+
+        </div>
       </div>
     </section>
   </main>
