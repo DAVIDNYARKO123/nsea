@@ -26,3 +26,20 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
   await loadComponent('footer-placeholder', 'footer.html');
 });
+
+// Rotate hero background images on every page with a hero
+document.addEventListener('DOMContentLoaded', function() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  const images = ['images/image.png', 'images/image1.png', 'images/image2.png'];
+  images.forEach(src => { new Image().src = src; });
+
+  let current = 0;
+  hero.style.backgroundImage = `url('${images[current]}')`;
+
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    hero.style.backgroundImage = `url('${images[current]}')`;
+  }, 5000);
+});

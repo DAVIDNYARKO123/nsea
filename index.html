@@ -476,19 +476,7 @@
       document.getElementById('registration-cards').innerHTML = generateRegistrationCards();
       document.getElementById('special-categories').innerHTML = generateSpecialCategories();
       
-      // Alternating hero background images
-      const hero = document.querySelector('.hero');
-      const images = ['images/image.png', 'images/image1.png', 'images/image2.png'];
-      let currentImage = 0;
-      
-      // Set initial background
-      hero.style.backgroundImage = `url('${images[currentImage]}')`;
-      
-      // Alternate images every 4 seconds
-      setInterval(() => {
-        currentImage = (currentImage + 1) % images.length;
-        hero.style.backgroundImage = `url('${images[currentImage]}')`;
-      }, 5000);
+      // Hero background rotation is handled globally in load-components.js
 
       // Alternating hero call-to-action button
       const heroCta = document.getElementById('hero-cta');
