@@ -1,6 +1,46 @@
-<section class="sponsor-strip" aria-label="Visionary Sponsor">
-  <a href="sponsors.html" class="sponsor-strip-link">
+<section class="sponsor-strip" aria-label="Sponsors">
+  <a href="sponsors.html" class="sponsor-strip-link" id="sponsor-strip-rotator">
     <span class="sponsor-strip-label">Sponsored by</span>
     <img src="images/sponsors/google.png" alt="Google" class="sponsor-strip-logo" />
+    <span class="sponsor-strip-name" style="display: none;"></span>
   </a>
 </section>
+<script>
+  (function () {
+    const entries = [
+      { label: 'Sponsored by', logo: 'images/sponsors/google.png', alt: 'Google' },
+      { label: 'Supported by', logo: 'images/sponsors/apple.png', alt: 'Apple' },
+      { label: 'Donations by', logo: 'images/sponsors/sams-club.png', alt: "Sam's Club" }
+    ];
+    entries.forEach(e => { if (e.logo) new Image().src = e.logo; });
+    const link = document.getElementById('sponsor-strip-rotator');
+    if (!link) return;
+    const label = link.querySelector('.sponsor-strip-label');
+    const logo = link.querySelector('.sponsor-strip-logo');
+    const name = link.querySelector('.sponsor-strip-name');
+    let i = 0;
+
+    function show(entry) {
+      label.textContent = entry.label;
+      if (entry.logo) {
+        logo.src = entry.logo;
+        logo.alt = entry.alt;
+        logo.style.display = 'block';
+        name.style.display = 'none';
+      } else {
+        name.textContent = entry.name;
+        name.style.display = 'inline';
+        logo.style.display = 'none';
+      }
+    }
+
+    setInterval(function () {
+      link.style.opacity = '0';
+      setTimeout(function () {
+        i = (i + 1) % entries.length;
+        show(entries[i]);
+        link.style.opacity = '';
+      }, 300);
+    }, 4000);
+  })();
+</script>

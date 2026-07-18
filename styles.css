@@ -247,6 +247,13 @@ nav {
     display: block;
 }
 
+.sponsor-strip-name {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #00315c;
+    line-height: 1;
+}
+
 @media (max-width: 600px) {
     .sponsor-strip {
         padding: 22px 16px;
