@@ -31,6 +31,67 @@
 
   <link rel="stylesheet" href="styles.css">
   <script src="load-components.js"></script>
+
+  <style>
+    :root {
+      --navy: #00315c;
+      --navy-2: #014a87;
+      --orange: #FF7F00;
+      --muted: #6b7a8d;
+      --line: rgba(0, 49, 92, 0.10);
+    }
+
+    .sp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1240px;
+      margin: 32px auto 0;
+    }
+
+    .sp-card {
+      background: #fff;
+      border: 1px solid rgba(0, 49, 92, 0.12);
+      border-radius: 10px;
+      padding: 30px 24px 26px;
+      text-align: center;
+    }
+
+    .sp-chip {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .sp-card .logo-box {
+      height: 130px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sp-card .logo-box img { max-height: 96px; max-width: 80%; width: auto; }
+
+    .sp-card h4 { color: var(--navy); font-size: 1.25rem; font-weight: 700; margin: 0 0 10px; }
+    .sp-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin: 0; }
+
+    /* Featured (visionary) sponsor card */
+    .sp-card.featured {
+      max-width: 760px;
+      margin: 40px auto 24px;
+      padding: 44px 40px 36px;
+      border-top: 3px solid var(--navy);
+    }
+    .sp-card.featured .sp-chip { color: var(--navy); }
+    .sp-card.featured .logo-box { height: 140px; }
+    .sp-card.featured .logo-box img { max-height: 108px; max-width: 340px; }
+    .sp-card.featured p { max-width: 540px; margin: 18px auto 0; font-size: 1.02rem; }
+
+    /* Why-sponsor cards keep a touch more presence */
+    .sp-card.why { border-top: 3px solid var(--navy); text-align: left; padding: 26px 26px 24px; }
+    .sp-card.why .sp-chip { color: #d96b00; letter-spacing: 2px; margin-bottom: 12px; }
+  </style>
 </head>
 <body>
   <div id="header-placeholder"></div>
@@ -56,15 +117,39 @@
           <p class="section-subtitle">Proudly supported by leaders advancing effective &amp; ethical AI</p>
         </div>
 
-        <div class="visionary-sponsor-card">
-          <span class="visionary-sponsor-tier">Visionary Sponsor</span>
-          <div class="visionary-sponsor-logo">
+        <div class="sp-card featured">
+          <span class="sp-chip">Visionary Sponsor</span>
+          <div class="logo-box">
             <img src="images/sponsors/google.png" alt="Google" />
           </div>
+          <p>
+            Proudly supported by <strong style="color: var(--navy);">Google</strong>, whose generous contribution helps make
+            sponsor-supported registration possible for a limited number of registrants.
+          </p>
         </div>
-        <p class="visionary-sponsor-blurb">
-          Proudly supported by <strong>Google</strong>, whose generous contribution helps make sponsor-supported registration possible for a limited number of registrants.
-        </p>
+
+        <div class="sp-grid">
+          <div class="sp-card">
+            <span class="sp-chip">Visionary Sponsor</span>
+            <div class="logo-box">
+              <img src="images/sponsors/apple.png" alt="Apple" style="max-height: 88px;" />
+            </div>
+          </div>
+
+          <div class="sp-card">
+            <span class="sp-chip">Visionary Sponsor</span>
+            <div class="logo-box">
+              <img src="images/sponsors/sams_club.png" alt="Sam's Club" style="max-height: 116px;" />
+            </div>
+          </div>
+
+          <div class="sp-card">
+            <span class="sp-chip">Visionary Sponsor</span>
+            <div class="logo-box">
+              <img src="images/sponsors/pallas.png" alt="Pallas Foundation" style="max-height: 104px;" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -76,23 +161,23 @@
           <p class="section-subtitle">Reach a national audience of AI researchers, educators, and innovators</p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px;">
-          <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); text-align: center;">
-            <div style="background: #00315c; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.3rem; font-weight: bold;">01</div>
-            <h4 style="color: #00315c; margin-bottom: 15px; font-weight: 600; font-size: 1.3rem;">National Visibility</h4>
-            <p style="color: #666; line-height: 1.6;">Showcase your brand to a diverse, national audience of academic, industry, and government leaders.</p>
+        <div class="sp-grid">
+          <div class="sp-card why">
+            <span class="sp-chip">01</span>
+            <h4>National Visibility</h4>
+            <p>Showcase your brand to a diverse, national audience of academic, industry, and government leaders.</p>
           </div>
 
-          <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); text-align: center;">
-            <div style="background: #FF7F00; color: black; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.3rem; font-weight: bold;">02</div>
-            <h4 style="color: #00315c; margin-bottom: 15px; font-weight: 600; font-size: 1.3rem;">Talent Pipeline</h4>
-            <p style="color: #666; line-height: 1.6;">Engage directly with emerging AI talent from leading universities and research institutions.</p>
+          <div class="sp-card why">
+            <span class="sp-chip">02</span>
+            <h4>Talent Pipeline</h4>
+            <p>Engage directly with emerging AI talent from leading universities and research institutions.</p>
           </div>
 
-          <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); text-align: center;">
-            <div style="background: #00315c; color: white; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.3rem; font-weight: bold;">03</div>
-            <h4 style="color: #00315c; margin-bottom: 15px; font-weight: 600; font-size: 1.3rem;">Mission Alignment</h4>
-            <p style="color: #666; line-height: 1.6;">Demonstrate your commitment to ethical, equitable, and effective AI for society.</p>
+          <div class="sp-card why">
+            <span class="sp-chip">03</span>
+            <h4>Mission Alignment</h4>
+            <p>Demonstrate your commitment to ethical, equitable, and effective AI for society.</p>
           </div>
         </div>
       </div>
