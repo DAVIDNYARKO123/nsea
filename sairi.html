@@ -43,6 +43,9 @@
 
     .sairi-page { background: #eef2f7; }
 
+    /* Use more horizontal space for the project cards */
+    #projects .container { max-width: 1520px; }
+
     /* ===== Program description ===== */
     .about-section { background: #fff; border-bottom: 1px solid var(--line); }
     .about-wrap { max-width: 1080px; margin: 0 auto; }
@@ -82,7 +85,7 @@
     .glance-card .lbl { margin-top: 8px; font-size: 0.85rem; color: var(--muted); font-weight: 600; letter-spacing: 0.3px; }
 
     /* ===== Session groups ===== */
-    .sairi-session { max-width: 1080px; margin: 0 auto 70px; scroll-margin-top: 90px; }
+    .sairi-session { max-width: 1460px; margin: 0 auto 70px; scroll-margin-top: 90px; }
     .sairi-session:last-of-type { margin-bottom: 0; }
 
     .session-head { text-align: center; margin-bottom: 30px; }
@@ -104,60 +107,95 @@
     /* ===== Project cards ===== */
     .project-card {
       background: #fff;
-      border: 1px solid var(--line);
       border-radius: 16px;
-      box-shadow: 0 8px 26px rgba(0, 49, 92, 0.07);
-      padding: 0;
-      margin-bottom: 24px;
       overflow: hidden;
-      scroll-margin-top: 90px;
+      box-shadow: 0 10px 35px rgba(0, 49, 92, 0.08);
+      border: 1px solid rgba(0, 49, 92, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      margin-bottom: 28px;
+      scroll-margin-top: 110px;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 49, 92, 0.16);
+      border-color: var(--orange);
     }
 
     .project-head {
-      background: linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 100%);
-      color: #fff;
-      padding: 22px 30px 20px;
       position: relative;
       overflow: hidden;
+      background: linear-gradient(135deg, #00315c 0%, #014a87 100%);
+      color: #fff;
+      padding: 24px 36px 22px;
     }
     .project-head::after {
-      content: ""; position: absolute; top: -50px; right: -50px;
-      width: 140px; height: 140px; background: rgba(255, 127, 0, 0.16); border-radius: 50%;
+      content: ""; position: absolute; top: -55px; right: -55px;
+      width: 150px; height: 150px; background: rgba(255, 127, 0, 0.16); border-radius: 50%;
     }
-    .project-head .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; position: relative; z-index: 1; }
+    .project-head .meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      margin-bottom: 12px; position: relative; z-index: 1;
+    }
     .project-num {
       background: var(--orange); color: #fff;
-      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
-      padding: 5px 13px; border-radius: 20px;
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
     }
-    .project-time {
-      background: rgba(255, 255, 255, 0.14); color: rgba(255, 255, 255, 0.9);
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
-      padding: 5px 13px; border-radius: 20px;
+    .project-sess {
+      background: rgba(255, 255, 255, 0.14); color: rgba(255, 255, 255, 0.92);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 20px;
     }
-    .project-head h3 { margin: 0; font-size: 1.25rem; line-height: 1.45; font-weight: 700; position: relative; z-index: 1; }
-
-    .project-body { padding: 24px 30px 26px; }
-
-    .coming-soon {
-      font-size: 0.85rem; font-style: italic; color: var(--muted);
-      margin: 0 0 20px;
+    .project-head h3 {
+      margin: 0; font-size: 1.4rem; line-height: 1.4; font-weight: 700;
+      position: relative; z-index: 1;
     }
 
-    .project-abstract { color: #55606d; font-size: 0.98rem; line-height: 1.7; margin: 0 0 20px; }
-
-    .project-video { margin: 0 0 20px; }
-    .project-video video, .project-video iframe {
-      width: 100%; max-width: 640px; border-radius: 12px; border: 1px solid var(--line); display: block;
+    .project-content {
+      display: grid;
+      grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+      gap: 34px;
+      padding: 30px 36px 8px;
+      align-items: start;
     }
 
-    .detail-label {
-      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.6px;
-      text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 26px rgba(0, 49, 92, 0.14);
+      background: #001d38;
+    }
+    .video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .video-cap {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      margin-top: 10px;
+    }
+    .video-cap span {
+      font-size: 0.74rem; font-weight: 800; letter-spacing: 0.5px;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .video-cap a { font-size: 0.85rem; font-weight: 700; color: var(--orange); text-decoration: none; white-space: nowrap; }
+    .video-cap a:hover { text-decoration: underline; }
+
+    .project-content h4, .students-band h4 {
+      font-size: 1.02rem; color: var(--navy); margin: 24px 0 10px; font-weight: 700;
       display: flex; align-items: center; gap: 8px;
     }
-    .detail-label::before {
-      content: ""; width: 14px; height: 3px; background: var(--orange); border-radius: 2px;
+    .project-content h4::before, .students-band h4::before {
+      content: ""; width: 16px; height: 3px; background: var(--orange); border-radius: 2px;
+    }
+    .text-col h4 { margin-top: 0; }
+    .text-col p { color: #55606d; font-size: 0.97rem; line-height: 1.75; margin: 0; }
+
+    .students-band { padding: 0 36px 30px; }
+
+    @media (max-width: 900px) {
+      .project-content { grid-template-columns: 1fr; gap: 8px; padding: 22px 20px 4px; }
+      .students-band { padding: 0 20px 24px; }
+      .project-head { padding: 20px 20px 18px; }
     }
 
     .mentor-grid {
@@ -183,10 +221,11 @@
       padding: 10px 14px; font-size: 0.9rem; line-height: 1.45;
     }
     .student-list li strong { color: var(--navy); display: block; font-weight: 700; }
-    .student-list li span { color: var(--muted); font-size: 0.83rem; }
+    .student-list li span { display: block; color: var(--muted); font-size: 0.83rem; }
+    .student-list li .school { color: var(--navy-2); font-weight: 600; margin-top: 2px; }
 
     .sairi-note {
-      max-width: 1080px; margin: 44px auto 0; text-align: center;
+      max-width: 1460px; margin: 44px auto 0; text-align: center;
       font-weight: 600; color: var(--navy);
       background: rgba(255, 127, 0, 0.09); border-radius: 12px; padding: 15px 20px;
     }
@@ -276,22 +315,37 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 3</span>
-                <span class="project-time">Session 1 &middot; 10:25 AM</span>
+                <span class="project-sess">Session 1 &middot; 10:25 AM to 12:00 PM &middot; Room 210A-B</span>
               </div>
               <h3>Post-Disaster Building Damage Assessment AI</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Steve Efe</span><span class="dept">Civil &amp; Environmental Engineering</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">John Tanimola</span><span class="dept">Civil Engineering</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1gRPcxYA8rMrIxffyitwPkC1jcL1XMGpV/preview" title="Project Spotlight: Post-Disaster Building Damage Assessment AI" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1gRPcxYA8rMrIxffyitwPkC1jcL1XMGpV/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Steve Efe</span><span class="dept">Civil &amp; Environmental Engineering</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">John Tanimola</span><span class="dept">Civil Engineering</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project presents an AI-powered framework for rapid post-disaster building damage assessment using the xBD (xView2) benchmark dataset. High-resolution pre- and post-disaster satellite image pairs are analyzed to classify structural damage into four standardized categories: No Damage, Minor, Major, and Destroyed, which are subsequently mapped to ATC-20 rapid evaluation levels (Green, Yellow, and Red) to support emergency response and decision-making. The framework implements a complete deep learning pipeline, including data preprocessing, data augmentation, class imbalance mitigation, and transfer learning. Three deep learning architectures, a ResNet50 baseline classifier, a Siamese ResNet50 network, and a Vision Transformer (ViT-B/16) were trained and systematically evaluated using Overall Accuracy and weighted F1-score. The resulting models demonstrate the potential of automated damage assessment systems to support rapid building triage and improve post-disaster situational awareness.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Alameen Adeku</strong><span>Computer Science &middot; Southeastern Louisiana University</span></li>
-                <li><strong>Christian Messado</strong><span>Computer Science &middot; Morgan State University</span></li>
-                <li><strong>Keren Gil</strong><span>Hospitality Management &middot; Anne Arundel Community College</span></li>
-                <li><strong>Asheley Mudzingwa</strong><span>Computer Science &middot; Ohio Dominican University</span></li>
+                <li><strong>Alameen Adeku</strong><span>Computer Science</span><span class="school">Southeastern Louisiana University</span></li>
+                <li><strong>Christian Messado</strong><span>Computer Science</span><span class="school">Morgan State University</span></li>
+                <li><strong>Keren Gil</strong><span>Hospitality Management</span><span class="school">Anne Arundel Community College</span></li>
+                <li><strong>Asheley Mudzingwa</strong><span>Computer Science</span><span class="school">Ohio Dominican University</span></li>
               </ul>
             </div>
           </article>
@@ -300,22 +354,37 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 1</span>
-                <span class="project-time">Session 1 &middot; 10:25 AM</span>
+                <span class="project-sess">Session 1 &middot; 10:25 AM to 12:00 PM &middot; Room 210A-B</span>
               </div>
               <h3>Cross-View Multi-Graph Contrastive Learning with LLM-Guided Knowledge Initialization for Predicting Antidepressant Treatment Response in Major Depressive Disorder</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Jamell Dacon</span><span class="dept">Computer Science</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Ricky Gole</span><span class="dept">Advanced Computing</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1vrUJFqpjzCErOzzgqW6txExITGXBnIAp/preview" title="Project Spotlight: Cross-View Multi-Graph Contrastive Learning with LLM-Guided Knowledge Initialization for Predicting Antidepressant Treatment Response in Major Depressive Disorder" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1vrUJFqpjzCErOzzgqW6txExITGXBnIAp/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Jamell Dacon</span><span class="dept">Computer Science</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Ricky Gole</span><span class="dept">Advanced Computing</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project addresses a critical challenge in multi-omic integration for predicting clinical antidepressant response. Conventional multi-modal prediction models assume that all molecular data modalities contribute meaningful, task-relevant information. However, this work demonstrates that introducing an uninformative, high-dimensional modality can lead to modality dominance, a failure mode in which the integrated model performs substantially worse than the strongest individual modality. This degradation was observed consistently across multiple data fusion approaches. To mitigate this issue, the researchers propose Signal-Gated Omic Fusion (SGOF), a framework that estimates each modality's predictive utility using held-out validation data and dynamically assigns weights before integration. By suppressing uninformative modalities while emphasizing informative ones, SGOF restores predictive performance and improves the robustness of multi-omic integration without requiring prior knowledge of modality relevance.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Sharon Iweha</strong><span>Hospitality Management &middot; Morgan State University</span></li>
-                <li><strong>Oluwasegun Soji-John</strong><span>Computer Science &middot; Morgan State University</span></li>
-                <li><strong>Gabriel Chambers</strong><span>Computer Science &middot; Alabama A&amp;M University</span></li>
-                <li><strong>Peyton Blake</strong><span>Business Management &middot; Delaware State University</span></li>
+                <li><strong>Sharon Iweha</strong><span>Hospitality Management</span><span class="school">Morgan State University</span></li>
+                <li><strong>Oluwasegun Soji-John</strong><span>Computer Science</span><span class="school">Morgan State University</span></li>
+                <li><strong>Gabriel Chambers</strong><span>Computer Science</span><span class="school">Alabama A&amp;M University</span></li>
+                <li><strong>Peyton Blake</strong><span>Business Management</span><span class="school">Delaware State University</span></li>
               </ul>
             </div>
           </article>
@@ -324,22 +393,37 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 4</span>
-                <span class="project-time">Session 1 &middot; 10:25 AM</span>
+                <span class="project-sess">Session 1 &middot; 10:25 AM to 12:00 PM &middot; Room 210A-B</span>
               </div>
               <h3>Artificial Intelligence for Early Prediction of Cardiovascular Disease Using ECG Signal</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Timothy Oladunni</span><span class="dept">Computer Science</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Farouk Ganiyu-Adewumi</span><span class="dept">Advanced Computing</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1aQKjvxLsqUfylSXtAt3KG0wKEEgM27yS/preview" title="Project Spotlight: Artificial Intelligence for Early Prediction of Cardiovascular Disease Using ECG Signal" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1aQKjvxLsqUfylSXtAt3KG0wKEEgM27yS/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Timothy Oladunni</span><span class="dept">Computer Science</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Farouk Ganiyu-Adewumi</span><span class="dept">Advanced Computing</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project proposes an AI-based framework for early cardiovascular disease (CVD) risk prediction by integrating electrocardiogram (ECG), photoplethysmography (PPG), and respiratory signals. CVD remains one of the leading causes of death worldwide, with many conditions progressing silently before clinical symptoms appear. ECG captures the heart's electrical activity, PPG provides complementary information on vascular function and blood flow, and respiratory signals offer additional physiological context to improve prediction when the primary modalities disagree. Machine learning and deep learning models will be developed to extract multimodal features, classify cardiovascular risk, and evaluate predictive performance and stability using the Prediction Error and Confidence Stability (PECS) framework. Publicly available datasets will be used for training and validation, with the goal of developing an accurate, interpretable, and robust decision-support system for earlier cardiovascular risk detection and preventive care.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Kosisochukwu Ogbuanya</strong><span>Computer Science &middot; Fisk University</span></li>
-                <li><strong>Sanaa Reeves</strong><span>Electrical Engineering &middot; Morgan State University</span></li>
-                <li><strong>Sandy Akoy</strong><span>Management Information Systems &middot; University of Houston</span></li>
-                <li><strong>Rochak Ghimire</strong><span>Computer Science &middot; Morgan State University</span></li>
+                <li><strong>Kosisochukwu Ogbuanya</strong><span>Computer Science</span><span class="school">Fisk University</span></li>
+                <li><strong>Sanaa Reeves</strong><span>Electrical Engineering</span><span class="school">Morgan State University</span></li>
+                <li><strong>Sandy Akoy</strong><span>Management Information Systems</span><span class="school">University of Houston</span></li>
+                <li><strong>Rochak Ghimire</strong><span>Computer Science</span><span class="school">Morgan State University</span></li>
               </ul>
             </div>
           </article>
@@ -357,22 +441,37 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 2</span>
-                <span class="project-time">Session 2 &middot; 1:00 PM</span>
+                <span class="project-sess">Session 2 &middot; 1:00 PM to 2:45 PM &middot; Room 210A-B</span>
               </div>
               <h3>Developing Edge AI Applications for Human-Robot Collaboration in LEGO Assembling Operations</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Yuhan Jiang</span><span class="dept">Civil &amp; Environmental Engineering</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Derrick Mirindi</span><span class="dept">Architecture &amp; Planning</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1u5dBmGLbIqbWqpG3f7VAkRxQ5AHnUNGb/preview" title="Project Spotlight: Developing Edge AI Applications for Human-Robot Collaboration in LEGO Assembling Operations" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1u5dBmGLbIqbWqpG3f7VAkRxQ5AHnUNGb/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Yuhan Jiang</span><span class="dept">Civil &amp; Environmental Engineering</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Derrick Mirindi</span><span class="dept">Architecture &amp; Planning</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project develops edge AI applications that enable a robotic arm to autonomously identify, retrieve, and manipulate LEGO bricks from a mixed pile to support automated assembly tasks. The research integrates computer vision, image processing, edge AI, and robotics to develop object detection and manipulation algorithms that operate efficiently on resource constrained hardware. Machine learning models will be implemented and evaluated on Linux based edge computing platforms while integrating sensors and robotic control systems for real-time perception and manipulation. The project aims to develop robust methods for LEGO brick classification, sorting, and autonomous retrieval, while evaluating system performance under realistic operating conditions. The resulting system will advance edge AI enabled robotic manipulation and provide a platform for intelligent automation and hands-on robotics research.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Toluwani Olasoko</strong><span>Electrical Engineering &middot; Howard University</span></li>
-                <li><strong>Joaquin Snowden</strong><span>Mechatronics Engineering &middot; Morgan State University</span></li>
-                <li><strong>Kayla Hicks</strong><span>Cybersecurity &middot; Morgan State University</span></li>
-                <li><strong>Abdulahi Oyebanji</strong><span>Computer Science &middot; University of Southern Mississippi</span></li>
+                <li><strong>Toluwani Olasoko</strong><span>Electrical Engineering</span><span class="school">Howard University</span></li>
+                <li><strong>Joaquin Snowden</strong><span>Mechatronics Engineering</span><span class="school">Morgan State University</span></li>
+                <li><strong>Kayla Hicks</strong><span>Cybersecurity</span><span class="school">Morgan State University</span></li>
+                <li><strong>Abdulahi Oyebanji</strong><span>Computer Science</span><span class="school">University of Southern Mississippi</span></li>
               </ul>
             </div>
           </article>
@@ -381,22 +480,37 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 6</span>
-                <span class="project-time">Session 2 &middot; 1:00 PM</span>
+                <span class="project-sess">Session 2 &middot; 1:00 PM to 2:45 PM &middot; Room 210A-B</span>
               </div>
               <h3>DermaBridge: A Trustworthy Multimodal AI App for Skin Lesion Screening, Explainable Risk Assessment, and Smart Clinical Referral</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Saroj Pramanik</span><span class="dept">Biology</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Blessing Adeika</span><span class="dept">Computer Engineering</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1B71Y_U82rOrEXvKYZZ1TwQk400gDeEvL/preview" title="Project Spotlight: DermaBridge: A Trustworthy Multimodal AI App for Skin Lesion Screening, Explainable Risk Assessment, and Smart Clinical Referral" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1B71Y_U82rOrEXvKYZZ1TwQk400gDeEvL/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Saroj Pramanik</span><span class="dept">Biology</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Blessing Adeika</span><span class="dept">Computer Engineering</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project develops DermaBridgeAI, a fairness first AI framework for skin lesion classification that prioritizes equitable diagnostic performance across Fitzpatrick skin types (FST I-VI) alongside overall predictive accuracy. Existing AI models for skin cancer diagnosis often underperform on darker skin tones, contributing to delayed diagnosis and poorer melanoma outcomes. The project integrates six public dermatology datasets into a unified benchmark and systematically evaluates convolutional neural networks and Vision Transformer architectures using a standardized training and evaluation pipeline. Model performance is assessed using both traditional classification metrics and fairness measures to quantify disparities across skin tones. The resulting framework identifies transformer-based models as promising candidates for reducing performance gaps while maintaining high diagnostic accuracy, advancing the development of more equitable AI systems for dermatological diagnosis.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Leona Francis</strong><span>Computer Science &middot; Morgan State University</span></li>
-                <li><strong>Kosisochukwu Obiora</strong><span>Computer Science &middot; Rust College</span></li>
-                <li><strong>Bishop Akalusi</strong><span>Computer Science &middot; Morgan State University</span></li>
-                <li><strong>Ayomide Aisida</strong><span>Computer Science &middot; Bowie State University</span></li>
+                <li><strong>Leona Francis</strong><span>Computer Science</span><span class="school">Morgan State University</span></li>
+                <li><strong>Kosisochukwu Obiora</strong><span>Computer Science</span><span class="school">Rust College</span></li>
+                <li><strong>Bishop Akalusi</strong><span>Computer Science</span><span class="school">Morgan State University</span></li>
+                <li><strong>Ayomide Aisida</strong><span>Computer Science</span><span class="school">Bowie State University</span></li>
               </ul>
             </div>
           </article>
@@ -405,22 +519,37 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 8</span>
-                <span class="project-time">Session 2 &middot; 1:00 PM</span>
+                <span class="project-sess">Session 2 &middot; 1:00 PM to 2:45 PM &middot; Room 210A-B</span>
               </div>
               <h3>Optimization Driven Machine Learning Framework for Predicting Respiratory Health Risks Using Urban Environmental Data: Baltimore as a Case Study</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Olaniyi Iyiola</span><span class="dept">Mathematics</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Amara Eze</span><span class="dept">Mathematics</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1PndoAIWztwneZxPQ_b9Ecdv-Gk-aC8IT/preview" title="Project Spotlight: Optimization Driven Machine Learning Framework for Predicting Respiratory Health Risks Using Urban Environmental Data: Baltimore as a Case Study" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1PndoAIWztwneZxPQ_b9Ecdv-Gk-aC8IT/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Olaniyi Iyiola</span><span class="dept">Mathematics</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Amara Eze</span><span class="dept">Mathematics</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project investigates how optimization driven machine learning can be used to predict respiratory disease risk from environmental factors in urban settings. Respiratory diseases such as asthma, bronchitis, and chronic obstructive pulmonary disease (COPD) affect millions of people worldwide, and environmental conditions including temperature, humidity, traffic activity, and population density can substantially influence respiratory health. Using Baltimore, Maryland, as a case study, the project analyzes environmental datasets to identify patterns associated with respiratory disease risk. Machine learning models, including Extreme Learning Machines (ELM), Support Vector Machines (SVM), and Random Forest, will be developed and compared, with the Douglas optimization algorithm applied to improve SVM training efficiency and predictive performance. The project aims to evaluate the effectiveness of optimization enhanced machine learning for respiratory risk prediction while advancing data driven approaches to public health monitoring and early disease detection.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Jaren Allen</strong><span>Civil Engineering &middot; Morgan State University</span></li>
-                <li><strong>Chanel Green</strong><span>Family &amp; Consumer Science &middot; Morgan State University</span></li>
-                <li><strong>Maya Mukabe</strong><span>Information Systems &middot; Grambling State University</span></li>
-                <li><strong>Christopher Daniels</strong><span>Electrical Engineering &middot; Morgan State University</span></li>
+                <li><strong>Jaren Allen</strong><span>Civil Engineering</span><span class="school">Morgan State University</span></li>
+                <li><strong>Chanel Green</strong><span>Family &amp; Consumer Science</span><span class="school">Morgan State University</span></li>
+                <li><strong>Maya Mukabe</strong><span>Information Systems</span><span class="school">Grambling State University</span></li>
+                <li><strong>Christopher Daniels</strong><span>Electrical Engineering</span><span class="school">Morgan State University</span></li>
               </ul>
             </div>
           </article>
@@ -429,22 +558,37 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 7</span>
-                <span class="project-time">Session 2 &middot; 1:00 PM</span>
+                <span class="project-sess">Session 2 &middot; 1:00 PM to 2:45 PM &middot; Room 210A-B</span>
               </div>
               <h3>Predictive Stability vs. Fairness Instability in Clinical ECG Classification: A Multi-Run Analysis of Deep Learning Models</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Blessing Ojeme</span><span class="dept">Computer Science</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Sudip Sharma</span><span class="dept">Advanced Computing</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1GAH3-CNXZROPR-DLqo-EjBGJXvUyXJLd/preview" title="Project Spotlight: Predictive Stability vs. Fairness Instability in Clinical ECG Classification: A Multi-Run Analysis of Deep Learning Models" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1GAH3-CNXZROPR-DLqo-EjBGJXvUyXJLd/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Blessing Ojeme</span><span class="dept">Computer Science</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Sudip Sharma</span><span class="dept">Advanced Computing</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project investigates the fairness and reliability of deep learning models for automated electrocardiogram (ECG) classification using the PTB-XL dataset. Four deep learning architectures are developed and compared for multi-label classification of five cardiac conditions. Model performance is evaluated using AUROC and F1-score, while fairness is assessed across intersectional age and sex groups using metrics such as the False Negative Rate (FNR). The project also examines the consistency of fairness across multiple training runs, evaluates class weighting as a fairness mitigation strategy, and assesses model robustness under different types of ECG noise. Grad-CAM is used to improve model interpretability by highlighting the ECG regions that influence model predictions. The findings aim to support the development of fair, reliable, and transparent AI systems for clinical decision support and healthcare applications.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Stephanie Egwuchukwu</strong><span>Philosophy &middot; Morgan State University</span></li>
-                <li><strong>Bto Bhatta</strong><span>Nursing &middot; Morgan State University</span></li>
-                <li><strong>Kayvon Sheared</strong><span>Psychology &middot; Xavier University of Louisiana</span></li>
-                <li><strong>Kenzi Merchant</strong><span>Electrical Engineering &middot; Morgan State University</span></li>
+                <li><strong>Stephanie Egwuchukwu</strong><span>Philosophy</span><span class="school">Morgan State University</span></li>
+                <li><strong>Bto Bhatta</strong><span>Nursing</span><span class="school">Morgan State University</span></li>
+                <li><strong>Kayvon Sheared</strong><span>Psychology</span><span class="school">Xavier University of Louisiana</span></li>
+                <li><strong>Kenzi Merchant</strong><span>Electrical Engineering</span><span class="school">Morgan State University</span></li>
               </ul>
             </div>
           </article>
@@ -462,21 +606,36 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 9</span>
-                <span class="project-time">Session 3 &middot; 3:00 PM</span>
+                <span class="project-sess">Session 3 &middot; 3:00 PM to 3:50 PM &middot; Room 210A-B</span>
               </div>
               <h3>AI-Driven PM2.5 Prediction Using Satellite and Meteorological Data</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Xiaowen Li</span><span class="dept">Climate Science</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Rokeya Siddiqua</span><span class="dept">Advanced Computing</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1unoNneN2tRWgCDuxSPWNO0gPhCXKrEy5/preview" title="Project Spotlight: AI-Driven PM2.5 Prediction Using Satellite and Meteorological Data" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1unoNneN2tRWgCDuxSPWNO0gPhCXKrEy5/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Xiaowen Li</span><span class="dept">Climate Science</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Rokeya Siddiqua</span><span class="dept">Advanced Computing</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project develops machine learning and deep learning models to predict surface particulate matter (PM2.5) concentrations in the Baltimore/Washington, D.C. metropolitan region by integrating satellite-derived Aerosol Optical Depth (AOD) measurements with ground-based meteorological observations. Environmental data collected from the Howard, Padonia, and Beltsville monitoring stations between 2019 and 2022 are synchronized, cleaned, and merged to create both hourly and 30-minute datasets. A three phase modeling framework is implemented, beginning with baseline models, followed by temporal feature engineering using lag and rolling-window features, and concluding with mutual information-based feature selection to identify the most informative predictors. Nine machine learning algorithms and five recurrent deep learning architectures, including Long Short-Term Memory (LSTM), Gated Recurrent Unit (GRU), and bidirectional variants, are evaluated using RMSE, MAE, and R&sup2;. The project aims to determine how temporal feature engineering, feature selection, and data resolution influence predictive performance, ultimately advancing data-driven approaches for air quality monitoring and PM2.5 forecasting.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Blessed Kutyauripo</strong><span>Electrical Engineering &middot; Mississippi Valley State University</span></li>
-                <li><strong>Julien Ngando</strong><span>Physics &middot; Morgan State University</span></li>
-                <li><strong>Eddie King-Hedgspeth</strong><span>Electrical Engineering &middot; Morgan State University</span></li>
+                <li><strong>Blessed Kutyauripo</strong><span>Electrical Engineering</span><span class="school">Mississippi Valley State University</span></li>
+                <li><strong>Julien Ngando</strong><span>Physics</span><span class="school">Morgan State University</span></li>
+                <li><strong>Eddie King-Hedgspeth</strong><span>Electrical Engineering</span><span class="school">Morgan State University</span></li>
               </ul>
             </div>
           </article>
@@ -485,26 +644,42 @@
             <div class="project-head">
               <div class="meta">
                 <span class="project-num">Project 5</span>
-                <span class="project-time">Session 3 &middot; 3:00 PM</span>
+                <span class="project-sess">Session 3 &middot; 3:00 PM to 3:50 PM &middot; Room 210A-B</span>
               </div>
-              <h3>AI-Driven Discovery of Drug Candidate Compounds to Slow Cognitive Decline in Alzheimer&rsquo;s Disease</h3>
+              <h3>AI-Driven Discovery of Drug Candidate Compounds to Slow Cognitive Decline in Alzheimer's Disease</h3>
             </div>
-            <div class="project-body">
-              <p class="coming-soon">Abstract and 90-second Project Spotlight video coming soon.</p>
-              <div class="mentor-grid">
-                <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Roshan Paudel</span><span class="dept">Computer Science</span></div>
-                <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Ramisa Farha</span><span class="dept">Advanced Computing</span></div>
+            <div class="project-content">
+              <div class="media-col">
+                <div class="video-frame">
+                  <iframe src="https://drive.google.com/file/d/1JVTBSBPp9uMynfiZjeFoSTiGAAjQD9cw/preview" title="Project Spotlight: AI-Driven Discovery of Drug Candidate Compounds to Slow Cognitive Decline in Alzheimer's Disease" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+                <div class="video-cap">
+                  <span>90-Second Project Spotlight</span>
+                  <a href="https://drive.google.com/file/d/1JVTBSBPp9uMynfiZjeFoSTiGAAjQD9cw/view" target="_blank" rel="noopener">Watch full screen</a>
+                </div>
+                <h4>Mentors</h4>
+                <div class="mentor-grid">
+                  <div class="mentor-box"><span class="role">Faculty Mentor</span><span class="who">Dr. Roshan Paudel</span><span class="dept">Computer Science</span></div>
+                  <div class="mentor-box"><span class="role">Graduate Mentor</span><span class="who">Ramisa Farha</span><span class="dept">Advanced Computing</span></div>
+                </div>
               </div>
-              <p class="detail-label">Student Presenters</p>
+              <div class="text-col">
+                <h4>Project Summary</h4>
+                <p>This project develops an AI-driven computational pipeline to identify and prioritize candidate compounds for Alzheimer's disease. The team focuses on five key therapeutic and drug-delivery endpoints: BACE1, AChE, ASK1, Tau, and blood-brain barrier permeability. Public molecular activity datasets were cleaned, standardized, and used to train classical QSAR and ChemBERTa-based models for activity, potency, and BBB prediction. Model reliability was evaluated using scaffold-based internal validation, Y-randomization, applicability-domain analysis, and training-overlap filtering. Candidate compounds were then ranked through an integrated scoring system combining classical QSAR predictions, ChemBERTa molecular representations, CNS-relevant properties, and ADMETlab 3.0 toxicity screening. The final goal is to generate a prioritized, safety-aware shortlist of compounds for molecular docking and further experimental investigation, while using AI responsibly as a screening and prioritization tool rather than as direct clinical evidence.</p>
+              </div>
+            </div>
+            <div class="students-band">
+              <h4>Student Presenters</h4>
               <ul class="student-list">
-                <li><strong>Austin Hinson</strong><span>Computer Science &middot; Colby College</span></li>
-                <li><strong>Jonathan Cox</strong><span>Industrial Engineering &middot; North Carolina A&amp;T State University</span></li>
-                <li><strong>Ranjish Kumar</strong><span>Computer Science &middot; Morgan State University</span></li>
-                <li><strong>Destiny Bertier</strong><span>Computer Science &middot; Morgan State University</span></li>
+                <li><strong>Austin Hinson</strong><span>Computer Science</span><span class="school">Colby College</span></li>
+                <li><strong>Jonathan Cox</strong><span>Industrial Engineering</span><span class="school">North Carolina A&amp;T State University</span></li>
+                <li><strong>Ranjish Kumar</strong><span>Computer Science</span><span class="school">Morgan State University</span></li>
+                <li><strong>Destiny Bertier</strong><span>Computer Science</span><span class="school">Morgan State University</span></li>
               </ul>
             </div>
           </article>
         </div>
+
 
         <p class="sairi-note">
           SAIRI, Poster, and K-12 awards will be presented in Ballroom A &amp; B at 4:00 PM on Sunday, July 26.
