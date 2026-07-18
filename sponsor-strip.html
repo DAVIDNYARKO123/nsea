@@ -9,7 +9,7 @@
   (function () {
     const entries = [
       { label: 'Sponsored by', logo: 'images/sponsors/google.png', alt: 'Google', h: 42 },
-      { label: 'Supported by', logo: 'images/sponsors/apple.png', alt: 'Apple', h: 54 },
+      { label: 'Supported by', logo: 'images/sponsors/apple.png', alt: 'Apple', h: 54, dy: -4 },
       { label: 'Donations by', logo: 'images/sponsors/sams_club.png', alt: "Sam's Club", h: 66 },
       { label: 'Sponsored by', logo: 'images/sponsors/pallas.png', alt: 'Pallas', h: 62 }
     ];
@@ -27,6 +27,7 @@
         logo.src = entry.logo;
         logo.alt = entry.alt;
         logo.style.height = (entry.h || 42) + 'px';
+        logo.style.marginTop = (entry.dy || 0) + 'px';
         logo.style.display = 'block';
         name.style.display = 'none';
       } else {
