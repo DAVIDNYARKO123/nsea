@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#00315c"/><stop offset="1" stop-color="#014a87"/>
+  </linearGradient></defs>
+  <rect width="400" height="400" fill="url(#g)"/>
+  <text x="200" y="228" text-anchor="middle" font-family="'Segoe UI', Tahoma, Verdana, sans-serif"
+        font-size="150" font-weight="700" fill="#ffffff">MI</text>
+</svg>
