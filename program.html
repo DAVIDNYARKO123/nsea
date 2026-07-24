@@ -242,6 +242,32 @@
     .srow.key .cal-link { color: #fff; background: rgba(255, 255, 255, 0.2); opacity: 0.85; }
     .srow.key .cal-link:hover { background: var(--orange); }
 
+    .join-link {
+      position: absolute;
+      top: 12px;
+      right: 50px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 11px;
+      border-radius: 8px;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--navy-2);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: all 0.15s ease;
+    }
+    .srow:hover .join-link { opacity: 1; }
+    .join-link:hover { background: var(--orange); transform: scale(1.05); }
+    .srow.key .join-link { background: rgba(255, 255, 255, 0.2); }
+    .srow.key .join-link:hover { background: var(--orange); }
+    .srow.has-join { padding-right: 150px; }
+
     /* Full-bleed rows that should span the whole block (keynotes, single events) */
     .srow.full { grid-column: 1 / -1; }
 
@@ -1128,6 +1154,18 @@
       const DETAILS = 'NSEA 2026 Symposium. Details: https://www.equitableaisymposium.com/program.html';
       const pad = n => String(n).padStart(2, '0');
 
+      // Zoom rooms (join online)
+      function zoomFor(room) {
+        const r = room.toUpperCase();
+        if (r.includes('OUTSIDE')) return null;
+        if (r.includes('AUDITORIUM')) return 'https://morganstate.zoom.us/j/85823557092';
+        if (r.includes('BALLROOM A')) return 'https://morganstate.zoom.us/j/83136846428';
+        if (r.includes('210A-B')) return null; // combined room: link TBC
+        if (r.includes('210A')) return 'https://morganstate.zoom.us/j/89256087413';
+        if (r.includes('210B')) return 'https://morganstate.zoom.us/j/81648245316';
+        return null;
+      }
+
       // "10:30" or "12:00 PM" -> "HHMMSS" (24h). Infers AM/PM for this event's hours.
       function toTime(str) {
         const m = str.trim().match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i);
@@ -1155,13 +1193,15 @@
           const who = row.querySelector('.srow-who')?.textContent.trim();
           const room = (row.querySelector('.srow-room')?.textContent || '').trim();
           const text = 'NSEA 2026: ' + (who ? `${title} - ${who}` : title);
+          const zoom = zoomFor(room);
+          const details = DETAILS + (zoom ? '\nJoin online: ' + zoom : '');
 
           const url = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
             + '&text=' + encodeURIComponent(text)
             + '&dates=' + date + 'T' + start + '/' + date + 'T' + end
             + '&ctz=America/New_York'
             + '&location=' + encodeURIComponent(room + VENUE)
-            + '&details=' + encodeURIComponent(DETAILS);
+            + '&details=' + encodeURIComponent(details);
 
           const a = document.createElement('a');
           a.className = 'cal-link';
@@ -1172,6 +1212,19 @@
           a.setAttribute('aria-label', 'Add "' + text + '" to Google Calendar');
           a.innerHTML = calIcon;
           row.appendChild(a);
+
+          if (zoom) {
+            const j = document.createElement('a');
+            j.className = 'join-link';
+            j.href = zoom;
+            j.target = '_blank';
+            j.rel = 'noopener';
+            j.title = 'Join this session online via Zoom';
+            j.setAttribute('aria-label', 'Join "' + text + '" online via Zoom');
+            j.textContent = 'Join Online';
+            row.appendChild(j);
+            row.classList.add('has-join');
+          }
         });
       });
     })();
