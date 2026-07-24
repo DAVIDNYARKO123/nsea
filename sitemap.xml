@@ -38,6 +38,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- K-12 CECE -->
+  <url>
+    <loc>https://www.equitableaisymposium.com/k12.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Speakers & Presenters -->
   <url>
     <loc>https://www.equitableaisymposium.com/speakers.html</loc>

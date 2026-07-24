@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>K-12 CECE - NSEA 2026 | Children's Education in Computing Exploration</title>
+  <meta name="title" content="K-12 CECE - NSEA 2026 | Children's Education in Computing Exploration">
+  <meta name="description" content="Explore the K-12 teacher presentations from the Children's Education in Computing Exploration (CECE) Lab at CEAMLS. AI-integrated classroom projects presented at NSEA 2026, July 25, at Morgan State University.">
+  <meta name="keywords" content="CECE, K-12 AI education, AI literacy, teacher professional development, CEAMLS, classroom AI projects, Morgan State University, AI in education">
+  <meta name="author" content="Center for Equitable AI & Machine Learning Systems (CEAMLS), Morgan State University">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.equitableaisymposium.com/k12.html">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.equitableaisymposium.com/k12.html">
+  <meta property="og:title" content="K-12 CECE - NSEA 2026 | Children's Education in Computing Exploration">
+  <meta property="og:description" content="Explore the K-12 teacher presentations from the Children's Education in Computing Exploration (CECE) Lab at CEAMLS. AI-integrated classroom projects presented at NSEA 2026, July 25, at Morgan State University.">
+  <meta property="og:image" content="https://www.equitableaisymposium.com/images/Logo-2026.png">
+  <meta property="og:site_name" content="NSEA 2026">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.equitableaisymposium.com/k12.html">
+  <meta property="twitter:title" content="K-12 CECE - NSEA 2026 | Children's Education in Computing Exploration">
+  <meta property="twitter:description" content="Explore the K-12 teacher presentations from the Children's Education in Computing Exploration (CECE) Lab at CEAMLS. AI-integrated classroom projects presented at NSEA 2026, July 25, at Morgan State University.">
+  <meta property="twitter:image" content="https://www.equitableaisymposium.com/images/Logo-2026.png">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="load-components.js"></script>
+
+  <style>
+    :root {
+      --navy: #00315c;
+      --navy-2: #014a87;
+      --orange: #FF7F00;
+      --muted: #6b7a8d;
+      --line: rgba(0, 49, 92, 0.10);
+    }
+
+    .k12-page { background: #eef2f7; }
+
+    /* Use more horizontal space for the presentation cards */
+    #presentations .container { max-width: 1520px; }
+
+    /* ===== Program description ===== */
+    .about-section { background: #fff; border-bottom: 1px solid var(--line); }
+    .about-wrap { max-width: 1080px; margin: 0 auto; }
+    .about-wrap h3 {
+      color: var(--navy);
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-wrap h3::before {
+      content: "";
+      width: 8px; height: 26px;
+      background: var(--orange);
+      border-radius: 4px;
+      flex: 0 0 auto;
+    }
+    .about-wrap p { color: #55606d; font-size: 1.05rem; line-height: 1.8; margin: 0 0 18px 18px; }
+
+    .at-a-glance {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+      max-width: 900px;
+      margin: 40px auto 0;
+    }
+    .glance-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 22px 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 49, 92, 0.06);
+      border: 1px solid var(--line);
+    }
+    .glance-card .num { font-size: 2rem; font-weight: 800; color: var(--navy); line-height: 1; }
+    .glance-card .lbl { margin-top: 8px; font-size: 0.85rem; color: var(--muted); font-weight: 600; letter-spacing: 0.3px; }
+
+    /* ===== Presentation cards ===== */
+    .k12-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 26px;
+      max-width: 1460px;
+      margin: 0 auto;
+    }
+    @media (max-width: 520px) {
+      .k12-grid { grid-template-columns: 1fr; }
+    }
+
+    .k12-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0, 49, 92, 0.08);
+      border: 1px solid rgba(0, 49, 92, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      scroll-margin-top: 110px;
+    }
+    .k12-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 49, 92, 0.16);
+      border-color: var(--orange);
+    }
+
+    .k12-head {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #00315c 0%, #014a87 100%);
+      color: #fff;
+      padding: 22px 28px 20px;
+    }
+    .k12-head::after {
+      content: ""; position: absolute; top: -50px; right: -50px;
+      width: 130px; height: 130px; background: rgba(255, 127, 0, 0.16); border-radius: 50%;
+    }
+    .k12-head .meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+      margin-bottom: 12px; position: relative; z-index: 1;
+    }
+    .k12-grade {
+      background: var(--orange); color: #fff;
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 20px;
+    }
+    .k12-head h3 {
+      margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; font-weight: 700;
+      position: relative; z-index: 1;
+    }
+    .k12-head .teacher {
+      font-size: 0.95rem; color: rgba(255, 255, 255, 0.85);
+      position: relative; z-index: 1;
+    }
+
+    .k12-body { padding: 24px 28px 26px; flex: 1; display: flex; flex-direction: column; }
+    .k12-body h4 {
+      font-size: 0.98rem; color: var(--navy); margin: 18px 0 8px; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .k12-body h4:first-child { margin-top: 0; }
+    .k12-body h4::before {
+      content: ""; width: 16px; height: 3px; background: var(--orange); border-radius: 2px;
+    }
+    .k12-body p { color: #55606d; font-size: 0.95rem; line-height: 1.7; margin: 0; }
+
+    .k12-video {
+      display: inline-block;
+      margin-top: 20px;
+      align-self: flex-start;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--orange);
+      text-decoration: none;
+      background: rgba(255, 127, 0, 0.09);
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+    .k12-video:hover { text-decoration: underline; }
+
+    .k12-note {
+      max-width: 1460px; margin: 44px auto 0; text-align: center;
+      font-weight: 600; color: var(--navy);
+      background: rgba(255, 127, 0, 0.09); border-radius: 12px; padding: 15px 20px;
+    }
+    .k12-note a { color: var(--orange); }
+
+    .k12-contact { text-align: center; margin-top: 44px; color: var(--muted); }
+    .k12-contact a { color: var(--orange); font-weight: 600; }
+  </style>
+</head>
+<body class="k12-page">
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="hero" style="position: relative; background-image: url('images/image.png'); background-size: cover; background-position: center;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 49, 92, 0.7);"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <h1>Children's Education in Computing Exploration</h1>
+        <div class="subtitle">CECE Lab | K-12 AI in Education</div>
+        <p style="font-size: 1.2rem; max-width: 760px; margin: 0 auto; margin-bottom: 30px;">
+          Eight educators present their AI-integrated classroom projects at NSEA 2026.<br>
+          Final Presentations: Saturday, July 25, 2026 | Ballroom A &amp; B, University Student Center
+        </p>
+        <a href="#presentations" class="cta-button">Explore the Projects</a>
+      </div>
+    </section>
+
+    <div id="sponsor-strip-placeholder"></div>
+
+    <section class="section about-section" id="about-cece">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <h2 style="color: #00315c; font-size: 2.4rem; margin-bottom: 30px;">About the CECE Lab</h2>
+        </div>
+
+        <div class="about-wrap">
+          <h3>Program Description</h3>
+          <p>
+            The Children's Education in Computing Exploration (CECE) Lab at the Center for Equitable AI and Machine
+            Learning Systems (CEAMLS) is committed to advancing AI literacy among K-12 educators and students through
+            innovative, hands-on learning experiences. The AI in Education Initiative includes a Teacher Professional
+            Development Program that equips educators with the knowledge and confidence to integrate AI into classroom
+            instruction, alongside a Student Program that introduces learners to artificial intelligence, ethical AI,
+            and real-world problem-solving through engaging, project-based activities.
+          </p>
+          <p>
+            The AI in Education Symposium celebrates the impact of these programs by bringing together educators,
+            students, school leaders, families, and community partners, where participating teachers present their
+            AI-integrated classroom projects and showcase student learning outcomes.
+          </p>
+        </div>
+
+        <div class="at-a-glance">
+          <div class="glance-card"><div class="num">8</div><div class="lbl">Teacher Presentations</div></div>
+          <div class="glance-card"><div class="num">3 to 11</div><div class="lbl">Grade Levels</div></div>
+          <div class="glance-card"><div class="num">6</div><div class="lbl">Subject Areas</div></div>
+          <div class="glance-card"><div class="num">Day 1</div><div class="lbl">Saturday, July 25</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="presentations">
+      <div class="container">
+        <div class="section-header" style="text-align: center;">
+          <h2 style="color: #00315c; font-size: 2.4rem; margin-bottom: 16px;">Teacher Presentations</h2>
+          <p style="max-width: 720px; margin: 0 auto 50px; color: #6b7a8d; font-size: 1.08rem; line-height: 1.75;">
+            All presentations take place on Saturday, July 25, 2026 in Ballroom A &amp; B at the University Student
+            Center. Schedule is subject to change.
+          </p>
+        </div>
+
+        <div class="k12-grid">
+
+          <article class="k12-card" id="ecosystem-explorers">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">5th Grade Science</span></div>
+              <h3>Ecosystem Explorers: Investigating Biotic and Abiotic Worlds with AI</h3>
+              <p class="teacher">Tiffany Blizzard</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>Students often struggle to distinguish between living and nonliving components of ecosystems and explain how they interact to support life.</p>
+              <h4>Solution</h4>
+              <p>Ecosystem Explorers engages students in analyzing ecosystem images, collaboratively classifying biotic and abiotic components, and using AI to verify and explain their scientific reasoning. Students organize ideas in Freeform, create presentations, and critically evaluate AI responses while maintaining ownership of their learning.</p>
+              <h4>Impact</h4>
+              <p>By integrating AI with scientific inquiry, students strengthen observation, critical thinking, and environmental literacy while learning to responsibly use technology to support evidence-based scientific conclusions.</p>
+              <a class="k12-video" href="https://canva.link/grmz87yr7a8m7bx" target="_blank" rel="noopener">Watch the project video &rarr;</a>
+            </div>
+          </article>
+
+          <article class="k12-card" id="ethics-drivers-seat">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">10th Grade English II</span></div>
+              <h3>Ethics in the Driver's Seat: Designing AI for Self-Driving Cars</h3>
+              <p class="teacher">Dominique Bass</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>Students often struggle to apply ethical reasoning to real-world technology issues while supporting their opinions with credible evidence.</p>
+              <h4>Solution</h4>
+              <p>Ethics in the Driver's Seat immerses students in the ethical dilemmas surrounding self-driving cars through AI simulations, collaborative investigations, evidence-based writing, and multimedia presentations. Students analyze multiple perspectives, use Apple Intelligence and AI tools to strengthen their reasoning, design ethical decision-making models, and produce an AI Ethics Pitch using iMovie.</p>
+              <h4>Impact</h4>
+              <p>By combining ethical inquiry, artificial intelligence, and persuasive communication, students develop critical thinking, evaluate complex issues from multiple viewpoints, and learn to use AI responsibly while defending evidence-based solutions.</p>
+              <a class="k12-video" href="https://canva.link/xvrwx760vpqoews" target="_blank" rel="noopener">Watch the project video &rarr;</a>
+            </div>
+          </article>
+
+          <article class="k12-card" id="vision-with-ai">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">11th Grade</span></div>
+              <h3>Vision with AI: Protecting Sight Through Responsible Technology</h3>
+              <p class="teacher">Reven Smith</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>Students may understand that AI is used in healthcare, but they often struggle to see how data quality, privacy, bias, and human decision-making affect the accuracy and fairness of medical AI systems.</p>
+              <h4>Solution</h4>
+              <p>20/20 Vision with AI places students inside a healthcare AI challenge where they explore how eye scans can be used to train a diagnostic model. Through the Dusky Dunes simulation, students prepare and label data, protect patient privacy, test model accuracy, collect more diverse data, and examine why doctors must remain involved in AI-supported decisions.</p>
+              <h4>Impact</h4>
+              <p>By connecting computer science with healthcare, students develop a deeper understanding of the AI lifecycle, data ethics, algorithmic fairness, privacy, and the importance of human oversight in high-stakes environments.</p>
+              <a class="k12-video" href="https://canva.link/dz35k5gviztyhw4" target="_blank" rel="noopener">Watch the project video &rarr;</a>
+            </div>
+          </article>
+
+          <article class="k12-card" id="ar-plant-scientist">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">4th Grade Science</span></div>
+              <h3>AR Plant Scientist: Exploring Plant Structures with Augmented Reality</h3>
+              <p class="teacher">Alexandra Casia</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>Students often find it difficult to observe and understand plant structures that are hidden or difficult to see through traditional classroom observations alone.</p>
+              <h4>Solution</h4>
+              <p>AR Plant Scientist combines hands-on observation with augmented reality to help students explore interactive 3D plant models alongside real plants. Students investigate plant structures, capture AR screenshots, label observations in Freeform, and explain how each plant part supports survival.</p>
+              <h4>Impact</h4>
+              <p>By integrating augmented reality with scientific investigation, students deepen their understanding of plant structures, strengthen observation skills, and experience how emerging technologies can enhance scientific exploration.</p>
+              <a class="k12-video" href="https://canva.link/pjf5q7dno9v9mkc" target="_blank" rel="noopener">Watch the project video &rarr;</a>
+            </div>
+          </article>
+
+          <article class="k12-card" id="isolve">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">3rd Grade Math</span></div>
+              <h3>iSolve: AI-Assisted Math Learning with Voice Technology</h3>
+              <p class="teacher">Rykarra Hill</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>Many students need immediate feedback while practicing math, but teachers are not always available to provide one-on-one support during independent learning.</p>
+              <h4>Solution</h4>
+              <p>iSolve explores how students can use voice-based AI assistants, such as Siri, to practice multiplication and solve math problems. Students receive instant responses, guidance, and feedback, allowing them to check their understanding and build confidence while learning.</p>
+              <h4>Impact</h4>
+              <p>By providing real-time support and interactive problem-solving opportunities, iSolve makes math learning more engaging, accessible, and personalized. The project demonstrates how everyday AI technologies can be used to enhance student learning and encourage independent practice.</p>
+            </div>
+          </article>
+
+          <article class="k12-card" id="flight-path-ai">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">10th Grade</span></div>
+              <h3>Flight Path AI: Engineering Safer Airplanes Through Simulation</h3>
+              <p class="teacher">Kyle Burke</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>Students often understand the laws of flight in theory but struggle to connect engineering principles with the growing role of AI in aviation safety and aircraft design.</p>
+              <h4>Solution</h4>
+              <p>Flight Path AI challenges students to investigate real-world aviation case studies, analyze AI's role in aircraft safety, and use AI-powered flight simulations to evaluate airplane designs. Students collaborate in Freeform, research ethical considerations, and apply the principles of thrust, lift, drag, and weight to improve aircraft performance.</p>
+              <h4>Impact</h4>
+              <p>By blending engineering design, AI evaluation, and collaborative problem-solving, students develop technical knowledge, ethical reasoning, and critical thinking while exploring how AI improves modern aviation.</p>
+            </div>
+          </article>
+
+          <article class="k12-card" id="echo-and-create">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">9th Grade ELA</span></div>
+              <h3>Echo &amp; Create: Synthesizing Voices Through AI</h3>
+              <p class="teacher">Eneah Fite</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>As AI-generated media becomes more common, students need opportunities to understand voice synthesis technologies and their ethical implications.</p>
+              <h4>Solution</h4>
+              <p>Through a structured Apple Keynote process (Flex, Explore, Express, and Refine), students create and refine audio, video, and narrative content while exploring AI-generated voice technologies.</p>
+              <h4>Impact</h4>
+              <p>The project develops digital literacy, creativity, and critical thinking while encouraging students to examine issues of identity, authenticity, and responsible AI use.</p>
+            </div>
+          </article>
+
+          <article class="k12-card" id="masks-maps-meaning">
+            <div class="k12-head">
+              <div class="meta"><span class="k12-grade">6th Grade</span></div>
+              <h3>Masks, Maps, and Meaning: Exploring Culture Through Art</h3>
+              <p class="teacher">Donald Odoms</p>
+            </div>
+            <div class="k12-body">
+              <h4>Problem</h4>
+              <p>Traditional geography instruction can make it difficult for students to understand how place, environment, culture, and artistic expression are connected.</p>
+              <h4>Solution</h4>
+              <p>Masks, Maps, and Meaning invites students to research Nigerian ethnic groups and examine how geography, traditions, beliefs, and community values influence ceremonial mask design. Students analyze cultural examples, investigate geographic context, create an original mask inspired by authentic characteristics, and explain the meaning behind their symbols, colors, and patterns.</p>
+              <h4>Impact</h4>
+              <p>By combining geography, cultural research, art, and digital creation, students strengthen cultural awareness, geographic reasoning, creativity, and respectful communication while learning to evaluate AI-generated information critically.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="k12-note">
+          K-12, Poster, and SAIRI awards will be presented in Ballroom A &amp; B at 4:00 PM on Sunday, July 26.
+          Schedule is subject to change. See the <a href="program.html#day1">full Day 1 schedule</a>.
+        </p>
+
+        <div class="k12-contact">
+          <p>For questions about the CECE Lab and K-12 programs, contact:
+            <a href="mailto:nsea@morgan.edu">nsea@morgan.edu</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Smooth scroll for in-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
