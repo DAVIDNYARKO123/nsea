@@ -86,25 +86,18 @@
 
     /* ===== Presentation cards ===== */
     .k12-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
-      gap: 26px;
       max-width: 1460px;
       margin: 0 auto;
     }
-    @media (max-width: 520px) {
-      .k12-grid { grid-template-columns: 1fr; }
-    }
 
     .k12-card {
-      display: flex;
-      flex-direction: column;
       background: #fff;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 10px 35px rgba(0, 49, 92, 0.08);
       border: 1px solid rgba(0, 49, 92, 0.08);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      margin-bottom: 28px;
       scroll-margin-top: 110px;
     }
     .k12-card:hover {
@@ -134,7 +127,7 @@
       padding: 5px 13px; border-radius: 20px;
     }
     .k12-head h3 {
-      margin: 0 0 8px; font-size: 1.25rem; line-height: 1.4; font-weight: 700;
+      margin: 0 0 8px; font-size: 1.4rem; line-height: 1.4; font-weight: 700;
       position: relative; z-index: 1;
     }
     .k12-head .teacher {
@@ -142,29 +135,43 @@
       position: relative; z-index: 1;
     }
 
+    .k12-content {
+      display: grid;
+      grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+      gap: 34px;
+      padding: 30px 36px;
+      align-items: start;
+    }
+
     .k12-media {
       aspect-ratio: 16 / 9;
       background: #001d38;
-      border-bottom: 1px solid var(--line);
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 26px rgba(0, 49, 92, 0.14);
       overflow: hidden;
     }
     .k12-media iframe { width: 100%; height: 100%; border: 0; display: block; }
     .k12-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .k12-media-cap {
-      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
-      color: var(--muted); padding: 10px 28px 0;
+      font-size: 0.74rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--muted); margin: 10px 0 0;
     }
 
-    .k12-body { padding: 18px 28px 26px; flex: 1; display: flex; flex-direction: column; }
-    .k12-body h4 {
+    .k12-content h4 {
       font-size: 0.98rem; color: var(--navy); margin: 18px 0 8px; font-weight: 700;
       display: flex; align-items: center; gap: 8px;
     }
-    .k12-body h4:first-child { margin-top: 0; }
-    .k12-body h4::before {
+    .text-col h4:first-child { margin-top: 0; }
+    .k12-content h4::before {
       content: ""; width: 16px; height: 3px; background: var(--orange); border-radius: 2px;
     }
-    .k12-body p { color: #55606d; font-size: 0.95rem; line-height: 1.7; margin: 0; }
+    .k12-content p { color: #55606d; font-size: 0.95rem; line-height: 1.7; margin: 0; }
+    .k12-content .k12-media-cap { margin: 10px 0 0; }
+
+    @media (max-width: 900px) {
+      .k12-content { grid-template-columns: 1fr; gap: 18px; padding: 22px 20px; }
+    }
 
     .k12-video {
       display: inline-block;
@@ -260,17 +267,21 @@
               <h3>Ecosystem Explorers: Investigating Biotic and Abiotic Worlds with AI</h3>
               <p class="teacher">Tiffany Blizzard</p>
             </div>
-            <div class="k12-media">
-              <iframe src="https://www.canva.com/design/DAHQOa64t_A/5pzTurrBHUUBzKK7SyFFCA/watch?embed" title="Project Spotlight: Ecosystem Explorers: Investigating Biotic and Abiotic Worlds with AI" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-            </div>
-            <p class="k12-media-cap">90-Second Project Spotlight</p>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <iframe src="https://www.canva.com/design/DAHQOa64t_A/5pzTurrBHUUBzKK7SyFFCA/watch?embed" title="Project Spotlight: Ecosystem Explorers: Investigating Biotic and Abiotic Worlds with AI" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="k12-media-cap">90-Second Project Spotlight</p>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>Students often struggle to distinguish between living and nonliving components of ecosystems and explain how they interact to support life.</p>
               <h4>Solution</h4>
               <p>Ecosystem Explorers engages students in analyzing ecosystem images, collaboratively classifying biotic and abiotic components, and using AI to verify and explain their scientific reasoning. Students organize ideas in Freeform, create presentations, and critically evaluate AI responses while maintaining ownership of their learning.</p>
               <h4>Impact</h4>
               <p>By integrating AI with scientific inquiry, students strengthen observation, critical thinking, and environmental literacy while learning to responsibly use technology to support evidence-based scientific conclusions.</p>
+              </div>
             </div>
           </article>
 
@@ -280,17 +291,21 @@
               <h3>Ethics in the Driver's Seat: Designing AI for Self-Driving Cars</h3>
               <p class="teacher">Dominique Bass</p>
             </div>
-            <div class="k12-media">
-              <iframe src="https://www.canva.com/design/DAHQO9UlmkM/A9P8Fkc_mLz-oNxvWv_HMg/watch?embed" title="Project Spotlight: Ethics in the Driver's Seat: Designing AI for Self-Driving Cars" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-            </div>
-            <p class="k12-media-cap">90-Second Project Spotlight</p>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <iframe src="https://www.canva.com/design/DAHQO9UlmkM/A9P8Fkc_mLz-oNxvWv_HMg/watch?embed" title="Project Spotlight: Ethics in the Driver's Seat: Designing AI for Self-Driving Cars" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="k12-media-cap">90-Second Project Spotlight</p>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>Students often struggle to apply ethical reasoning to real-world technology issues while supporting their opinions with credible evidence.</p>
               <h4>Solution</h4>
               <p>Ethics in the Driver's Seat immerses students in the ethical dilemmas surrounding self-driving cars through AI simulations, collaborative investigations, evidence-based writing, and multimedia presentations. Students analyze multiple perspectives, use Apple Intelligence and AI tools to strengthen their reasoning, design ethical decision-making models, and produce an AI Ethics Pitch using iMovie.</p>
               <h4>Impact</h4>
               <p>By combining ethical inquiry, artificial intelligence, and persuasive communication, students develop critical thinking, evaluate complex issues from multiple viewpoints, and learn to use AI responsibly while defending evidence-based solutions.</p>
+              </div>
             </div>
           </article>
 
@@ -300,17 +315,21 @@
               <h3>Vision with AI: Protecting Sight Through Responsible Technology</h3>
               <p class="teacher">Reven Smith</p>
             </div>
-            <div class="k12-media">
-              <iframe src="https://www.canva.com/design/DAHQO98Cf2A/Wg82UfVzlIrd91zr41OZ4A/watch?embed" title="Project Spotlight: Vision with AI: Protecting Sight Through Responsible Technology" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-            </div>
-            <p class="k12-media-cap">90-Second Project Spotlight</p>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <iframe src="https://www.canva.com/design/DAHQO98Cf2A/Wg82UfVzlIrd91zr41OZ4A/watch?embed" title="Project Spotlight: Vision with AI: Protecting Sight Through Responsible Technology" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="k12-media-cap">90-Second Project Spotlight</p>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>Students may understand that AI is used in healthcare, but they often struggle to see how data quality, privacy, bias, and human decision-making affect the accuracy and fairness of medical AI systems.</p>
               <h4>Solution</h4>
               <p>20/20 Vision with AI places students inside a healthcare AI challenge where they explore how eye scans can be used to train a diagnostic model. Through the Dusky Dunes simulation, students prepare and label data, protect patient privacy, test model accuracy, collect more diverse data, and examine why doctors must remain involved in AI-supported decisions.</p>
               <h4>Impact</h4>
               <p>By connecting computer science with healthcare, students develop a deeper understanding of the AI lifecycle, data ethics, algorithmic fairness, privacy, and the importance of human oversight in high-stakes environments.</p>
+              </div>
             </div>
           </article>
 
@@ -320,17 +339,21 @@
               <h3>AR Plant Scientist: Exploring Plant Structures with Augmented Reality</h3>
               <p class="teacher">Alexandra Casia</p>
             </div>
-            <div class="k12-media">
-              <iframe src="https://www.canva.com/design/DAHQPKJ3v0c/ljuTObKdr6Mr9X4mFTQM0Q/view?embed" title="Project Spotlight: AR Plant Scientist: Exploring Plant Structures with Augmented Reality" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-            </div>
-            <p class="k12-media-cap">Project Spotlight</p>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <iframe src="https://www.canva.com/design/DAHQPKJ3v0c/ljuTObKdr6Mr9X4mFTQM0Q/view?embed" title="Project Spotlight: AR Plant Scientist: Exploring Plant Structures with Augmented Reality" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+                </div>
+                <p class="k12-media-cap">Project Spotlight</p>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>Students often find it difficult to observe and understand plant structures that are hidden or difficult to see through traditional classroom observations alone.</p>
               <h4>Solution</h4>
               <p>AR Plant Scientist combines hands-on observation with augmented reality to help students explore interactive 3D plant models alongside real plants. Students investigate plant structures, capture AR screenshots, label observations in Freeform, and explain how each plant part supports survival.</p>
               <h4>Impact</h4>
               <p>By integrating augmented reality with scientific investigation, students deepen their understanding of plant structures, strengthen observation skills, and experience how emerging technologies can enhance scientific exploration.</p>
+              </div>
             </div>
           </article>
 
@@ -340,16 +363,20 @@
               <h3>iSolve: AI-Assisted Math Learning with Voice Technology</h3>
               <p class="teacher">Rykarra Hill</p>
             </div>
-            <div class="k12-media">
-              <img src="images/k12/isolve.jpg" alt="iSolve: AI-Assisted Math Learning with Voice Technology classroom project" loading="lazy">
-            </div>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <img src="images/k12/isolve.jpg" alt="iSolve: AI-Assisted Math Learning with Voice Technology classroom project" loading="lazy">
+                </div>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>Many students need immediate feedback while practicing math, but teachers are not always available to provide one-on-one support during independent learning.</p>
               <h4>Solution</h4>
               <p>iSolve explores how students can use voice-based AI assistants, such as Siri, to practice multiplication and solve math problems. Students receive instant responses, guidance, and feedback, allowing them to check their understanding and build confidence while learning.</p>
               <h4>Impact</h4>
               <p>By providing real-time support and interactive problem-solving opportunities, iSolve makes math learning more engaging, accessible, and personalized. The project demonstrates how everyday AI technologies can be used to enhance student learning and encourage independent practice.</p>
+              </div>
             </div>
           </article>
 
@@ -359,16 +386,20 @@
               <h3>Flight Path AI: Engineering Safer Airplanes Through Simulation</h3>
               <p class="teacher">Kyle Burke</p>
             </div>
-            <div class="k12-media">
-              <img src="images/k12/flight-path.jpg" alt="Flight Path AI: Engineering Safer Airplanes Through Simulation classroom project" loading="lazy">
-            </div>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <img src="images/k12/flight-path.jpg" alt="Flight Path AI: Engineering Safer Airplanes Through Simulation classroom project" loading="lazy">
+                </div>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>Students often understand the laws of flight in theory but struggle to connect engineering principles with the growing role of AI in aviation safety and aircraft design.</p>
               <h4>Solution</h4>
               <p>Flight Path AI challenges students to investigate real-world aviation case studies, analyze AI's role in aircraft safety, and use AI-powered flight simulations to evaluate airplane designs. Students collaborate in Freeform, research ethical considerations, and apply the principles of thrust, lift, drag, and weight to improve aircraft performance.</p>
               <h4>Impact</h4>
               <p>By blending engineering design, AI evaluation, and collaborative problem-solving, students develop technical knowledge, ethical reasoning, and critical thinking while exploring how AI improves modern aviation.</p>
+              </div>
             </div>
           </article>
 
@@ -378,16 +409,20 @@
               <h3>Echo &amp; Create: Synthesizing Voices Through AI</h3>
               <p class="teacher">Eneah Fite</p>
             </div>
-            <div class="k12-media">
-              <img src="images/k12/echo-create.jpg" alt="Echo &amp; Create: Synthesizing Voices Through AI classroom project" loading="lazy">
-            </div>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <img src="images/k12/echo-create.jpg" alt="Echo &amp; Create: Synthesizing Voices Through AI classroom project" loading="lazy">
+                </div>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>As AI-generated media becomes more common, students need opportunities to understand voice synthesis technologies and their ethical implications.</p>
               <h4>Solution</h4>
               <p>Through a structured Apple Keynote process (Flex, Explore, Express, and Refine), students create and refine audio, video, and narrative content while exploring AI-generated voice technologies.</p>
               <h4>Impact</h4>
               <p>The project develops digital literacy, creativity, and critical thinking while encouraging students to examine issues of identity, authenticity, and responsible AI use.</p>
+              </div>
             </div>
           </article>
 
@@ -397,16 +432,20 @@
               <h3>Masks, Maps, and Meaning: Exploring Culture Through Art</h3>
               <p class="teacher">Donald Odoms</p>
             </div>
-            <div class="k12-media">
-              <img src="images/k12/masks.jpg" alt="Masks, Maps, and Meaning: Exploring Culture Through Art classroom project" loading="lazy">
-            </div>
-            <div class="k12-body">
-              <h4>Problem</h4>
+            <div class="k12-content">
+              <div class="media-col">
+                <div class="k12-media">
+                  <img src="images/k12/masks.jpg" alt="Masks, Maps, and Meaning: Exploring Culture Through Art classroom project" loading="lazy">
+                </div>
+              </div>
+              <div class="text-col">
+                <h4>Problem</h4>
               <p>Traditional geography instruction can make it difficult for students to understand how place, environment, culture, and artistic expression are connected.</p>
               <h4>Solution</h4>
               <p>Masks, Maps, and Meaning invites students to research Nigerian ethnic groups and examine how geography, traditions, beliefs, and community values influence ceremonial mask design. Students analyze cultural examples, investigate geographic context, create an original mask inspired by authentic characteristics, and explain the meaning behind their symbols, colors, and patterns.</p>
               <h4>Impact</h4>
               <p>By combining geography, cultural research, art, and digital creation, students strengthen cultural awareness, geographic reasoning, creativity, and respectful communication while learning to evaluate AI-generated information critically.</p>
+              </div>
             </div>
           </article>
 
