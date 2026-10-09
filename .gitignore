@@ -54,3 +54,6 @@ dist/
 build/
 temp
 
+
+# Firebase web app (2027+), kept out of the public repo until it goes private
+webapp/
